@@ -1,0 +1,785 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Foundations of Graph TheoryGraphs, Vertices and EdgesGraph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.  Each edge $e\in E$ is said to join two vertices, which are called its end points.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digital Communities Notes P1">
+<meta property="og:url" content="http://yoursite.com/2017/02/17/Digital Communities Notes P1/index.html">
+<meta property="og:site_name" content="迷雾">
+<meta property="og:description" content="Foundations of Graph TheoryGraphs, Vertices and EdgesGraph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.  Each edge $e\in E$ is said to join two vertices, which are called its end points.">
+<meta property="og:updated_time" content="2017-05-03T20:03:28.208Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Digital Communities Notes P1">
+<meta name="twitter:description" content="Foundations of Graph TheoryGraphs, Vertices and EdgesGraph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.  Each edge $e\in E$ is said to join two vertices, which are called its end points.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/17/Digital Communities Notes P1/"/>
+
+
+
+
+
+  <title>Digital Communities Notes P1 | 迷雾</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">迷雾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/17/Digital Communities Notes P1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangfeng Du">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="迷雾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Digital Communities Notes P1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T17:24:32+01:00">
+                2017-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Foundations-of-Graph-Theory"><a href="#Foundations-of-Graph-Theory" class="headerlink" title="Foundations of Graph Theory"></a>Foundations of Graph Theory</h1><h2 id="Graphs-Vertices-and-Edges"><a href="#Graphs-Vertices-and-Edges" class="headerlink" title="Graphs, Vertices and Edges"></a>Graphs, Vertices and Edges</h2><p>Graph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.</p>
+<blockquote>
+<p>Each edge $e\in E$ is said to <strong>join</strong> two vertices, which are called its <strong>end points</strong>.</p>
+<p>I If $e$ joins $u, v∈V$, we write $e = <u, v="">$. Vertex $u$ and $v$ in this case are said to be <strong>adjacent</strong>. Edge e is said to be <strong>incident </strong>with vertices $u$ and $v$, respectively.</u,></p>
+</blockquote>
+<h2 id="Loops-and-Multiple-Edges"><a href="#Loops-and-Multiple-Edges" class="headerlink" title="Loops and Multiple Edges"></a>Loops and Multiple Edges</h2><p>Loop (self-edge)  </p>
+<p>Multiple edges (multi-edge)</p>
+<blockquote>
+<p>A graph that does not have loops or multiple edges is called <strong>simple</strong>.</p>
+</blockquote>
+<h2 id="Complete-Graphs"><a href="#Complete-Graphs" class="headerlink" title="Complete Graphs"></a>Complete Graphs</h2><blockquote>
+<p>A simple graph having n vertices, with each vertex being adjacent to every other vertex is called a <strong>complete graph</strong> $K_n$.</p>
+</blockquote>
+<h2 id="Degree"><a href="#Degree" class="headerlink" title="Degree"></a>Degree</h2><blockquote>
+<p>The number of edges incident with a vertex $v ∈ V$ is called the <strong>degree </strong>of $v$, denoted as $δ(v)$.</p>
+<p>The <strong>maximal degree </strong>of a vertex in graph $G$ is denoted as $\Delta(G)$.</p>
+</blockquote>
+<p>For any graph, the number of vertices with odd degree is even.</p>
+<h2 id="Adjacency-matrix-of-a-Graph"><a href="#Adjacency-matrix-of-a-Graph" class="headerlink" title="Adjacency matrix of a Graph"></a>Adjacency matrix of a Graph</h2><p>$$A_{ij} = \begin{cases} 1, &amp; \text{an edge between vertices $i$ and $j$} \ 0, &amp; \text{otherwise} \end{cases}$$</p>
+<h2 id="Directed-Graphs"><a href="#Directed-Graphs" class="headerlink" title="Directed Graphs"></a>Directed Graphs</h2><p>Digraph $D = (V , A)$, set of vertices $V$ and set of arcs $A$.</p>
+<p>arc $a = <u,v>$ is said to join vertex $u ∈ V$ to another vertex $v\in V$.</u,v></p>
+<p>Vertex $u$ is called the <strong>tail</strong> of $a$, whereas $v$ is its <strong>head</strong>.</p>
+<p>Number of arcs with head <em>v</em> : in-degree $δ_{in}(v)$.</p>
+<p>Number of arcs with tail <em>v</em> : out-degree $δ_{out}(v)$.</p>
+<p>$$A_{ij} = \begin{cases} 1, &amp; \text{an arc that joins $j$ to $i$} \ 0, &amp; \text{otherwise} \end{cases}$$</p>
+<h2 id="Walks-Trails-Paths-and-Cycles"><a href="#Walks-Trails-Paths-and-Cycles" class="headerlink" title="Walks, Trails, Paths, and Cycles"></a>Walks, Trails, Paths, and Cycles</h2><p>A $(v0, vk)-walk$ in G is an alternating sequence $[v0, e1, v1, e2, . . . vk−1, ek, vk]$ of vertices and edges from G with $e_i = <v_{i−1}, v_i="">.$</v_{i−1},></p>
+<p>A <strong>trail </strong>is a <em>walk</em> in which all <em>edges are distinct</em>.</p>
+<p>A <strong>path </strong>is a <em>trail</em> in which all <em>vertices are distinct</em>.</p>
+<p>A <strong>cycle </strong>is a closed trail in which all vertices excepts $v_0$ and $v_k$ are distinct.</p>
+<p>A simple, connected graph having no cycles is called a <strong>tree </strong>(also called <strong>acyclic</strong><br><strong>graph</strong>).</p>
+<h2 id="Connectedness-and-Components"><a href="#Connectedness-and-Components" class="headerlink" title="Connectedness and Components"></a>Connectedness and Components</h2><p>A graph $H$ is a <strong>subgraph</strong> of $G$ if $V(H) ⊆ V(G)$ and $E(H) ⊆ E(G)$ such that for all<br>$e ∈ E(H)$ with $e = &lt; u, v &gt;$ we have that $u, v ∈ V(H)$.</p>
+<p>A subgraph $H$ of $G$ is called a <strong>component</strong> of $G$ if $H$ is <em>connected</em> and <em>not contained</em> in a connected subgraph of $G$ with more vertices or edges.</p>
+<p>The number of components of G is denoted as $ω(G)$.</p>
+<p>The adjacency matrix of a network with more than one component can be written in <em>block diagonal form</em>.</p>
+<h2 id="Vertex-Eccentricity-Graph-Radius-and-Diameter"><a href="#Vertex-Eccentricity-Graph-Radius-and-Diameter" class="headerlink" title="Vertex Eccentricity, Graph Radius and Diameter"></a>Vertex Eccentricity, Graph Radius and Diameter</h2><p>Eccentricity <code>[,eksen&#39;trɪsɪtɪ]</code></p>
+<p>The <strong>(geodesic) distance</strong> between $u$ and $v$, denoted as $d(u, v)$, is the length of a<br>shortest $(u, v)-path$.</p>
+<p>The <strong>eccentricity</strong> $\epsilon (u)$ of a vertex $u$ in $G$ is defined as $max\{d(u, v)|v ∈ V(G)\}$.</p>
+<p>The <strong>radius</strong> of $G$, denoted as $rad(G)$, is equal to $min\{\epsilon (u)|u ∈ V(G)\}$.</p>
+<p>The <strong>diameter</strong> of $G$, denoted as $diam(G)$, is the maximal shortest path between any two vertices: $diam(G) := max\{d(u, v)|u, v ∈ V(G)\}$.</p>
+<p>The eccentricity of a vertex $u$ tells us <em>how far the farthest vertex from $u$</em> is positioned in the network.</p>
+<p>The radius of a network is an indication of how <em>disparate</em> the vertices in a network actually are.</p>
+<p>disparate <code>[&#39;dɪsp(ə)rət]</code> <code>a.</code> clearly different from each other in quality or type.</p>
+<h2 id="Clique-Clan-and-Core"><a href="#Clique-Clan-and-Core" class="headerlink" title="Clique, Clan and Core"></a>Clique, Clan and Core</h2><p>undirected simple graph G. </p>
+<p>A <strong>(maximal) clique</strong> of $G$ is a <em>maximal complete</em> subgraph $H$ of at least three vertices. A clique with $k$ vertices is called a $k-clique$.</p>
+<p>A <strong>k-distance-clique</strong> of $G$ is a <em>maximal</em> subgraph H of G such that for all vertices $u, v ∈ V(H)$, the distance $d_G(u, v) ≤ k$.</p>
+<p>A <strong>k-clan</strong> of $G$ is a <em>k-distance-clique H</em> of G such that for all vertices $u, v∈V(H)$, the distance $d_H(u, v) ≤ k$.</p>
+<p>A <strong>k-core</strong> of G is a <em>maximal</em> subgraph H of G such that for all vertices $u∈V(H)$, the degree $δ(u) ≥ k$.</p>
+<h2 id="Regular-Graphs"><a href="#Regular-Graphs" class="headerlink" title="Regular Graphs"></a>Regular Graphs</h2><blockquote>
+<p>If every vertex has the same degree, the graph is called <strong>regular</strong>.</p>
+</blockquote>
+<h2 id="Vertex-Cuts-and-Edge-Cuts"><a href="#Vertex-Cuts-and-Edge-Cuts" class="headerlink" title="Vertex Cuts and Edge Cuts"></a>Vertex Cuts and Edge Cuts</h2><p>割点集合和割边集合</p>
+<p>The size of a <em>minimal vertex cut</em> for graph G is denoted as $\kappa(G)$.</p>
+<p>The size of a <em>minimal edge cut</em> for graph G is denoted as$ λ(G)$.</p>
+<p>$κ(G) ≤ λ(G) ≤ min\{δ(v)|v ∈ V(G)\}$</p>
+<p>A graph G is k-connected if $κ(G) ≥ k$.</p>
+<p>G is k-edge-connected if $λ(G) ≥ k$. </p>
+<p>G is optimally connected if $κ(G) = λ(G) = min\{δ(v)|v ∈ V(G)\}$.</p>
+<h2 id="Graph-Isomorphism"><a href="#Graph-Isomorphism" class="headerlink" title="Graph Isomorphism"></a>Graph Isomorphism</h2><p>isomorphism <code>[,aɪsəʊ&#39;mɔːfɪzəm]</code> 同形性, 同态性</p>
+<p>$G$ and $G^∗$ are <strong>isomorphic</strong> if there exists a one-to-one mapping $φ : V → V^∗$ such that for every edge $e ∈ E$ with $e = <u, v="">$, there is a <em>unique</em> edge $e^∗ ∈ E^∗$ with $e^∗ = &lt;φ(u), φ(v)&gt;.$</u,></p>
+<p>$φ$是点的映射，边是一对一对应。</p>
+<p>Necessary conditions: same degree sequence</p>
+<p>In general, graph isomorphism plays an important role in complexity theory. It is in NP, but it is not known to be in P and it is not known to be NP-complete.</p>
+<p>Put simply, for a given graph $G$ it is computationally <strong>easy</strong> to create an isomorphic graph $G^∗$. However, for two given graphs $G$ and $G^<em>$ it is computationally <em>*hard</em></em> to reconstruct an isomorphic mapping function $φ$.</p>
+<h1 id="Graph-Embedding"><a href="#Graph-Embedding" class="headerlink" title="Graph Embedding"></a>Graph Embedding</h1><p>visualization of a graph</p>
+<blockquote>
+<p>A <strong>graph embedding</strong> is a representation of a graph on a surface where every vertex is mapped to a particular position on the surface.</p>
+</blockquote>
+<h2 id="Circular-Embedding"><a href="#Circular-Embedding" class="headerlink" title="Circular Embedding"></a>Circular Embedding</h2><p>Place vertices at evenly spaced points on a surface.</p>
+<p>A circular embedding is particularly <em>useful</em> if one wants to <em>see all edges</em>.</p>
+<p>Because no three vertices ever lie on the same line, this allows every edge to stay (reasonably) visible.</p>
+<h2 id="Spring-Embedding"><a href="#Spring-Embedding" class="headerlink" title="Spring Embedding"></a>Spring Embedding</h2><p>The spring embedding was proposed by Eades in 1984. </p>
+<p>Attracting force $F_{att}(u, v)$ between the vertices u and v it joins as follows:</p>
+<p>$$F_{att}(u, v)\stackrel{def}=  \begin{cases} 2log(d(u,v)) &amp; \text{if u and v are adjacent} \\0 &amp; \text{otherwise} \end{cases}$$</p>
+<p>吸引力F随着距离增加按log增长。</p>
+<p>Repelling force $F_{rep}(u, v)$ is defined as:</p>
+<p>$$F_{rep}(u, v)\stackrel{def}=  \begin{cases} 0 &amp; \text{if u and v are adjacent} \\1/\sqrt{(d(u,v))} &amp; \text{otherwise} \end{cases}$$</p>
+<p>随着距离增加，力按根号倒数速度衰减。</p>
+<p>Algorithm:</p>
+<ol>
+<li><p>Place all vertices randomly.</p>
+</li>
+<li><p>For each vertex $u$ calculate the current forces in the $x$ and $y$ direction, respectively:</p>
+<p>$F_x(u)\stackrel{def}=\sum_{v\neq u}(F_{att,x}(u,v)-F_{rep,x}(u,v)) $</p>
+<p>$F_y(u)\stackrel{def}=\sum_{v\neq u} (F_{att,y}(u,v)-F_{rep,y}(u,v)) $</p>
+</li>
+<li><p>Reposition vertex u according to:<br>$u_x = u_x + 0.1<em>F_x(u)$  and  $u_y = u_y + 0.1</em>F_y(u)$</p>
+</li>
+<li><p>Goto step 2. Stop after M iterations.</p>
+<p>Here, $F_x(u,v)=F(u,v)* \frac{|v_x-u_x|}{d(u,v)} $</p>
+</li>
+</ol>
+<p>每个点，有来自数量等于度的相邻结点的吸引力，和与其他所有不相邻的点的排斥力。力是根据二维平面距离计算的，但是计算坐标时是投影到x轴和y轴进行计算的。</p>
+<h2 id="Planar-Graphs"><a href="#Planar-Graphs" class="headerlink" title="Planar Graphs"></a>Planar Graphs</h2><p><code>[&#39;pleɪnə]</code></p>
+<blockquote>
+<p>A <strong>plane graph</strong> is a specific embedding of a graph G such that no two edges <em>intersect</em>. If such an embedding exists, G is said to be <em>planar</em>.</p>
+</blockquote>
+<p>When considering a plane graph, we will observe a number of <strong>regions</strong> (also called<br><strong>faces</strong>), which are enclosed by the edges of the graph. Each region is enclosed by a cycle.</p>
+<p>Euler’s formula: For a plane graph G with n vertices, m edges, and r regions, we<br>have that $n − m + r = 2$.</p>
+<h2 id="Euler-tour"><a href="#Euler-tour" class="headerlink" title="Euler tour"></a>Euler tour</h2><p>A <strong>tour</strong> of a graph G is a <strong>(u, v)- closed walk</strong> that traverses <em>each edge</em> in G.</p>
+<p>An <strong>Euler tour</strong> is a tour in which all edges are traversed <em>exactly once</em>.</p>
+<p>A connected graph G has an Euler tour if and only if <strong><em>it has no vertices of odd degree</em></strong>.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/18/Digital Communities Notes P2/" rel="prev" title="Digital Communities Notes P2">
+                Digital Communities Notes P2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Jiangfeng Du" />
+          <p class="site-author-name" itemprop="name">Jiangfeng Du</p>
+           
+              <p class="site-description motion-element" itemprop="description">Notes for share and some plain essays</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Foundations-of-Graph-Theory"><span class="nav-number">1.</span> <span class="nav-text">Foundations of Graph Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Graphs-Vertices-and-Edges"><span class="nav-number">1.1.</span> <span class="nav-text">Graphs, Vertices and Edges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loops-and-Multiple-Edges"><span class="nav-number">1.2.</span> <span class="nav-text">Loops and Multiple Edges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complete-Graphs"><span class="nav-number">1.3.</span> <span class="nav-text">Complete Graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Degree"><span class="nav-number">1.4.</span> <span class="nav-text">Degree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adjacency-matrix-of-a-Graph"><span class="nav-number">1.5.</span> <span class="nav-text">Adjacency matrix of a Graph</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Directed-Graphs"><span class="nav-number">1.6.</span> <span class="nav-text">Directed Graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Walks-Trails-Paths-and-Cycles"><span class="nav-number">1.7.</span> <span class="nav-text">Walks, Trails, Paths, and Cycles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectedness-and-Components"><span class="nav-number">1.8.</span> <span class="nav-text">Connectedness and Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex-Eccentricity-Graph-Radius-and-Diameter"><span class="nav-number">1.9.</span> <span class="nav-text">Vertex Eccentricity, Graph Radius and Diameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clique-Clan-and-Core"><span class="nav-number">1.10.</span> <span class="nav-text">Clique, Clan and Core</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regular-Graphs"><span class="nav-number">1.11.</span> <span class="nav-text">Regular Graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex-Cuts-and-Edge-Cuts"><span class="nav-number">1.12.</span> <span class="nav-text">Vertex Cuts and Edge Cuts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Isomorphism"><span class="nav-number">1.13.</span> <span class="nav-text">Graph Isomorphism</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Graph-Embedding"><span class="nav-number">2.</span> <span class="nav-text">Graph Embedding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Circular-Embedding"><span class="nav-number">2.1.</span> <span class="nav-text">Circular Embedding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Embedding"><span class="nav-number">2.2.</span> <span class="nav-text">Spring Embedding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planar-Graphs"><span class="nav-number">2.3.</span> <span class="nav-text">Planar Graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler-tour"><span class="nav-number">2.4.</span> <span class="nav-text">Euler tour</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiangfeng Du</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
