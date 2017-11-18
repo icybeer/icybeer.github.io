@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="Recommender SystemsIntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, di">
+<meta name="description" content="Recommender Systems IntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, d">
 <meta name="keywords" content="Notes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Digital Communities Notes P3">
-<meta property="og:url" content="http://yoursite.com/2017/02/19/Digital Communities Notes P3/index.html">
+<meta property="og:title" content="Digital Communities Notes P2">
+<meta property="og:url" content="http://yoursite.com/2017/02/19/Digital Communities Notes P2/index.html">
 <meta property="og:site_name" content="迷雾">
-<meta property="og:description" content="Recommender SystemsIntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, di">
-<meta property="og:updated_time" content="2017-09-27T13:03:18.210Z">
+<meta property="og:description" content="Recommender Systems IntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, d">
+<meta property="og:updated_time" content="2017-11-18T09:24:23.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Digital Communities Notes P3">
-<meta name="twitter:description" content="Recommender SystemsIntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, di">
+<meta name="twitter:title" content="Digital Communities Notes P2">
+<meta name="twitter:description" content="Recommender Systems IntroductionA recommender system aims at predicting the rating or preference that a user wouldgive to an item that she has not yet considered.Goals: relevant, novel, serendipity, d">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/19/Digital Communities Notes P3/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/19/Digital Communities Notes P2/"/>
 
 
 
 
 
-  <title>Digital Communities Notes P3 | 迷雾</title>
+  <title>Digital Communities Notes P2 | 迷雾</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/Digital Communities Notes P3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/Digital Communities Notes P2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiangfeng Du">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Digital Communities Notes P3</h1>
+          <h1 class="post-title" itemprop="name headline">Digital Communities Notes P2</h1>
         
 
         <div class="post-meta">
@@ -317,26 +317,22 @@
       
 
       
-        <h1 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>A recommender system aims at <em>predicting</em> the rating or preference that a <em>user</em> would<br>give to an <em>item</em> that she has not yet considered.<br><strong><em>Goals</em></strong>: relevant, novel, serendipity, diverse.</p>
-<h2 id="Collaborative-Filtering-Recommender-Systems"><a href="#Collaborative-Filtering-Recommender-Systems" class="headerlink" title="Collaborative Filtering Recommender Systems"></a>Collaborative Filtering Recommender Systems</h2><h3 id="Memory-based-methods"><a href="#Memory-based-methods" class="headerlink" title="Memory-based methods"></a>Memory-based methods</h3><p>Also called Neighborhood-based  CF.</p>
-<h4 id="User-based-CF"><a href="#User-based-CF" class="headerlink" title="User-based CF"></a>User-based CF</h4><p><strong>Def</strong>: ratings provided by users that are similar to a target user <em>u</em> are used to make recommendations for <em>u</em>.</p>
-<p>To determine the <strong>neighborhood </strong>of the target user, we need to compute <strong><em>similarity</em></strong> to all other users.</p>
-<p>Target user <strong><em>u</em></strong>, the similarity of u and one of other users <strong><em>v</em></strong> is computed:</p>
+        <p><strong>Recommender Systems</strong></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>A recommender system aims at <em>predicting</em> the rating or preference that a <em>user</em> would<br>give to an <em>item</em> that she has not yet considered.<br><strong><em>Goals</em></strong>: relevant, novel, serendipity, diverse.<br><a id="more"></a></p>
+<h1 id="Collaborative-Filtering-Recommender-Systems"><a href="#Collaborative-Filtering-Recommender-Systems" class="headerlink" title="Collaborative Filtering Recommender Systems"></a>Collaborative Filtering Recommender Systems</h1><h2 id="Memory-based-methods"><a href="#Memory-based-methods" class="headerlink" title="Memory-based methods"></a>Memory-based methods</h2><p>Also called Neighborhood-based  CF.</p>
+<h3 id="User-based-CF"><a href="#User-based-CF" class="headerlink" title="User-based CF"></a>User-based CF</h3><p><strong>Def</strong>: ratings provided by users that are similar to a target user <em>u</em> are used to make recommendations for <em>u</em>.<br>To determine the <strong>neighborhood </strong>of the target user, we need to compute <strong><em>similarity</em></strong> to all other users.<br>Target user <strong><em>u</em></strong>, the similarity of u and one of other users <strong><em>v</em></strong> is computed:</p>
 <ul>
-<li><p>Find the mutually observed ratings. (Given by both u and v)</p>
-</li>
-<li><p>Compute the mean rating, denoted as $\mu_u$ and $\mu_v$</p>
-</li>
-<li><p>Calculate Pearson correlation coefficient between u and v, $Covariance(u,v)/Standard Deviation(u) * Standard Deviation(v)$, the number of term depends on mutually observed ratings.</p>
-<p>$\sum_{k\in mutually ratings}  (r_{uk}-\mu_u)*(r_{vk}-\mu_v)$</p>
-</li>
-<li>Let $P_u(j)$ be the set of users who are similar to the target user u and who have rated item j before.<br>predicted rating $\hat r_{uj}= \mu_u+\frac {\sum_{v\in P_u(j)}sim(u,v)(r_{vj}-\mu_v)}{\sum_{v\in P_u(j)}|sim(u,v)| }$</li>
+<li>Find the mutually observed ratings. (Given by both u and v)</li>
+<li>Compute the mean rating, denoted as $\mu_u$ and $\mu_v$</li>
+<li>Calculate Pearson correlation coefficient between u and v, $Covariance(u,v)/Standard Deviation(u)* Standard Deviation(v)$, the number of term depends on mutually observed ratings.<br>$\sum_{k\in mutually ratings}  (r_{uk}-\mu_u)∗(r_{vk}-\mu_v)$</li>
+<li>Let $P_u(j)$ be the set of users who are similar to the target user u and who have rated item j before.<br>predicted rating $\hat r_{uj}= \mu_u+\frac {\sum_{v\in P_u(j)}sim(u,v)(r_{vj}-\mu_v)}{\sum_{v\in P_u(j)}|sim(u,v)| }$<br>$sim(u,v)$ is equal to $cos(u,v)$ where u is the rating vector of user u with all ratings subtract the mean value.</li>
 </ul>
-<p>$sim(u,v)$ is equal to $cos(u,v)$ where u is the rating vector of user u with all ratings subtract the mean value.</p>
-<h5 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h5><ul>
+<p>Pros</p>
+<ul>
 <li>Works for any kind of item. No feature selection needed.</li>
 </ul>
-<h5 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h5><ul>
+<p>Cons</p>
+<ul>
 <li>Not all neighbor ratings might be equally “valuable”.<br>Agreement on commonly liked items is not so informative as agreement on controversial items. Tend to recommend popular items.<br>相似度高可能表现在都对 普遍好评 的产品给出高评价，这个不意味着两个用户之间真的相似。<ul>
 <li>Give more weight to items that have a higher variance</li>
 </ul>
@@ -352,10 +348,8 @@
 <li>Neighborhood selection<br>Use similarity threshold or fixed number of neighbors</li>
 <li>High sparsity leads to few common ratings between two users.</li>
 </ul>
-<h4 id="Item-based-CF"><a href="#Item-based-CF" class="headerlink" title="Item-based CF"></a>Item-based CF</h4><p><strong>Def</strong>: firstly determine a set of other items <em>S</em>, which are most similar to item <em>i</em>. Then a weighted average of the ratings in <em>S</em> is used to predict the rating that <em>u</em> will likely give to <em>i</em>.<br>Item-to-item similarity is commonly based on measuring the <strong>cosine similarity</strong> between the rating vectors.</p>
-<p>Let $U_i$ be the set of users who have rated item i before, and let $\mu_u$ be the mean rating of a user $u$.</p>
-<p>the number of term depends on users rate both item $i$ and $j$.<br>$AdjustedCosine(i, j) = \frac{\sum_{u\in U_i\cap U_j}  (r_{uk}-\mu_u)<em>(r_{vk}-\mu_v)}{Standard Deviation(i)</em>Standard Deviation(j)} $<br>Let $Q_t(i)$ be the <strong>set of top-k items</strong> most similar to item $t$ for which user $u$ has specified ratings.<br>$\hat r_{ut}=\frac {\sum_{j\in Q_t(i)}AdjustedCosine(j,t) * r_{uj}}{\sum_{j\in Q_t(i)}|AdjustedCosine(j,t)| }$<br>找到相似度高的物品，利用该用户对其他物品的评价来评估对目标物品的评价。</p>
-<h5 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h5><ul>
+<h3 id="Item-based-CF"><a href="#Item-based-CF" class="headerlink" title="Item-based CF"></a>Item-based CF</h3><p><strong>Def</strong>: firstly determine a set of other items <em>S</em>, which are most similar to item <em>i</em>. Then a weighted average of the ratings in <em>S</em> is used to predict the rating that <em>u</em> will likely give to <em>i</em>.<br>Item-to-item similarity is commonly based on measuring the <strong>cosine similarity</strong> between the rating vectors.<br>Let $U_i$ be the set of users who have rated item i before, and let $\mu_u$ be the mean rating of a user $u$.<br>the number of term depends on users rate both item $i$ and $j$.<br>$AdjustedCosine(i, j) = \frac{\sum_{u\in U_i\cap U_j}  (r_{uk}-\mu_u)<em>(r_{vk}-\mu_v)}{Standard Deviation(i)</em>Standard Deviation(j)} $<br>Let $Q_t(i)$ be the <strong>set of top-k items</strong> most similar to item $t$ for which user $u$ has specified ratings.<br>$\hat r_{ut}=\frac {\sum_{j\in Q_t(i)}AdjustedCosine(j,t) * r_{uj}}{\sum_{j\in Q_t(i)}|AdjustedCosine(j,t)| }$<br>找到相似度高的物品，利用该用户对其他物品的评价来评估对目标物品的评价。</p>
+<h3 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h3><ul>
 <li>We can calculate all pair-wise item similarities <em>in advance</em>, because item similarities are supposed to be more stable than user similarities.</li>
 <li>The neighborhood to be used at run-time is typically rather small, because only items are taken into account which the user has rated.</li>
 <li>Memory requirements<br>In theory, up to $n^2$ pair-wise similarities need to be memorized (n = number of items). In practice, the number may be smaller.</li>
@@ -367,73 +361,52 @@
 <li>Limit the size of the neighborhood (might affect recommendation accuracy).</li>
 </ul>
 <p>A solution to the problem of rating sparsity is to segment users based on their profile, for example age, gender, country, education (a.k.a. demographic filtering).</p>
-<h3 id="Model-based-Collaborative-Filtering"><a href="#Model-based-Collaborative-Filtering" class="headerlink" title="Model-based Collaborative Filtering"></a>Model-based Collaborative Filtering</h3><p>Model-based collaborative filtering relies on a summarized model of the data that is created beforehand during a training phase. This model is then used in the later prediction phase to efficiently calculate the predictions.</p>
-<h4 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
+<h2 id="Model-based-Collaborative-Filtering"><a href="#Model-based-Collaborative-Filtering" class="headerlink" title="Model-based Collaborative Filtering"></a>Model-based Collaborative Filtering</h2><p>Model-based collaborative filtering relies on a summarized model of the data that is created beforehand during a training phase. This model is then used in the later prediction phase to efficiently calculate the predictions.</p>
+<p>Advantages</p>
+<ul>
 <li>Space-efficiency: Typically, the size of the learned model is much smaller than the original ratings matrix.</li>
 <li>Training speed and prediction speed: Model-based systems are usually much faster in the preprocessing phase of constructing the trained model.</li>
 <li>Avoiding overfitting: The summarization approach of model-based methods can often help in avoiding overfitting.</li>
 </ul>
 <p>Model-based collaborative filtering methods include, for example, rule-based methods, decision trees, regression models, Bayes classifiers, support vector machines, or neural networks.</p>
-<h4 id="Association-Rule-Mining"><a href="#Association-Rule-Mining" class="headerlink" title="Association Rule Mining"></a>Association Rule Mining</h4><p>Association Rule Mining is a technique to identify rulelike relationship patterns in large-scale transactions.</p>
+<h3 id="Association-Rule-Mining"><a href="#Association-Rule-Mining" class="headerlink" title="Association Rule Mining"></a>Association Rule Mining</h3><p>Association Rule Mining is a technique to identify rulelike relationship patterns in large-scale transactions.</p>
 <ul>
-<li>An example rule could be: “If a customer purchases baby food then he or she also buys diapers in 70 percent of the cases”.  <code>[&#39;daɪəpə]</code>尿布</li>
+<li>An example rule could be: “If a customer purchases baby food then he or she also buys diapers in 70 percent of the cases”.<br>The frequency of a given itemset is known as <em>support count</em>. The <em>support</em> of the itemset is the fraction of transactions that contain it. A frequent itemset is an itemset with a support that is greater or equal to a minsup threshold.<br>The <em>confidence</em> of the rule is how often items in Y appear in transactions that contain X.<br>A two-step approach: (1) Generate all itemsets with high <em>support</em> (Frequent Itemset Generation); (2) Generate high confidence rules from each frequent itemset (Rule Generation).</li>
 </ul>
-<p>The frequency of a given itemset is known as <em>support count</em>. The <em>support</em> of the itemset is the fraction of transactions that contain it. A frequent itemset is an itemset with a support that is greater or equal to a minsup threshold. </p>
-<p>The <em>confidence</em> of the rule is how often items in Y appear in transactions that contain X.</p>
-<p>A two-step approach: (1) Generate all itemsets with high <em>support</em> (Frequent Itemset Generation); (2) Generate high confidence rules from each frequent itemset (Rule Generation).</p>
-<h4 id="Matrix-factorization-Singular-Value-Decomposition"><a href="#Matrix-factorization-Singular-Value-Decomposition" class="headerlink" title="Matrix factorization / Singular Value Decomposition"></a>Matrix factorization / Singular Value Decomposition</h4><p>Matrix factorization methods can be used in recommender systems to <em>derive a set of latent (hidden) factors</em> from the rating patterns and characterize both users and items by such vectors of factors.</p>
-<p>$M = UΣV^T$</p>
-<p>where U and V are called left and right singular vectors and the values of the diagonal of Σ are called the singular values.</p>
-<p>The main point of the SVD is that we can approximate the full matrix by observing only the most important features, i.e., those with the largest singular values.</p>
-<p>Matrix U and V correspond to the latent user and item factors. In M, user ratings are row vector, item ratings are column vector.</p>
-<h2 id="Content-based-Recommender-Systems"><a href="#Content-based-Recommender-Systems" class="headerlink" title="Content-based Recommender Systems"></a>Content-based Recommender Systems</h2><p>Content-based recommender systems rely on a <strong>user’s own ratings</strong> and try to identify new items that are <strong>content-wise similar</strong> to the items the user has liked before.</p>
-<p>Content-wise similarity is defined on the attributes of items.</p>
-<p>Content-based recommender system relies on two concepts: user profile and item profile.</p>
+<h3 id="Matrix-factorization-Singular-Value-Decomposition"><a href="#Matrix-factorization-Singular-Value-Decomposition" class="headerlink" title="Matrix factorization / Singular Value Decomposition"></a>Matrix factorization / Singular Value Decomposition</h3><p>Matrix factorization methods can be used in recommender systems to <em>derive a set of latent (hidden) factors</em> from the rating patterns and characterize both users and items by such vectors of factors.<br>$M = UΣV^T$<br>where U and V are called left and right singular vectors and the values of the diagonal of Σ are called the singular values.<br>The main point of the SVD is that we can approximate the full matrix by observing only the most important features, i.e., those with the largest singular values.<br>Matrix U and V correspond to the latent user and item factors. In M, user ratings are row vector, item ratings are column vector.</p>
+<h1 id="Content-based-Recommender-Systems"><a href="#Content-based-Recommender-Systems" class="headerlink" title="Content-based Recommender Systems"></a>Content-based Recommender Systems</h1><p>Content-based recommender systems rely on a <strong>user’s own ratings</strong> and try to identify new items that are <strong>content-wise similar</strong> to the items the user has liked before.<br>Content-wise similarity is defined on the attributes of items.<br>Content-based recommender system relies on two concepts: user profile and item profile.</p>
 <ul>
 <li>User profile: previous explicit or implicit feedback the user has generated about various items.</li>
 <li>Item profile: a set of content-centric attributes for a particular item, for example, a genre, a textual description, or a list of keywords. For example, a movie with a profile vector with each entry corresponding to one actor.</li>
 </ul>
-<h4 id="Feature-extraction-techniques"><a href="#Feature-extraction-techniques" class="headerlink" title="Feature extraction techniques"></a>Feature extraction techniques</h4><p>Let N be the number of all documents (items) D that can be recommended.<br>Let $f_{t,d}$ be the number of times that term t occurs in document d.<br>term frequency: $TF(t,d)=\frac {f_{t,d}}{max_x\lbrace f_{x,d}\rbrace}$</p>
-<p>(divided by the maximum raw frequency of any term in the document)</p>
-<p>inverse document frequency measures how common or rare a term is across all documents:</p>
-<p>$IDF(t)=log\frac{N}{|\lbrace d\in D:t\in d\rbrace|}$</p>
-<p>N divided by number of docs that mention term i.</p>
-<p>term frequency-inverse document frequency(TF-IDF) is the multiply result.</p>
-<p>It is large when the term occurs frequently in one document d, but occurs rarely across all documents.</p>
-<p>TF-IDF is one possible measure to create individual item profiles:</p>
-<p>$Profile(d)=(TFIDF(t_1,d),TFIDF(t_2,d),…,TFIDF(t_j,d))$ (Vector)</p>
-<p>where j is the number of terms in d.</p>
-<p>Similarity between two items can be calculated the cosine between the item profile vectors.</p>
-<p>In practice, it is very common (and advisable) to preprocess documents before calculating TF-IDFs. Common steps are, for example:</p>
+<h2 id="Feature-extraction-techniques"><a href="#Feature-extraction-techniques" class="headerlink" title="Feature extraction techniques"></a>Feature extraction techniques</h2><p>Let N be the number of all documents (items) D that can be recommended.<br>Let $f_{t,d}$ be the number of times that term t occurs in document d.<br>term frequency: $TF(t,d)=\frac {f_{t,d}}{max_x\lbrace f_{x,d}\rbrace}$<br>(divided by the maximum raw frequency of any term in the document)<br>inverse document frequency measures how common or rare a term is across all documents:<br>$IDF(t)=log\frac{N}{|\lbrace d\in D:t\in d\rbrace|}$<br>N divided by number of docs that mention term i.<br>term frequency-inverse document frequency(TF-IDF) is the multiply result.<br>It is large when the term occurs frequently in one document d, but occurs rarely across all documents.<br>TF-IDF is one possible measure to create individual item profiles:<br>$Profile(d)=(TFIDF(t_1,d),TFIDF(t_2,d),…,TFIDF(t_j,d))$ (Vector)<br>where j is the number of terms in d.<br>Similarity between two items can be calculated the cosine between the item profile vectors.<br>In practice, it is very common (and advisable) to preprocess documents before calculating TF-IDFs. Common steps are, for example:</p>
 <ul>
 <li>Removing stop words, i.e., very common terms such as “a”, “the”, “I”, “it”, etc.</li>
 <li>Stemming, i.e., reducing all words to their stems.</li>
 </ul>
-<h4 id="Content-based-learning-of-user-profiles"><a href="#Content-based-learning-of-user-profiles" class="headerlink" title="Content-based learning of user-profiles"></a>Content-based learning of user-profiles</h4><p>Use profile of item rated by the user to calculate user-profile. </p>
-<p>Weight sum of profiles of items according to ratings. </p>
-<h4 id="Filtering-and-recommendation"><a href="#Filtering-and-recommendation" class="headerlink" title="Filtering and recommendation"></a>Filtering and recommendation</h4><p>Similarity between user-profile and possibly recommending item-profile.</p>
-<h4 id="Pros-1"><a href="#Pros-1" class="headerlink" title="Pros"></a>Pros</h4><ul>
+<h2 id="Content-based-learning-of-user-profiles"><a href="#Content-based-learning-of-user-profiles" class="headerlink" title="Content-based learning of user-profiles"></a>Content-based learning of user-profiles</h2><p>Use profile of item rated by the user to calculate user-profile.<br>Weight sum of profiles of items according to ratings. </p>
+<h2 id="Filtering-and-recommendation"><a href="#Filtering-and-recommendation" class="headerlink" title="Filtering and recommendation"></a>Filtering and recommendation</h2><p>Similarity between user-profile and possibly recommending item-profile.</p>
+<p>Pros</p>
+<ul>
 <li>No need for data on other users.</li>
 <li>Able to recommend new items. No first-rater problem.</li>
 <li>Can explain why items are recommended (add features selected)</li>
 </ul>
-<h4 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h4><ul>
+<p>Limitations</p>
+<ul>
 <li>Data analysis: all items must be available in a data format that can be automatically parsed in order to extract the features. (hard for audio or video streams )</li>
 <li>Equality of features: If two items are represented by the same set of features, it is not possible anymore to distinguish between the two.</li>
 <li>Overspecialization: can occur when only items with a very high degree of utility are recommended. Then, if a user has never rated items from a certain group of items, he will not get any recommendations for them. (introduce some randomness in order to increase the diversity of recommendations)</li>
 <li>New user problem: inaccurate due to few ratings. How to build a user profile?</li>
 </ul>
-<h2 id="Knowledge-based-Recommender-Systems"><a href="#Knowledge-based-Recommender-Systems" class="headerlink" title="Knowledge-based Recommender Systems"></a>Knowledge-based Recommender Systems</h2><p>Knowledge-based recommender systems rely on explicitly soliciting user requirements for items. Well suited to the recommendation of items that are not bought on a regular basis (for example, house, car, etc.).  <code>[sə&#39;lɪsɪt]</code></p>
-<p>Constraint-based Recommender Systems: users specify requirements or constraints (for example, lower or upper limits) on the item.</p>
-<p>Three types of input for a constrained-based recommender system:</p>
+<h1 id="Knowledge-based-Recommender-Systems"><a href="#Knowledge-based-Recommender-Systems" class="headerlink" title="Knowledge-based Recommender Systems"></a>Knowledge-based Recommender Systems</h1><p>Knowledge-based recommender systems rely on explicitly soliciting user requirements for items. Well suited to the recommendation of items that are not bought on a regular basis (for example, house, car, etc.).  <code>[sə&#39;lɪsɪt]</code><br>Constraint-based Recommender Systems: users specify requirements or constraints (for example, lower or upper limits) on the item.<br>Three types of input for a constrained-based recommender system:</p>
 <ul>
 <li>Inherent properties of the user (e.g, demographics, risk profiles) and specific requirements in the product.</li>
 <li>Knowledge bases, which map user attributes to products attributes. For example, a user who is searching for a house and who has a family size of 5 will likely require ≥ 3 bedrooms.</li>
 <li>The product catalog, which contains all the item attributes.</li>
 </ul>
-<p>Case-based Recommender Systems: specific cases are specified by the user as targets or anchor points.</p>
-<p>A similarity function is used to retrieve the examples that are most <em>similar</em> to the <em>user-specified target</em>. </p>
-<h2 id="Evaluating-Recommender-Systems"><a href="#Evaluating-Recommender-Systems" class="headerlink" title="Evaluating Recommender Systems"></a>Evaluating Recommender Systems</h2>
+<p>Case-based Recommender Systems: specific cases are specified by the user as targets or anchor points.<br>A similarity function is used to retrieve the examples that are most <em>similar</em> to the <em>user-specified target</em>. </p>
+
       
     </div>
 
@@ -475,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/18/Digital Communities Notes P2/" rel="next" title="Digital Communities Notes P2">
-                <i class="fa fa-chevron-left"></i> Digital Communities Notes P2
+              <a href="/2017/02/17/Digital Communities Notes P1/" rel="next" title="Digital Communities Notes P1">
+                <i class="fa fa-chevron-left"></i> Digital Communities Notes P1
               </a>
             
           </div>
@@ -607,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">1.</span> <span class="nav-text">Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative-Filtering-Recommender-Systems"><span class="nav-number">1.2.</span> <span class="nav-text">Collaborative Filtering Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-based-methods"><span class="nav-number">1.2.1.</span> <span class="nav-text">Memory-based methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#User-based-CF"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">User-based CF</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Pros"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">Pros</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cons"><span class="nav-number">1.2.1.1.2.</span> <span class="nav-text">Cons</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-based-CF"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Item-based CF</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Discussion"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">Discussion</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based-Collaborative-Filtering"><span class="nav-number">1.2.2.</span> <span class="nav-text">Model-based Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Advantages"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Association-Rule-Mining"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Association Rule Mining</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-factorization-Singular-Value-Decomposition"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Matrix factorization / Singular Value Decomposition</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-based-Recommender-Systems"><span class="nav-number">1.3.</span> <span class="nav-text">Content-based Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-extraction-techniques"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Feature extraction techniques</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Content-based-learning-of-user-profiles"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">Content-based learning of user-profiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filtering-and-recommendation"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">Filtering and recommendation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pros-1"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">Pros</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Limitations"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">Limitations</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Knowledge-based-Recommender-Systems"><span class="nav-number">1.4.</span> <span class="nav-text">Knowledge-based Recommender Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating-Recommender-Systems"><span class="nav-number">1.5.</span> <span class="nav-text">Evaluating Recommender Systems</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collaborative-Filtering-Recommender-Systems"><span class="nav-number">2.</span> <span class="nav-text">Collaborative Filtering Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-based-methods"><span class="nav-number">2.1.</span> <span class="nav-text">Memory-based methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#User-based-CF"><span class="nav-number">2.1.1.</span> <span class="nav-text">User-based CF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Item-based-CF"><span class="nav-number">2.1.2.</span> <span class="nav-text">Item-based CF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discussion"><span class="nav-number">2.1.3.</span> <span class="nav-text">Discussion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-based-Collaborative-Filtering"><span class="nav-number">2.2.</span> <span class="nav-text">Model-based Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Association-Rule-Mining"><span class="nav-number">2.2.1.</span> <span class="nav-text">Association Rule Mining</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-factorization-Singular-Value-Decomposition"><span class="nav-number">2.2.2.</span> <span class="nav-text">Matrix factorization / Singular Value Decomposition</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Content-based-Recommender-Systems"><span class="nav-number">3.</span> <span class="nav-text">Content-based Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature-extraction-techniques"><span class="nav-number">3.1.</span> <span class="nav-text">Feature extraction techniques</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-based-learning-of-user-profiles"><span class="nav-number">3.2.</span> <span class="nav-text">Content-based learning of user-profiles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filtering-and-recommendation"><span class="nav-number">3.3.</span> <span class="nav-text">Filtering and recommendation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Knowledge-based-Recommender-Systems"><span class="nav-number">4.</span> <span class="nav-text">Knowledge-based Recommender Systems</span></a></li></ol></div>
             
 
           </div>

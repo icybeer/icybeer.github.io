@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/image/IS/Filtering%20Rules.PNG">
 <meta property="og:image" content="http://yoursite.com/image/IS/Access%20control%20list.PNG">
 <meta property="og:image" content="http://yoursite.com/image/IS/Reflective%20XSS%20attack.PNG">
-<meta property="og:updated_time" content="2017-09-27T13:25:22.447Z">
+<meta property="og:updated_time" content="2017-11-18T08:40:16.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Internet Security Notes">
 <meta name="twitter:description" content="Security is about protecting assets. It involves Prevention, Detection, Reaction. Confidentiality: prevent unauthorized disclosure of information.Integrity: prevent unauthorized modification of inform">
@@ -324,7 +324,8 @@
       
         <p>Security is about protecting assets. It involves Prevention, Detection, Reaction.</p>
 <p>Confidentiality: prevent unauthorized disclosure of information.<br>Integrity: prevent unauthorized modification of information.<br>Availability: prevent unauthorized withholding of information.</p>
-<h2 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h2><p>A worm is <em>self-replicating software</em> designed to spread through the network.</p>
+<a id="more"></a>
+<h1 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h1><p>A worm is <em>self-replicating software</em> designed to spread through the network.</p>
 <ul>
 <li>Typically exploits security flaws in widely used services</li>
 <li>Can launch DDOS attacks, install Botnets</li>
@@ -333,7 +334,7 @@
 <p>A virus is code embedded in a file or program.</p>
 <p>Viruses and Trojan <code>[&#39;trodʒən]</code>horses rely on human intervention.</p>
 <p>Worms are self-contained.</p>
-<h3 id="The-UCSD-Network-Telescope"><a href="#The-UCSD-Network-Telescope" class="headerlink" title="The UCSD Network Telescope"></a>The UCSD Network Telescope</h3><p>A Real-time Monitoring System for Tracking Internet Attacks</p>
+<h2 id="The-UCSD-Network-Telescope"><a href="#The-UCSD-Network-Telescope" class="headerlink" title="The UCSD Network Telescope"></a>The UCSD Network Telescope</h2><p>A Real-time Monitoring System for Tracking Internet Attacks</p>
 <p>A way to observe global network phenomena with only local monitoring.</p>
 <p><strong>Since Quantitative attack data isn’t available.</strong></p>
 <p>Key observation: large class of attacks use random addresses.</p>
@@ -361,7 +362,7 @@
 <li>Topological worm (Use information from infected hosts (web server logs, email address books, config files, SSH “known hosts”))</li>
 <li>Contagion worm (Propagate parasitically along with normal communication)</li>
 </ul>
-<h3 id="Defenses"><a href="#Defenses" class="headerlink" title="Defenses"></a>Defenses</h3><ol>
+<h2 id="Defenses"><a href="#Defenses" class="headerlink" title="Defenses"></a>Defenses</h2><ol>
 <li>Detect via <strong>honeyfarms</strong>: Collections of “<strong>honeypots</strong>” fed by a network telescope.</li>
 </ol>
 <ul>
@@ -423,7 +424,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Botnets"><a href="#Botnets" class="headerlink" title="Botnets"></a>Botnets</h2><p>Botnet could be a most powerful supercomputer in the world.</p>
+<h1 id="Botnets"><a href="#Botnets" class="headerlink" title="Botnets"></a>Botnets</h1><p>Botnet could be a most powerful supercomputer in the world.</p>
 <p>Botnet = network of autonomous programs capable of acting on instructions.</p>
 <ul>
 <li>Typically a large (up to several hundred thousand) group of remotely controlled “zombie” systems</li>
@@ -436,26 +437,25 @@
 <li>Spam and click fraud</li>
 <li>Launching pad for new exploits/worms</li>
 </ul>
-<h4 id="Botnet-construction"><a href="#Botnet-construction" class="headerlink" title="Botnet construction"></a>Botnet construction</h4><p>First stage, exploit vulnerabilities (operating system’s/browser’s)</p>
+<h2 id="Botnet-construction"><a href="#Botnet-construction" class="headerlink" title="Botnet construction"></a>Botnet construction</h2><p>First stage, exploit vulnerabilities (operating system’s/browser’s)</p>
 <p>Next stage to download bot software, C&amp;C instructions. (Command and Control)</p>
 <p>Once the bot software is executed and connected to C&amp;C server.</p>
 <ul>
 <li>Bots connect to channel of C&amp;C (IRC or HTTP) password protected channel (IRC: Internet Relay Chat)</li>
 <li>Encryption layer between bot and C&amp;C</li>
 </ul>
-<h4 id="Fast-Flux-service-networks"><a href="#Fast-Flux-service-networks" class="headerlink" title="Fast-Flux service networks"></a>Fast-Flux service networks</h4><ul>
+<h2 id="Fast-Flux-service-networks"><a href="#Fast-Flux-service-networks" class="headerlink" title="Fast-Flux service networks"></a>Fast-Flux service networks</h2><ul>
 <li>A technique in which A and NS records of a domain change rapidly</li>
 <li>Location (IP) of the domain changes rapidly when resolved</li>
 <li>Used for load balancing across servers, resource configuration, etc…</li>
 <li>Bot herders effectivly use it to hide mothership</li>
 </ul>
-<h4 id="Propagation"><a href="#Propagation" class="headerlink" title="Propagation"></a>Propagation</h4><p>Each bot can scan IP space for new victims</p>
+<h2 id="Propagation"><a href="#Propagation" class="headerlink" title="Propagation"></a>Propagation</h2><p>Each bot can scan IP space for new victims</p>
 <ul>
 <li>Automatically</li>
 <li>On-command: Target specific /8 or /16 prefixes (Botmasters share information about prefixes to avoid).</li>
 </ul>
-<p>DoS</p>
-<p>Goal: Overwhelm victim machine and deny service to its legitimate clients.</p>
+<h3 id="DoS"><a href="#DoS" class="headerlink" title="DoS"></a>DoS</h3><p>Goal: Overwhelm victim machine and deny service to its legitimate clients.</p>
 <p>DoS often exploits networking protocols</p>
 <ul>
 <li>Smurf: ICMP echo request to broadcast address with spoofed victim’s address as source</li>
@@ -463,8 +463,7 @@
 <li>SYN flood: “Open TCP connection” request from a spoofed address</li>
 <li>UDP flood: Exhaust bandwidth by sending thousands of bogus UDP packets</li>
 </ul>
-<p>DDos</p>
-<p>Build a botnet of zombies</p>
+<h3 id="DDos"><a href="#DDos" class="headerlink" title="DDos"></a>DDos</h3><p>Build a botnet of zombies</p>
 <p>Command zombies to stage a coordinated attack on the victim</p>
 <ul>
 <li>Does not require spoofing.</li>
@@ -488,12 +487,12 @@
 <p>DDoS Tools: Stacheldraht</p>
 <p>Combines “best” features of Trin00 and TFN</p>
 <p>Symmetric encryption for attacker-master connections.</p>
-<h3 id="Spam"><a href="#Spam" class="headerlink" title="Spam"></a>Spam</h3><h4 id="Email-spoofing"><a href="#Email-spoofing" class="headerlink" title="Email spoofing"></a>Email spoofing</h4><ul>
+<h1 id="Spam"><a href="#Spam" class="headerlink" title="Spam"></a>Spam</h1><h2 id="Email-spoofing"><a href="#Email-spoofing" class="headerlink" title="Email spoofing"></a>Email spoofing</h2><ul>
 <li>Mail is sent via SMTP protocol (No built-in authentication)</li>
 <li>MAIL FROM field is set by the sender</li>
 <li>Recipient’s mail server only sees IP address of the direct peer from whom it received the msg</li>
 </ul>
-<h4 id="Open-relays"><a href="#Open-relays" class="headerlink" title="Open relays"></a>Open relays</h4><p>SMTP relay forwards mail to destination</p>
+<h2 id="Open-relays"><a href="#Open-relays" class="headerlink" title="Open relays"></a>Open relays</h2><p>SMTP relay forwards mail to destination</p>
 <ul>
 <li>Bulk email tool connects via SMTP (port 25)</li>
 <li>Sends list of recipients via RCPT TO command</li>
@@ -513,7 +512,7 @@
 </ul>
 <p>Spam via Open HTTP proxies.</p>
 <p>Spammer must send message to each recipient through the proxy.</p>
-<h4 id="Detecting-Botnets"><a href="#Detecting-Botnets" class="headerlink" title="Detecting Botnets"></a>Detecting Botnets</h4><p>Today’s bots are controlled via IRC and DNS.</p>
+<h2 id="Detecting-Botnets"><a href="#Detecting-Botnets" class="headerlink" title="Detecting Botnets"></a>Detecting Botnets</h2><p>Today’s bots are controlled via IRC and DNS.</p>
 <ul>
 <li>IRC used to issue commands to zombies</li>
 <li>DNS used by zombies to find the master, and by the master to find if a zombie has been blacklisted</li>
@@ -525,26 +524,26 @@
 </ul>
 <p>Easily evaded by using encryption and P2P.</p>
 <hr>
-<h3 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h3><h4 id="Classic-Denial-of-Service-Attacks"><a href="#Classic-Denial-of-Service-Attacks" class="headerlink" title="Classic Denial of Service Attacks"></a>Classic Denial of Service Attacks</h4><ul>
+<h1 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h1><h2 id="Classic-Denial-of-Service-Attacks"><a href="#Classic-Denial-of-Service-Attacks" class="headerlink" title="Classic Denial of Service Attacks"></a>Classic Denial of Service Attacks</h2><ul>
 <li>can use simple flooding ping</li>
 <li>from higher capacity link to lower</li>
 <li>causing loss of traffic</li>
 <li>source of flood traffic easily identified</li>
 </ul>
-<h4 id="Source-Address-Spoofing"><a href="#Source-Address-Spoofing" class="headerlink" title="Source Address Spoofing"></a>Source Address Spoofing</h4><ul>
+<h2 id="Source-Address-Spoofing"><a href="#Source-Address-Spoofing" class="headerlink" title="Source Address Spoofing"></a>Source Address Spoofing</h2><ul>
 <li>use forged source addresses</li>
 <li>generate large volumes of packets</li>
 <li>cause same congestion</li>
 <li>responses are scattered across Internet</li>
 <li>real source is much harder to identify</li>
 </ul>
-<h4 id="Types-of-Flooding-Attacks"><a href="#Types-of-Flooding-Attacks" class="headerlink" title="Types of Flooding Attacks"></a>Types of Flooding Attacks</h4><p>Classified based on network protocol used</p>
+<h2 id="Types-of-Flooding-Attacks"><a href="#Types-of-Flooding-Attacks" class="headerlink" title="Types of Flooding Attacks"></a>Types of Flooding Attacks</h2><p>Classified based on network protocol used</p>
 <ul>
 <li>ICMP Flood (uses ICMP packets, eg echo request) ( typically allowed through, some required)</li>
 <li>UDP Flood (alternative uses UDP packets to some port)</li>
 <li>TCP SYN Flood</li>
 </ul>
-<h4 id="Reflection-Attacks"><a href="#Reflection-Attacks" class="headerlink" title="Reflection Attacks"></a>Reflection Attacks</h4><ul>
+<h2 id="Reflection-Attacks"><a href="#Reflection-Attacks" class="headerlink" title="Reflection Attacks"></a>Reflection Attacks</h2><ul>
 <li>Attacker sends packet with spoofed source address being that of target to a server</li>
 <li>Server response is directed at target</li>
 <li>If send many requests to multiple servers, response can flood target</li>
@@ -556,7 +555,7 @@
 <li>exploit DNS behavior to convert a small request to a much larger response (60 byte request to 512 - 4000 byte response)</li>
 <li>attacker sends requests to multiple well connected servers, which flood target</li>
 </ul>
-<h4 id="DoS-Attack-Defenses"><a href="#DoS-Attack-Defenses" class="headerlink" title="DoS Attack Defenses"></a>DoS Attack Defenses</h4><p>three lines of defense against (D)DoS:</p>
+<h2 id="DoS-Attack-Defenses"><a href="#DoS-Attack-Defenses" class="headerlink" title="DoS Attack Defenses"></a>DoS Attack Defenses</h2><p>three lines of defense against (D)DoS:</p>
 <ul>
 <li>attack prevention and preemption</li>
 <li>attack detection and filtering</li>
@@ -596,8 +595,8 @@
 <li>have ISP trace packet flow back to source</li>
 </ul>
 <hr>
-<h2 id="Phishing"><a href="#Phishing" class="headerlink" title="Phishing"></a>Phishing</h2><p>Spoofed emails</p>
-<h3 id="Phishing-techniques"><a href="#Phishing-techniques" class="headerlink" title="Phishing techniques"></a>Phishing techniques</h3><ul>
+<h1 id="Phishing"><a href="#Phishing" class="headerlink" title="Phishing"></a>Phishing</h1><p>Spoofed emails</p>
+<h2 id="Phishing-techniques"><a href="#Phishing-techniques" class="headerlink" title="Phishing techniques"></a>Phishing techniques</h2><ul>
 <li>Use confusing URLs</li>
 <li>Use URL with multiple redirection</li>
 <li>Host phishing sites on botnet zombies<ul>
@@ -619,7 +618,7 @@
 <p>Response from victim.com contains phishing page.</p>
 <p>All cache servers along the path will store the phishing page as the cache of victim.com.</p>
 <p>If an unsuspecting user of the same cache server requests victim.com, server will give him the cached phishing page instead.</p>
-<h3 id="Trusted-input-path-problem"><a href="#Trusted-input-path-problem" class="headerlink" title="Trusted input path problem"></a>Trusted input path problem</h3><p>Users are easily tricked into entering passwords into insecure non-password fields.</p>
+<h2 id="Trusted-input-path-problem"><a href="#Trusted-input-path-problem" class="headerlink" title="Trusted input path problem"></a>Trusted input path problem</h2><p>Users are easily tricked into entering passwords into insecure non-password fields.</p>
 <p>Sends keystroke to phisher.</p>
 <p>Defense #1: Internet Explorer 7.0</p>
 <p> “White list” of trusted sites</p>
@@ -637,14 +636,14 @@
 <p>Promises compliance with privacy legislation</p>
 <p>Long list of Liberty-enabled products</p>
 <p>As of June 2009, work has been transfered to Kantara Initiative.</p>
-<h3 id="Defenses-1"><a href="#Defenses-1" class="headerlink" title="Defenses"></a>Defenses</h3><p>Use mutual authentication</p>
+<h2 id="Defenses-1"><a href="#Defenses-1" class="headerlink" title="Defenses"></a>Defenses</h2><p>Use mutual authentication</p>
 <p>Non-Reusable credentials</p>
 <p>Basic technical mechanism available</p>
 <hr>
-<h2 id="Spam-analytics"><a href="#Spam-analytics" class="headerlink" title="Spam analytics"></a>Spam analytics</h2><p>Three main cost factors:</p>
+<h1 id="Spam-analytics"><a href="#Spam-analytics" class="headerlink" title="Spam analytics"></a>Spam analytics</h1><p>Three main cost factors:</p>
 <p>Retail cost to send <em> conversion rate </em> sale profit</p>
 <p>Crucial step: infiltration.</p>
-<h3 id="Mission-Spam-Conversion"><a href="#Mission-Spam-Conversion" class="headerlink" title="Mission: Spam Conversion"></a>Mission: Spam Conversion</h3><p>Infiltrate Storm at proxy level</p>
+<h2 id="Mission-Spam-Conversion"><a href="#Mission-Spam-Conversion" class="headerlink" title="Mission: Spam Conversion"></a>Mission: Spam Conversion</h2><p>Infiltrate Storm at proxy level</p>
 <p>rewrite spam instructions to use our own URLs</p>
 <p>… where we run our own websites and observe activity at each stage.</p>
 <p>We get rates for SMTP delivery, spam filtering, click-through, and final conversion.</p>
@@ -655,20 +654,20 @@
 <li>1-in-10 for website visitors</li>
 </ul>
 <hr>
-<h2 id="Firewalls-and-NAT"><a href="#Firewalls-and-NAT" class="headerlink" title="Firewalls and NAT"></a>Firewalls and NAT</h2><p>Firewalls: isolates organization’s internal net from larger Internet, allowing some packets to pass, blocking others.</p>
-<h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals:"></a>Goals:</h3><ul>
+<h1 id="Firewalls-and-NAT"><a href="#Firewalls-and-NAT" class="headerlink" title="Firewalls and NAT"></a>Firewalls and NAT</h1><p>Firewalls: isolates organization’s internal net from larger Internet, allowing some packets to pass, blocking others.</p>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><ul>
 <li>All traffic from outside to inside and vice-versa passes through the firewall.</li>
 <li>Only authorized traffic, as defined by local security policy, will be allowed to pass.</li>
 <li>Firewall itself is immune to penetration</li>
 </ul>
-<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><ul>
+<h2 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h2><ul>
 <li>Traditional packet filters (Filters often combined with router, creating a firewall)</li>
 <li>Stateful filters</li>
 <li>Application gateways</li>
 </ul>
 <p>Firewall == system that filters TCP/IP UDP/IP packets according to rules.</p>
 <p>Either software on user machine or network router.</p>
-<h4 id="Traditional-packet-filters"><a href="#Traditional-packet-filters" class="headerlink" title="Traditional packet filters"></a>Traditional packet filters</h4><p>Analyzes each datagram going through it; makes drop decision based on:</p>
+<h2 id="Traditional-packet-filters"><a href="#Traditional-packet-filters" class="headerlink" title="Traditional packet filters"></a>Traditional packet filters</h2><p>Analyzes each datagram going through it; makes drop decision based on:</p>
 <p>Src IP addr, Dst IP addr, Src Port, Dst Port, TCP flag bits,</p>
 <p>TCP or UDP or ICMP (Firewalls often configured to block all UDP),</p>
 <p>Direction, Router interface(Decisions can be different for different interfaces).</p>
@@ -693,7 +692,7 @@
 <p>Example command</p>
 <p>iptables –A INPUT –i eth0 –s 232.16.4.0/24 –j ACCEPT</p>
 <p>Append (add rules to the bottom), -interface, -source.</p>
-<h3 id="Stateful-filters"><a href="#Stateful-filters" class="headerlink" title="Stateful filters"></a>Stateful filters</h3><p>Stateless filters: Any packet with ACK=1 and source port 80 gets through.</p>
+<h2 id="Stateful-filters"><a href="#Stateful-filters" class="headerlink" title="Stateful filters"></a>Stateful filters</h2><p>Stateless filters: Any packet with ACK=1 and source port 80 gets through.</p>
 <ul>
 <li>Attack with malformed packets: send ACK=1 segments</li>
 </ul>
@@ -706,7 +705,7 @@
 <p>Log each TCP connection initiated through firewall: SYN segment.</p>
 <p>Rule table indicates check of stateful table:<br>See if there is a connection entry in stateful table</p>
 <p>Stateful filters can remember outgoing UDP segments.</p>
-<h3 id="Application-gateways"><a href="#Application-gateways" class="headerlink" title="Application gateways"></a>Application gateways</h3><p> (aka proxy servers)</p>
+<h2 id="Application-gateways"><a href="#Application-gateways" class="headerlink" title="Application gateways"></a>Application gateways</h2><p> (aka proxy servers)</p>
 <p>User and server talk through proxy.</p>
 <p>Allows fine grained/ sophisticated control.</p>
 <p>Hinders protocol attacks.</p>
@@ -725,7 +724,7 @@
 <p>Requires modification of client</p>
 <p>Performance</p>
 <p>Hinders end-to-end encryption</p>
-<h3 id="IP-traceback"><a href="#IP-traceback" class="headerlink" title="IP traceback"></a>IP traceback</h3><h4 id="Methods-for-finding-source"><a href="#Methods-for-finding-source" class="headerlink" title="Methods for finding source"></a>Methods for finding source</h4><ol>
+<h2 id="IP-traceback"><a href="#IP-traceback" class="headerlink" title="IP traceback"></a>IP traceback</h2><h3 id="Methods-for-finding-source"><a href="#Methods-for-finding-source" class="headerlink" title="Methods for finding source"></a>Methods for finding source</h3><ol>
 <li>Manual using current IP routing.</li>
 </ol>
 <p>Link testing:</p>
@@ -753,26 +752,28 @@
 <li>Trace attack using marked packets</li>
 </ul>
 <p>Assumption: Route from attacker to victim remains relatively stable.</p>
-<h3 id="Network-address-translation-NAT"><a href="#Network-address-translation-NAT" class="headerlink" title="Network address translation (NAT)"></a>Network address translation (NAT)</h3><p>Also known as Network masquerading, IP masquerading.</p>
-<h4 id="TURN-protocol"><a href="#TURN-protocol" class="headerlink" title="TURN protocol"></a>TURN protocol</h4><p>Traversal Using Relays around NAT</p>
+<p>Network address translation(NAT)</p>
+<p>Also known as Network masquerading, IP masquerading.</p>
+<p>TURN protocol</p>
+<p>Traversal Using Relays around NAT</p>
 <p>Protocol for UDP/TCP relaying behind NAT</p>
 <p>Data is bounced to a public TURN server</p>
 <p>No hole punching (Technique to allow traffic from/to a host behind a firewall/NAT without collaboration of the NAT itself)</p>
 <p>TURN works even behind symmetric NAT</p>
-<h4 id="NAT-traversal-Cooperating-NAT"><a href="#NAT-traversal-Cooperating-NAT" class="headerlink" title="NAT traversal: Cooperating NAT"></a>NAT traversal: Cooperating NAT</h4><h5 id="SOCKS"><a href="#SOCKS" class="headerlink" title="SOCKS"></a>SOCKS</h5><p>Client server protocol </p>
+<h3 id="NAT-traversal-Cooperating-NAT"><a href="#NAT-traversal-Cooperating-NAT" class="headerlink" title="NAT traversal: Cooperating NAT"></a>NAT traversal: Cooperating NAT</h3><h3 id="SOCKS"><a href="#SOCKS" class="headerlink" title="SOCKS"></a>SOCKS</h3><p>Client server protocol </p>
 <p>Enables client (behind firewall) to use server (in public Internet)</p>
 <p>Relays traffic</p>
 <p>Widely adopted</p>
-<h4 id="NAT-traversal-UPnP"><a href="#NAT-traversal-UPnP" class="headerlink" title="NAT traversal: UPnP"></a>NAT traversal: UPnP</h4><p>Defines: Internet Gateway Device (IGD) protocol<br>Enables:<br>❍ Learning of ones public (external) IP address<br>❍ Enumeration of existing port mappings<br>❍ Adding and removing port mappings<br>❍ Assigning lease times to mappings<br>❍ Applications to automatically configure NAT routing</p>
+<h3 id="NAT-traversal-UPnP"><a href="#NAT-traversal-UPnP" class="headerlink" title="NAT traversal: UPnP"></a>NAT traversal: UPnP</h3><p>Defines: Internet Gateway Device (IGD) protocol<br>Enables:<br>❍ Learning of ones public (external) IP address<br>❍ Enumeration of existing port mappings<br>❍ Adding and removing port mappings<br>❍ Assigning lease times to mappings<br>❍ Applications to automatically configure NAT routing</p>
 <hr>
-<h2 id="Web-Security"><a href="#Web-Security" class="headerlink" title="Web Security"></a>Web Security</h2><h3 id="Common-Vulnerabilities"><a href="#Common-Vulnerabilities" class="headerlink" title="Common Vulnerabilities"></a>Common Vulnerabilities</h3><p>XSS – Cross-site scripting</p>
+<h1 id="Web-Security"><a href="#Web-Security" class="headerlink" title="Web Security"></a>Web Security</h1><h2 id="Common-Vulnerabilities"><a href="#Common-Vulnerabilities" class="headerlink" title="Common Vulnerabilities"></a>Common Vulnerabilities</h2><p>XSS – Cross-site scripting</p>
 <p>Bad web site sends innocent victim a script that steals information from an honest web site.</p>
 <p>CSRF – Cross-site request forgery</p>
 <p>Bad website sends request to good website, using credentials of an innocent victim who “visits” site.</p>
 <p>SQL Injection</p>
 <p>Browser sends malicious input to server.</p>
 <p>Bad input checking leads to malicious SQL query.</p>
-<h3 id="Cookie-Same-Origin-Policy"><a href="#Cookie-Same-Origin-Policy" class="headerlink" title="Cookie Same Origin Policy"></a>Cookie Same Origin Policy</h3><p>DOM (Document Object Model)</p>
+<h2 id="Cookie-Same-Origin-Policy"><a href="#Cookie-Same-Origin-Policy" class="headerlink" title="Cookie Same Origin Policy"></a>Cookie Same Origin Policy</h2><p>DOM (Document Object Model)</p>
 <p>Web application servers are generally “stateless”.</p>
 <p>Statelessness causes problems for application developers: need to tie together a series of requests from the same user.</p>
 <hr>
@@ -808,7 +809,7 @@
 </ul>
 <p>Goal: server only sees cookies in its scope.</p>
 <hr>
-<h4 id="Cookie-protocol-problems"><a href="#Cookie-protocol-problems" class="headerlink" title="Cookie protocol problems"></a>Cookie protocol problems</h4><p>Server is blind:</p>
+<h2 id="Cookie-protocol-problems"><a href="#Cookie-protocol-problems" class="headerlink" title="Cookie protocol problems"></a>Cookie protocol problems</h2><p>Server is blind:</p>
 <p>Does not see cookie attributes (e.g. secure).<br>Does not see which domain set the cookie.</p>
 <p>Server only sees: Cookie: NAME=VALUE.</p>
 <p>Example 1: login server problems</p>
@@ -931,8 +932,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/19/Digital Communities Notes P3/" rel="next" title="Digital Communities Notes P3">
-                <i class="fa fa-chevron-left"></i> Digital Communities Notes P3
+              <a href="/2017/02/19/Digital Communities Notes P2/" rel="next" title="Digital Communities Notes P2">
+                <i class="fa fa-chevron-left"></i> Digital Communities Notes P2
               </a>
             
           </div>
@@ -940,6 +941,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/18/Internet Control Plane Notes/" rel="prev" title="Internet Control Plane Notes">
+                Internet Control Plane Notes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1059,7 +1064,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Worms"><span class="nav-number">1.</span> <span class="nav-text">Worms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-UCSD-Network-Telescope"><span class="nav-number">1.1.</span> <span class="nav-text">The UCSD Network Telescope</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defenses"><span class="nav-number">1.2.</span> <span class="nav-text">Defenses</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Botnets"><span class="nav-number">2.</span> <span class="nav-text">Botnets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Botnet-construction"><span class="nav-number">2.0.1.</span> <span class="nav-text">Botnet construction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-Flux-service-networks"><span class="nav-number">2.0.2.</span> <span class="nav-text">Fast-Flux service networks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Propagation"><span class="nav-number">2.0.3.</span> <span class="nav-text">Propagation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spam"><span class="nav-number">2.1.</span> <span class="nav-text">Spam</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Email-spoofing"><span class="nav-number">2.1.1.</span> <span class="nav-text">Email spoofing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Open-relays"><span class="nav-number">2.1.2.</span> <span class="nav-text">Open relays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Detecting-Botnets"><span class="nav-number">2.1.3.</span> <span class="nav-text">Detecting Botnets</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DDoS"><span class="nav-number">2.2.</span> <span class="nav-text">DDoS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Classic-Denial-of-Service-Attacks"><span class="nav-number">2.2.1.</span> <span class="nav-text">Classic Denial of Service Attacks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Source-Address-Spoofing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Source Address Spoofing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Types-of-Flooding-Attacks"><span class="nav-number">2.2.3.</span> <span class="nav-text">Types of Flooding Attacks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reflection-Attacks"><span class="nav-number">2.2.4.</span> <span class="nav-text">Reflection Attacks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DoS-Attack-Defenses"><span class="nav-number">2.2.5.</span> <span class="nav-text">DoS Attack Defenses</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phishing"><span class="nav-number">3.</span> <span class="nav-text">Phishing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Phishing-techniques"><span class="nav-number">3.1.</span> <span class="nav-text">Phishing techniques</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trusted-input-path-problem"><span class="nav-number">3.2.</span> <span class="nav-text">Trusted input path problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Liberty-Alliance"><span class="nav-number">3.3.</span> <span class="nav-text">Liberty Alliance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defenses-1"><span class="nav-number">3.4.</span> <span class="nav-text">Defenses</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spam-analytics"><span class="nav-number">4.</span> <span class="nav-text">Spam analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mission-Spam-Conversion"><span class="nav-number">4.1.</span> <span class="nav-text">Mission: Spam Conversion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Firewalls-and-NAT"><span class="nav-number">5.</span> <span class="nav-text">Firewalls and NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals"><span class="nav-number">5.1.</span> <span class="nav-text">Goals:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Taxonomy"><span class="nav-number">5.2.</span> <span class="nav-text">Taxonomy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Traditional-packet-filters"><span class="nav-number">5.2.1.</span> <span class="nav-text">Traditional packet filters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stateful-filters"><span class="nav-number">5.3.</span> <span class="nav-text">Stateful filters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-gateways"><span class="nav-number">5.4.</span> <span class="nav-text">Application gateways</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-traceback"><span class="nav-number">5.5.</span> <span class="nav-text">IP traceback</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Methods-for-finding-source"><span class="nav-number">5.5.1.</span> <span class="nav-text">Methods for finding source</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-address-translation-NAT"><span class="nav-number">5.6.</span> <span class="nav-text">Network address translation (NAT)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TURN-protocol"><span class="nav-number">5.6.1.</span> <span class="nav-text">TURN protocol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT-traversal-Cooperating-NAT"><span class="nav-number">5.6.2.</span> <span class="nav-text">NAT traversal: Cooperating NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SOCKS"><span class="nav-number">5.6.2.1.</span> <span class="nav-text">SOCKS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT-traversal-UPnP"><span class="nav-number">5.6.3.</span> <span class="nav-text">NAT traversal: UPnP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Security"><span class="nav-number">6.</span> <span class="nav-text">Web Security</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Vulnerabilities"><span class="nav-number">6.1.</span> <span class="nav-text">Common Vulnerabilities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie-Same-Origin-Policy"><span class="nav-number">6.2.</span> <span class="nav-text">Cookie Same Origin Policy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-protocol-problems"><span class="nav-number">6.2.1.</span> <span class="nav-text">Cookie protocol problems</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Worms"><span class="nav-number">1.</span> <span class="nav-text">Worms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-UCSD-Network-Telescope"><span class="nav-number">1.1.</span> <span class="nav-text">The UCSD Network Telescope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defenses"><span class="nav-number">1.2.</span> <span class="nav-text">Defenses</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Botnets"><span class="nav-number">2.</span> <span class="nav-text">Botnets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Botnet-construction"><span class="nav-number">2.1.</span> <span class="nav-text">Botnet construction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fast-Flux-service-networks"><span class="nav-number">2.2.</span> <span class="nav-text">Fast-Flux service networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propagation"><span class="nav-number">2.3.</span> <span class="nav-text">Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DoS"><span class="nav-number">2.3.1.</span> <span class="nav-text">DoS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DDos"><span class="nav-number">2.3.2.</span> <span class="nav-text">DDos</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spam"><span class="nav-number">3.</span> <span class="nav-text">Spam</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Email-spoofing"><span class="nav-number">3.1.</span> <span class="nav-text">Email spoofing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-relays"><span class="nav-number">3.2.</span> <span class="nav-text">Open relays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Detecting-Botnets"><span class="nav-number">3.3.</span> <span class="nav-text">Detecting Botnets</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDoS"><span class="nav-number">4.</span> <span class="nav-text">DDoS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Classic-Denial-of-Service-Attacks"><span class="nav-number">4.1.</span> <span class="nav-text">Classic Denial of Service Attacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-Address-Spoofing"><span class="nav-number">4.2.</span> <span class="nav-text">Source Address Spoofing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-Flooding-Attacks"><span class="nav-number">4.3.</span> <span class="nav-text">Types of Flooding Attacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflection-Attacks"><span class="nav-number">4.4.</span> <span class="nav-text">Reflection Attacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DoS-Attack-Defenses"><span class="nav-number">4.5.</span> <span class="nav-text">DoS Attack Defenses</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Phishing"><span class="nav-number">5.</span> <span class="nav-text">Phishing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Phishing-techniques"><span class="nav-number">5.1.</span> <span class="nav-text">Phishing techniques</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trusted-input-path-problem"><span class="nav-number">5.2.</span> <span class="nav-text">Trusted input path problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Liberty-Alliance"><span class="nav-number">5.2.1.</span> <span class="nav-text">Liberty Alliance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defenses-1"><span class="nav-number">5.3.</span> <span class="nav-text">Defenses</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spam-analytics"><span class="nav-number">6.</span> <span class="nav-text">Spam analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mission-Spam-Conversion"><span class="nav-number">6.1.</span> <span class="nav-text">Mission: Spam Conversion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Firewalls-and-NAT"><span class="nav-number">7.</span> <span class="nav-text">Firewalls and NAT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Goals"><span class="nav-number">7.1.</span> <span class="nav-text">Goals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Taxonomy"><span class="nav-number">7.2.</span> <span class="nav-text">Taxonomy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traditional-packet-filters"><span class="nav-number">7.3.</span> <span class="nav-text">Traditional packet filters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stateful-filters"><span class="nav-number">7.4.</span> <span class="nav-text">Stateful filters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-gateways"><span class="nav-number">7.5.</span> <span class="nav-text">Application gateways</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP-traceback"><span class="nav-number">7.6.</span> <span class="nav-text">IP traceback</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods-for-finding-source"><span class="nav-number">7.6.1.</span> <span class="nav-text">Methods for finding source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT-traversal-Cooperating-NAT"><span class="nav-number">7.6.2.</span> <span class="nav-text">NAT traversal: Cooperating NAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SOCKS"><span class="nav-number">7.6.3.</span> <span class="nav-text">SOCKS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT-traversal-UPnP"><span class="nav-number">7.6.4.</span> <span class="nav-text">NAT traversal: UPnP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-Security"><span class="nav-number">8.</span> <span class="nav-text">Web Security</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-Vulnerabilities"><span class="nav-number">8.1.</span> <span class="nav-text">Common Vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-Same-Origin-Policy"><span class="nav-number">8.2.</span> <span class="nav-text">Cookie Same Origin Policy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-protocol-problems"><span class="nav-number">8.3.</span> <span class="nav-text">Cookie protocol problems</span></a></li></ol></li></ol></div>
             
 
           </div>
