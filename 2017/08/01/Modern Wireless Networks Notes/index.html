@@ -1,0 +1,1089 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Selected issues of wireless communicationsPath loss. $1/r^2$ in free space and $1/r^3$ to $1/r^4$ indoor. Slow fading (shadowing)  caused by obstacles in the transmission line (houses, trees, etc.) is">
+<meta name="keywords" content="Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireless Networks Notes">
+<meta property="og:url" content="http://yoursite.com/2017/08/01/Modern Wireless Networks Notes/index.html">
+<meta property="og:site_name" content="迷雾">
+<meta property="og:description" content="Selected issues of wireless communicationsPath loss. $1/r^2$ in free space and $1/r^3$ to $1/r^4$ indoor. Slow fading (shadowing)  caused by obstacles in the transmission line (houses, trees, etc.) is">
+<meta property="og:image" content="http://yoursite.com/image/Wireless/802%20frame%20structure.PNG">
+<meta property="og:image" content="http://yoursite.com/image/Wireless/MAC%20header.PNG">
+<meta property="og:image" content="http://yoursite.com/image/Wireless/Frame%20Control%20field.PNG">
+<meta property="og:updated_time" content="2017-12-06T12:07:00.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wireless Networks Notes">
+<meta name="twitter:description" content="Selected issues of wireless communicationsPath loss. $1/r^2$ in free space and $1/r^3$ to $1/r^4$ indoor. Slow fading (shadowing)  caused by obstacles in the transmission line (houses, trees, etc.) is">
+<meta name="twitter:image" content="http://yoursite.com/image/Wireless/802%20frame%20structure.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/01/Modern Wireless Networks Notes/"/>
+
+
+
+
+
+  <title>Wireless Networks Notes | 迷雾</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">迷雾</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/Modern Wireless Networks Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangfeng Du">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="迷雾">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Wireless Networks Notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-01T20:23:21+02:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Selected-issues-of-wireless-communications"><a href="#Selected-issues-of-wireless-communications" class="headerlink" title="Selected issues of wireless communications"></a>Selected issues of wireless communications</h1><p>Path loss. $1/r^2$ in free space and $1/r^3$ to $1/r^4$ indoor.</p>
+<p>Slow fading (shadowing)</p>
+<ul>
+<li>caused by obstacles in the transmission line (houses, trees, etc.)</li>
+<li>is a random attenuation on top of path loss</li>
+<li>varies in time → changes within seconds</li>
+</ul>
+<a id="more"></a>
+<p>Fast fading (sometimes just referred to as fading)</p>
+<ul>
+<li>caused by multi-path propagation</li>
+<li>is a random attenuation on top of path loss and slow fading</li>
+<li>always varies in frequency → frequency-selective fading if communication channel is larger than the “width of attenuation variation in frequency”</li>
+<li>Usually also varies in time (time-selective fading), if in combination with multipath propagation transmitter and/or receiver (or some reflectors) are moving!</li>
+</ul>
+<hr>
+<h1 id="MAC-in-wireless-networks"><a href="#MAC-in-wireless-networks" class="headerlink" title="MAC in wireless networks"></a>MAC in wireless networks</h1><p>Duplex: FDD, TDD(Time Division Duplex)<br>Multiple Access methods:<br>SDMA (Space Division Multiple Access): use directed antennas.<br>FDMA (permanent (e.g., radio broadcast), slow hopping (e.g., GSM), fast hopping (FHSS, Frequency Hopping Spread Spectrum))<br>TDMA<br>CDMA (assign a specific code to a transmission channel between a sender and a receiver for a certain amount of time - a large scope of frequency used)</p>
+<h2 id="Centralized-Medium-Access"><a href="#Centralized-Medium-Access" class="headerlink" title="Centralized Medium Access"></a>Centralized Medium Access</h2><p>Idea: have a central station controlling when a node may access the medium.<br>Not directly feasible for non-trivial wireless network sizes.<br>But: can be quite useful when network is somehow divided into smaller groups: Clusters (for example, Bluetooth piconets)</p>
+<h2 id="CSMA"><a href="#CSMA" class="headerlink" title="CSMA"></a>CSMA</h2><p><em>Carrier Sense Multiple Access</em><br>reduce collisions using carrier sensing</p>
+<ul>
+<li>Listen-before-you-talk</li>
+<li>A host may transmit only if the channel is sensed as idle</li>
+</ul>
+<p>In wired world: Collision Detection (CD). Stop transmitting immediately once collision is detected.<br>Two types of overlapping transmissions:<br>simultaneous (time), concurrent (space).</p>
+<p><strong>Hidden Terminal Problem</strong>: A is hidden from C; C transmits to B while A is also transmitting to B → collision → packet losses.</p>
+<p><strong>Exposed Terminal Problem</strong>: C is exposed to B; when C wants to transmit to D, it defers unnecessarily while B is transmitting to A → low channel utilization.</p>
+<h3 id="Solutions-for-Hidden-Terminals"><a href="#Solutions-for-Hidden-Terminals" class="headerlink" title="Solutions for Hidden Terminals"></a>Solutions for Hidden Terminals</h3><p>Busy-tone<br>Uses two frequency bands:</p>
+<ul>
+<li>the data band is used to transmit data packets</li>
+<li>the busy-tone band is used to transmit busy-tone signals</li>
+</ul>
+<p>Approach: while receiving a packet a station sends an ongoing signal on the busy-tone band. The carrier sensing is performed on the busy-tone channel.</p>
+<h2 id="Virtual-carrier-sensing"><a href="#Virtual-carrier-sensing" class="headerlink" title="Virtual carrier sensing"></a>Virtual carrier sensing</h2><p>Collision avoidance is based on virtual carrier sense, not on physical carrier sense because PCS gives information about collision at the sender, not at the receiver.</p>
+<ul>
+<li>“Reserve” the wireless channel before transmitting data</li>
+<li>Send short control packets for reservation:<ul>
+<li>RTS = Request-to-Send: sender requests the right to send from a receiver </li>
+<li>CTS = Clear-to-Send: the receiver grants the right to send</li>
+</ul>
+</li>
+</ul>
+<h3 id="IEEE-802-11-DCF"><a href="#IEEE-802-11-DCF" class="headerlink" title="IEEE 802.11 DCF"></a>IEEE 802.11 DCF</h3><p>Distributed and centralized MAC components:</p>
+<ul>
+<li>Distributed Coordination Function (DCF)</li>
+<li>Point Coordination Function (PCF)</li>
+</ul>
+<p>DCF suitable for multi-hop ad hoc networking.<br>DCF is a Carrier Sense Multiple Access/Collision Avoidance (CSMA/CA) protocol.</p>
+<ul>
+<li>Physical and virtual carrier sensing (RTS-CTS)</li>
+<li>Contention window (CW) : backoff chosen uniformly in [0, CW − 1]</li>
+<li>Exponential backoff after a packet loss</li>
+<li>Contention window reset to CWmin on a success</li>
+<li>Uses ACK to achieve reliability</li>
+</ul>
+<p>The time spent counting down backoff intervals is a part of MAC overhead.<br>CW is chosen dynamically depending on collision occurrence.</p>
+<h1 id="IEEE-802"><a href="#IEEE-802" class="headerlink" title="IEEE 802"></a>IEEE 802</h1><h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><p>IEEE 802.x framework<br>Duplexing: The signals moving between two elements in opposite directions can be separated using time division duplexing (TDD) or frequency division duplexing (FDD). In the case of CSMA, duplexing is not relevant.</p>
+<p>FHSS (Frequency Hopping Spread Spectrum)<br>DSSS (Direct Sequence Spread Spectrum)<br>RADIUS (Remote Authentication Dial-In User Service)<br>The DHCP server may be a separate network element (or for example integrated into a RADIUS server that offers a set of additional features), or may be integrated with the address mapping router and/or access point.</p>
+<p>Inter-Access Point Protocol (IAPP)<br>IAPP (defined in IEEE 802.11f) offers mobility in the Data link layer (within an ESS = Extended Service Set).</p>
+<p>IEEE 802.11 frame structure<br><img src="/image/Wireless/802 frame structure.PNG" alt="802 frame structure"><br>LLC (Logical Link Control)<br>SDU (Service Data Unit)<br>PLCP (Physical Layer Convergence Procedure)</p>
+<hr>
+<h2 id="MAC-Header"><a href="#MAC-Header" class="headerlink" title="MAC Header"></a>MAC Header</h2><p><img src="/image/Wireless/MAC header.PNG" alt="MAC header"><br>FCS (Frame Check Sequence)<br><img src="/image/Wireless/Frame Control field.PNG" alt="Frame Control field"><br>Protocol: Indicates IEEE 802.11 MAC<br>Type: 00 (Management frames), 01 (Control frames), 10 (Data frames).<br>Subtype of frame: Describes type of management, control, or data frame in more detail (e.g. ACK =&gt; 1101).<br>Flags 1: Bit is set if frame is sent to AP, 2: Bit is set if frame is sent from AP, 3: Used in fragmentation, 4: Bit is set if frame is retransmitted, 5: Power management bit (power saving operation), 6: More data bit (power-saving operation), 7: Bit is set if WEP is used, 8: Strict ordering of frames is required.</p>
+<p>Address 1: Receiver (wireless station or AP)<br>Address 2: Sender (wireless station or AP)<br>Address 3: Ultimate source/destination (router in DS(Distribution System))<br>Address 4: Only used in Wireless Bridge solutions.<br>Direction: Wireless station -&gt; AP</p>
+<p>Sequence control field (2 bytes)<br>Fragment number (for identifying fragments) (4 bits)<br>Frame sequence number (for identifying frames) (12 bits)</p>
+<hr>
+<p>Data Frame<br>Control Frame (e.g. ACKs)<br>Management Frame</p>
+<ul>
+<li>Beacon frames <ul>
+<li>Timestamp(synchronization)</li>
+<li>Beacon interval</li>
+<li>Capability info</li>
+<li>SSID</li>
+<li>Channel number(optional)</li>
+</ul>
+</li>
+<li>Probe request &amp; response frames (SSID, bit rates supported)</li>
+<li>Association request<ul>
+<li>SSID, capability info, bit rates supported</li>
+</ul>
+</li>
+<li>&amp; response frames <ul>
+<li>Capability info, bit rates supported</li>
+<li>Status code (success or failure with failure cause)</li>
+<li>Association ID (used for various purposes)</li>
+</ul>
+</li>
+</ul>
+<p>Station connecting to a WLAN<br>1.Scanning. 2. Association. 3. IP addr. allocation. 4. Authentication.</p>
+<h2 id="WLAN-MAC"><a href="#WLAN-MAC" class="headerlink" title="WLAN MAC"></a>WLAN MAC</h2><p>CSMA/CD rule: Backoff after collision.<br>CSMA/CA rule: Backoff before collision.<br>Basic CSMA/CD operation: 1) Wait for free medium. 2) Transmit frame. 3) If collision, stop transmission immediately. 4) Retransmit after random time (backoff)<br>Basic CSMA/CA operation: 1)Wait for free medium. 2) Wait a random time (backoff). 3) Transmit frame. 4) If collision, the stations do not notice it. 5) Collision =&gt; erroneous frame =&gt; no ACK returned.</p>
+<p>DCF (Distributed Coordination Function) based on CSMA/CA, used for contention services.<br>2 mechanisms for reserving the channel:<br>Physical carrier sensing and Virtual carrier sensing using the socalled <u>Network Allocation Vector (NAV)</u>.</p>
+<p>Physical carrier sensing means that the physical layer (PHY) informs the MAC layer when a frame has been detected.</p>
+<p>Virtual carrier sensing means that a NAV value is set in all stations that were able to receive a transmitted frame and were able to read the NAV value in this frame.</p>
+<p>SIFS (Short InterFrame Space) = 10 µs (16 µs) / 802.11b (802.11g)<br>DIFS (DCF InterFrame Space) = 50 µs (34 µs)<br>Duration field in header: 15 bits contain the NAV value in number of microseconds. The last (sixteenth) bit is zero.</p>
+<p>Contention window (CW)<br>Initial attempt, CW = 16-1 = 15 slots (slot = 9 µs) in 802.11g.<br>ACK frame structure : with only one addr. (frame sender)</p>
+<hr>
+<h2 id="WLAN-PHY"><a href="#WLAN-PHY" class="headerlink" title="WLAN PHY"></a>WLAN PHY</h2><h3 id="802-11b"><a href="#802-11b" class="headerlink" title="802.11b"></a>802.11b</h3><p>ISM 2.4G band, channel spacing = 5MHz.<br>IEEE 802.11b frame structure (PHY layer)</p>
+<p>Preamble - synchronizes the transmitter and receiver</p>
+<ul>
+<li>Sync field - 128-bit field composed entirely of 1s</li>
+<li>Start Frame Delimiter - allows the receiver to find the start of the frame (e.g. 0000 0101 1100 1111)</li>
+</ul>
+<p>Header - has PHY-specific parameters used by the PLCP</p>
+<ul>
+<li>Signaling field used to identify the transmission rate of the encapsulated MAC frame</li>
+<li>Service identification field (not used)</li>
+<li>Length field</li>
+<li>16-CRC</li>
+</ul>
+<h3 id="802-11a-g"><a href="#802-11a-g" class="headerlink" title="802.11a/g"></a>802.11a/g</h3><p>OFDM (Orthogonal Frequency Division Multiplexing)<br>The information is carried over the radio medium using orthogonal subcarriers. A channel (16.25 MHz wide) is divided into 52 subcarriers (48 subcarriers for data and 4 subcarriers serving as pilot signals).<br>Subcarriers are modulated using BPSK, QPSK, 16-QAM, or 64-QAM, and coded using convolutional codes (R = 1/2, 2/3, and 3/4), depending on the data rate.</p>
+<h2 id="802-11e"><a href="#802-11e" class="headerlink" title="802.11e"></a>802.11e</h2><p>ITU-T Recommendation G.114 states that the <u>round-trip delay should be less than 300 ms for telephony</u>.<br>PER (packet error ratio)<br>QoS solutions in 802.11 networks</p>
+<ul>
+<li>The 802.11 standard defines the <u>Point Coordination Function (PCF) for carrying real-time traffic</u>. This solution has not been widely implemented.</li>
+<li>A number of advanced QoS solutions have been defined in the 802.11e standard (approved in 2005).</li>
+</ul>
+<h3 id="PCF-operation"><a href="#PCF-operation" class="headerlink" title="PCF operation"></a>PCF operation</h3><p>B = Beacon frame (sent by AP to indicate start of CFP)<br>CFP(Contention-Free Period) is reserved for real-time traffic.<br>CP(Contention Period) normal DCF operation<br>Undisturbed CFP operation is guaranteed in two ways:<br>• The NAV value in the beacon signal = length of CFP<br>• Usage of PIFS within CFP (instead of DIFS), PIFS &lt; DIFS<br>PCF is based on polling.</p>
+<p>Shortcomings:</p>
+<ul>
+<li>Differentiation between traffic classes is not possible</li>
+<li>No mechanisms for wireless stations to communicate QoS requirements to the access point</li>
+<li>The contention free period (CFP) length cannot be dynamically changed according to traffic needs</li>
+</ul>
+<p>The 802.11e standard defines a new <u>Hybrid Coordination Function (HCF)</u> that offers two modes of operation:<br><u>Enhanced DCF (EDCF)</u> is like DCF, but introduces different priority levels for different services.<br><u>HCF Controlled Channel Access (HCCA)</u> is a CSMA/CA-compatible polling-based access method.</p>
+<h3 id="EDCF"><a href="#EDCF" class="headerlink" title="EDCF"></a>EDCF</h3><p>Channel access is controlled by using four differentiating parameters:</p>
+<ul>
+<li>Minimum contention window size (CWmin)</li>
+<li>Maximum contention window size (CWmax)</li>
+<li>Arbitration Interframe Space (AIFS) = variable DIFS</li>
+<li>Transmission Opportunity (TXOP) specifies the time (maximum duration) during which a wireless station can transmit a series of frames.<br>The IEEE 802.1D(p) standard defines 8 Access Categories (AC) for differentiating users that have different priority requirements.</li>
+</ul>
+<h3 id="HCCA"><a href="#HCCA" class="headerlink" title="HCCA"></a>HCCA</h3><p>HCCA can poll stations also during the Contention Period (CP).<br>Stations can communicate their QoS requirements (data rate, delay, packet size…) to the access point.<br>HCCA supports scheduling of packets based on the QoS requirements.</p>
+<h3 id="Voice-speech-coding-schemes"><a href="#Voice-speech-coding-schemes" class="headerlink" title="Voice (speech) coding schemes"></a>Voice (speech) coding schemes</h3><p><u>Standard PCM (Pulse Code Modulation)</u> produces a fixed bit rate of <u>64 kbit/s</u>.<br>G.726 specifies an Adaptive Differential PCM (ADPCM) codec which produces various bit rates (16, 24, 32, or 40 kbit/s).</p>
+<hr>
+<h1 id="IP-based-mobility"><a href="#IP-based-mobility" class="headerlink" title="IP based mobility"></a>IP based mobility</h1><p>System decomposition of a handover process</p>
+<ul>
+<li>Network discovery &amp; selection</li>
+<li>Network attachment</li>
+<li>Configuration</li>
+<li>Security association</li>
+<li>Binding update</li>
+<li>Media reroute</li>
+</ul>
+<h2 id="HMIPv4"><a href="#HMIPv4" class="headerlink" title="HMIPv4"></a>HMIPv4</h2><p>Mobile IP Regional Registration / Hierarchical Mobile IPv4<br>Approach:  distribute FA functionality between multiple FA to realize improved support for local mobility.<br>GFA and RFA.</p>
+<p>MH registers with HA using the address of FA1.<br>A packet for MH tunneled to FA1 then down to each FA.<br>During movement inside the domain, the MN only sends a intra-domain Binding Update to the MA.</p>
+<h2 id="FMIPv4"><a href="#FMIPv4" class="headerlink" title="FMIPv4"></a>FMIPv4</h2><p>Mobile IPv4 Fast Handovers (FMIPv4) (RFC 4988)<br>Idea: avoid disconnection during handover by bi-casting traffic to the previous FA and new FA while MH is moving between them.</p>
+<p>requires an MH to be able to communicate with two FAs at the same time.<br>MH sends solicitation to new FA before handover.<br>During HO, the MH can receive traffic via both FAs.</p>
+<h2 id="Mobile-IPv6"><a href="#Mobile-IPv6" class="headerlink" title="Mobile IPv6"></a>Mobile IPv6</h2><p>No need for a separate FA, all routers perform router advertisement which can be used instead of the special agent advertisement.<br>MH can signal a sender directly the CoA, sending via HA not needed in this case (automatic path optimization).<br>Address auto-configuration is inherent in IPv6.</p>
+<h2 id="HMIPv6"><a href="#HMIPv6" class="headerlink" title="HMIPv6"></a>HMIPv6</h2><p>Hierarchical Mobile IPv6<br>no hierarchy of “FAs” as in HMIPv4.<br>New entity Mobility Anchor Point (MAP):<br>basically a kind of FA for Mobile IPv6 with the different purpose of speeding up HOs and <u>not requiring direct link layer connectivity to MH.</u><br>MH uses MAP address (learned from router advertisements) as alternate CoA and MAP receives and tunnels packets to MH’s current address.</p>
+<p>Additional features:<br>MH can register with more than one MAP simultaneously and use each MAP address for a specific group of correspondent hosts.<br>MAP can keep simultaneous bindings and bi-cast packets to MH on both paths when mobile host does handover.</p>
+<h3 id="FMIPv6"><a href="#FMIPv6" class="headerlink" title="FMIPv6"></a>FMIPv6</h3><p>IPv6 pro-active handoff (FMIPV6) (RFC 5268)<br>Handover Initiation<br>Tunnel establishment<br>Forwarding</p>
+<h1 id="TCP-over-wireless"><a href="#TCP-over-wireless" class="headerlink" title="TCP over wireless"></a>TCP over wireless</h1><p>Impact of transmission errors on TCP performance<br>Every packet loss is interpreted as an indication for congestion resulting in a reduced sending rate!<br>Now, in wireless network:</p>
+<ul>
+<li>If number of errors is small, they may be corrected by an error correcting code.</li>
+<li>Excessive bit errors result in a packet being discarded, possibly before it reaches the transport layer.</li>
+</ul>
+<p>Reducing congestion window in response to errors is unnecessary.</p>
+<p>If wireless link remains unavailable for extended duration, a window worth of data may be lost. (when a car driving through a tunnel)<br>Then Timeout results in slow start.</p>
+<hr>
+<p>Solution:<br>Classification #1, based on nature of actions<br>Hide error losses from the sender</p>
+<ul>
+<li>if sender is unaware of the packet losses due to errors, it will not reduce cwnd<br>Let sender know, or determine, cause of packet loss</li>
+<li>if sender knows that a packet loss is due to errors, it will not reduce cwnd.</li>
+</ul>
+<p>Classification #2, where modifications are needed<br>At the sender node only<br>At the receiver node only<br>At intermediate node(s) only<br>Combinations of the above</p>
+<hr>
+<h2 id="Link-level-retransmissions"><a href="#Link-level-retransmissions" class="headerlink" title="Link-level retransmissions"></a>Link-level retransmissions</h2><p>Best results among different link-layer retransmission strategies are achieved with an immediate acknowledgement within the MAC protocol.<br>Classification</p>
+<ol>
+<li>Hide wireless losses from TCP sender.</li>
+<li>Link layer modifications needed at both ends of wireless link.</li>
+</ol>
+<h2 id="Split-connection-approach"><a href="#Split-connection-approach" class="headerlink" title="Split connection approach"></a>Split connection approach</h2><p>End-to-end TCP connection is <u>broken into one connection on the wired</u> part of route and <u>one over wireless part</u> of the route.<br>Split connection results in independent flow control for the two parts.<br>If wireless link is not last on route, then more than two TCP connections may be needed.</p>
+<h3 id="Example-Indirect-TCP-I-TCP"><a href="#Example-Indirect-TCP-I-TCP" class="headerlink" title="Example: Indirect TCP (I-TCP)"></a>Example: Indirect TCP (I-TCP)</h3><p>Principle: Separate transport connection used for fixed and wireless segments. End-to-End connectivity support via <u>a transport layer gateway</u> placed in the base station.<br>Separation of flow and congestion control of the wireless link from that of the wired part.<br>specialized protocol (a modified version - TCP) used for wireless part.</p>
+<h3 id="Example-Mobile-TCP"><a href="#Example-Mobile-TCP" class="headerlink" title="Example: Mobile TCP"></a>Example: Mobile TCP</h3><p>Low overhead protocol at wireless hosts.<br>No congestion control over wireless hop.<br>Preserve TCP’s semantic by using a “Redirector” on the base station part.</p>
+<h3 id="Example-M-TCP"><a href="#Example-M-TCP" class="headerlink" title="Example: M-TCP"></a>Example: M-TCP</h3><p>Terminate the TCP connection at BS.</p>
+<ul>
+<li>BS pretends to be MH (MH’s IP functionality moved to BS).</li>
+<li>BS-MH link can use any arbitrary protocol optimized for wireless link.</li>
+</ul>
+<h3 id="TCP-aware-link-layer"><a href="#TCP-aware-link-layer" class="headerlink" title="TCP-aware link layer"></a>TCP-aware link layer</h3><p>Example: Snoop TCP<br>Retains local recovery of split connection approach and link level retransmission schemes.<br>Improves on split connection:</p>
+<ul>
+<li>end-to-end semantics retained</li>
+<li>soft state at base station, instead of hard state</li>
+</ul>
+<p>Snoop instance (located within a base station) can receive, interpret, filter and generate TCP segments.<br>Snoop-function:</p>
+<ul>
+<li>Keeps track of unacknowledged packets (cache) and ACKs.</li>
+<li>Cares for local retransmission and ACKs for the sender (FH).</li>
+<li>Filtering of duplicate ACKs - prevents fast retransmit at TCP sender (FH) by dropping the Dup ACKs at BS.</li>
+</ul>
+<hr>
+<h1 id="Bluetooth"><a href="#Bluetooth" class="headerlink" title="Bluetooth"></a>Bluetooth</h1><p>Bluetooth technology allows of the replacement of many propriety cables that connect one device to another with one universal short-range radio-link.<br>Bluetooth® Basic Rate/Enhanced Data Rate (BR/EDR)</p>
+<h2 id="Piconet"><a href="#Piconet" class="headerlink" title="Piconet"></a>Piconet</h2><p>All devices can be acting as a master/slave.<br>Piconet is established and controlled by master.<br>Communication between slaves is not possible.<br>Only 3 bits used for Bluetooth MAC: up to 7 slaves can be connected to master.<br>Interpiconet communication shall be possible by forwarding nodes (special slaves).</p>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>Bluetooth is defined as a layer protocol architecture consisting of core protocols, cable replacement protocols, telephony control protocols, and adopted protocols.<br>Mandatory protocols for all Bluetooth stacks are: LMP, L2CAP and SDP.<br>Additionally, these protocols are almost universally supported: HCI and RFCOMM.</p>
+<h2 id="Bluetooth-baseband"><a href="#Bluetooth-baseband" class="headerlink" title="Bluetooth baseband"></a>Bluetooth baseband</h2><p>Time Division Duplex (TDD): first slot is reserved for master, second slot is occupied by slave.<br>Hopping is performed on a per-slot basis - 1600 hop/s means one hop every 0.625 ms.</p>
+<h2 id="Packet-format"><a href="#Packet-format" class="headerlink" title="Packet format"></a>Packet format</h2><p>3 fields: access code, header, payload.<br>(Channel) Access Code is used for: synchronization, DC offset compensation and, identification and signaling.<br>Header contains link control (LC) information: addressing and flow control.</p>
+<h2 id="Link-control"><a href="#Link-control" class="headerlink" title="Link control"></a>Link control</h2><p>Standby (device powered on)<br>Inquiry (discover devices in the area and collect addresses)<br>Page (connect to a specific device)<br>Page scan (device waiting for a piconet master)<br>Connection (actively on a piconet)</p>
+<h3 id="Inquiry"><a href="#Inquiry" class="headerlink" title="Inquiry"></a>Inquiry</h3><p>Each device wants to know from other devices:</p>
+<ul>
+<li>device address, used for addressing</li>
+<li>clock offset, used for synchronization</li>
+<li>hopping sequence of other devices</li>
+</ul>
+<p>Inquiry Packet has unique device address and Channel Access Code.<br>Receiver Correlator hit causes device to respond with FHS packet containing: device ID and clock(offset). (Frequency hopping scheme)<br>Inquirer sends multiple inquiries using different frequencies.</p>
+<h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Paging is used to establish a connection. Pager will be master. Other device(s) will be slave.<br>Master knows slaves device ID and has an idea of its clock.<br>Master knows hopping sequence and guesses current hopping frequency.</p>
+<p>Procedure<br>Master pages slave (packet has slave ID) at guessed slave page frequency (1 of 32).</p>
+<ul>
+<li>Master sends page train of 16 most likely frequencies in slave hop sequence.</li>
+</ul>
+<p>Slave listens - if correlator triggers, slave wakes-up and relays packet at response frequency. . . (same as inquiry).<br>Master updates clock information of slave (transmits FHS packet and expects ID packet).</p>
+<h3 id="Link-Manager-Protocol-LMP"><a href="#Link-Manager-Protocol-LMP" class="headerlink" title="Link Manager Protocol (LMP)"></a>Link Manager Protocol (LMP)</h3><p>Piconet management</p>
+<ul>
+<li>attach and detach slaves</li>
+<li>master-slave switch</li>
+<li>establishing SCO links</li>
+<li>handling of low power modes (Sniff, Hold, Park)</li>
+</ul>
+<h2 id="Low-power-mode"><a href="#Low-power-mode" class="headerlink" title="Low power mode"></a>Low power mode</h2><p>Traffic is reduced to periodic <strong>sniff slots</strong>.<br>Switch off power <u>after hold offset for hold duration period</u>.<br>Power saving when keeping more than 7 slaves in a piconet: (Park)</p>
+<ul>
+<li>Give up active member address, yet maintain synchronization</li>
+<li>Communication via broadcast LMP messages</li>
+</ul>
+<h2 id="L2CAP"><a href="#L2CAP" class="headerlink" title="L2CAP"></a>L2CAP</h2><p>Logical Link Control and Adaptation Protocol<br>Setup and management of baseband connections:</p>
+<ul>
+<li>Protocol multiplexing</li>
+<li>Segmentation and re-assembly</li>
+<li>Quality of service negotiation</li>
+</ul>
+<h2 id="Service-Discovery-Protocol-SDP"><a href="#Service-Discovery-Protocol-SDP" class="headerlink" title="Service Discovery Protocol (SDP)"></a>Service Discovery Protocol (SDP)</h2><p>Examples include:</p>
+<ul>
+<li>Establish L2CAP connection to remote device</li>
+<li>Query for services<ul>
+<li>search for specific class of service, or browse for services</li>
+</ul>
+</li>
+<li>Retrieve attributes that detail how to connect to the service</li>
+<li>Establish a separate (non-SDP) connection to use the service</li>
+</ul>
+<p>Serial port (RS-232) emulation using RFCOMM</p>
+<h2 id="Bluetooth-4-0-Low-Energy-LE"><a href="#Bluetooth-4-0-Low-Energy-LE" class="headerlink" title="Bluetooth 4.0: Low Energy (LE)"></a>Bluetooth 4.0: Low Energy (LE)</h2><p>Traditional Bluetooth is connection oriented - when a device is connected, a link is maintained.<br>Sniff modes allow devices to sleep, reducing power consumption to give months of battery life.</p>
+<h3 id="Bluetooth-Low-Energy"><a href="#Bluetooth-Low-Energy" class="headerlink" title="Bluetooth Low Energy"></a>Bluetooth Low Energy</h3><p>Mostly new PHY, some parts derived from the Basic Rate (BR) radio.<br>New advertising mechanism, for ease of discovery &amp; connection.<br>Asynchronous connection-less MAC: used for low latency, fast transactions (e.g., 3 ms from start to finish).<br>Optimized for ultra-low power, enables coin cell battery use cases.<br>New Generic Attribute Profile to simplify devices and the software that uses them.<br>For Bluetooth low energy, data throughput is not a meaningful parameter.<br>It is designed for sending small chunks of data (exposing state). can be used in IoT.<br>Advertising, Data transactions, Low-latency connection.</p>
+<hr>
+<h1 id="Ad-hoc-Network"><a href="#Ad-hoc-Network" class="headerlink" title="Ad-hoc Network"></a>Ad-hoc Network</h1><p>Mobile Ad Hoc Networks (MANET)</p>
+<ul>
+<li>Are formed by wireless hosts which may be mobile</li>
+<li>Without (necessarily) using a pre-existing infrastructure</li>
+<li>Routes between nodes may potentially contain multiple hops</li>
+</ul>
+<p>Routing protocols in MANET</p>
+<ul>
+<li>Proactive protocols<ul>
+<li>determine routes independent of traffic pattern</li>
+<li>(previously mentioned traditional link-state and distance-vector routing protocols are proactive)</li>
+</ul>
+</li>
+<li>Reactive protocols<ul>
+<li>maintain routes only if needed</li>
+</ul>
+</li>
+<li>Hybrid protocols</li>
+</ul>
+<hr>
+<h2 id="Flooding-for-data-delivery"><a href="#Flooding-for-data-delivery" class="headerlink" title="Flooding for data delivery"></a>Flooding for data delivery</h2><p>Data packets are broadcasted to all neighbors, and neighbors further broadcast the data to their neighbors, etc.<br>Advantages:<br>Simplicity - no routing tables at all!<br>Perfect for broadcast.<br>Potentially higher reliability of data delivery (because packets may be delivered to the destination on multiple paths)<br>Disadvantages:<br>Potentially lower reliability of data delivery</p>
+<ul>
+<li>flooding uses broadcasting – hard to implement reliable broadcast delivery without significantly increasing overhead</li>
+<li>potentially several overlapping transmissions – high potential for collisions, has to be resolved by MAC, but. . .</li>
+</ul>
+<p>Nowadays rarely used in its “pure” form, but a part of numerous algorithms!</p>
+<h2 id="Flooding-of-control-packets"><a href="#Flooding-of-control-packets" class="headerlink" title="Flooding of control packets"></a>Flooding of control packets</h2><p>Control packets are used to discover routes.<br>Broadcast storm problem</p>
+<ul>
+<li>high probability of collisions</li>
+<li>Redundancy: a given node may receive the same route request from too many nodes<br>Solutions to broadcast storm</li>
+<li>Probabilistic scheme: on receiving a route request for the first time, a node will re-broadcast (forward) the request with probability p</li>
+<li>re-broadcasts by different nodes should be staggered by using a collision avoidance technique (wait a random delay when channel is idle)</li>
+<li>Counter-Based Scheme: If node E hears more than k neighbors broadcasting a given route request, before it can itself forward it, then node E will not forward the request</li>
+<li>Distance-Based Scheme: If node E hears RREQ broadcasted by some node Z within physical distance d, then E will not re-broadcast the request</li>
+</ul>
+<h2 id="Reactive-routing"><a href="#Reactive-routing" class="headerlink" title="Reactive routing"></a>Reactive routing</h2><h3 id="Dynamic-Source-Routing-DSR"><a href="#Dynamic-Source-Routing-DSR" class="headerlink" title="Dynamic Source Routing (DSR)"></a>Dynamic Source Routing (DSR)</h3><p>Use separate route request(RREQ)/route reply (RREP) packets to discover route.</p>
+<ul>
+<li>source node initiates route discovery flooding RREQ</li>
+<li>each node appends own identifier when forwarding RREQ</li>
+<li>destination responds with RREP sent on the reversed route</li>
+</ul>
+<p>RREP is sent on a route obtained by reversing the route appended to received RREQ.<br>Data delivery in DSR: Intermediate nodes use the source route included in a packet to determine to whom a packet should be forwarded.</p>
+<h3 id="DSR-Optimization-route-caching"><a href="#DSR-Optimization-route-caching" class="headerlink" title="DSR Optimization: route caching"></a>DSR Optimization: route caching</h3><p>Each node caches a new route it learns by any means.<br>When node E forwards data [S,E,F,J,D] it learns route [E,F,J,D] to node D.<br>A node may also learn a route when it overhears data packets.<br>Use of route caching<br>Node X on receiving a RREQ for some node D can send a RREP if node X knows a route to node D.<br>Route error (RERR)<br>Nodes hearing RERR update their route cache to remove link ERROR.</p>
+<h3 id="Route-caching"><a href="#Route-caching" class="headerlink" title="Route caching"></a>Route caching</h3><ul>
+<li>Stale caches can adversely affect performance</li>
+<li>With passage of time and host mobility, cached routes may become invalid</li>
+</ul>
+<h3 id="Ad-hoc-On-demand-Distance-Vector-routing-AODV"><a href="#Ad-hoc-On-demand-Distance-Vector-routing-AODV" class="headerlink" title="Ad-hoc On demand Distance Vector routing (AODV)"></a>Ad-hoc On demand Distance Vector routing (AODV)</h3><p>AODV attempts to improve on DSR by maintaining routing tables at the nodes, so that data packets do not have to contain routes.</p>
+<h3 id="Discovery"><a href="#Discovery" class="headerlink" title="Discovery"></a>Discovery</h3><p>When a node re-broadcasts a RREQ, it sets up a reverse path pointing towards the source.</p>
+<h3 id="Route-reply"><a href="#Route-reply" class="headerlink" title="Route reply"></a>Route reply</h3><p>An intermediate node (not the destination) may also send a RREP provided that it knows a more recent path than the one previously known to sender S.<br>To determine whether the path known to an intermediate node is more recent, <strong>destination sequence numbers</strong> are used.</p>
+<p>Why sequence numbers in AODV?<br>To avoid using old/broken routes and To prevent formation of loops.<br>At most one next-hop per destination maintained at each node.</p>
+<ul>
+<li>multi-path extensions can be designed</li>
+<li>DSR may maintain several routes for a single destination</li>
+</ul>
+<h2 id="Proactive-protocols-in-ad-hoc-networks"><a href="#Proactive-protocols-in-ad-hoc-networks" class="headerlink" title="Proactive protocols in ad-hoc networks"></a>Proactive protocols in ad-hoc networks</h2><p>General idea: take a “classical” protocol, and try do reduce its complexity. . .</p>
+<h3 id="Destination-Sequenced-Distance-Vector-DSDV"><a href="#Destination-Sequenced-Distance-Vector-DSDV" class="headerlink" title="Destination-Sequenced Distance Vector (DSDV)"></a>Destination-Sequenced Distance Vector (DSDV)</h3><p>Based on distributed Bellman Ford procedure.<br>Adds <strong>aging information (sequence numbers)</strong> to route information propagated by distance vector exchanges; helps to avoid routing loops.<br>Periodically send full route updates.<br>On topology change, send incremental route updates.</p>
+<h3 id="Associativity-Based-Routing-ABR"><a href="#Associativity-Based-Routing-ABR" class="headerlink" title="Associativity-Based Routing (ABR)"></a>Associativity-Based Routing (ABR)</h3><p>Only links that have been stable for some minimum duration are utilized.<br>motivation: if a link has been stable beyond some minimum threshold, it is likely to be stable for a longer interval.<br>Prefer paths with high aggregate association stability.</p>
+<h2 id="Geographic-routing"><a href="#Geographic-routing" class="headerlink" title="Geographic routing"></a>Geographic routing</h2><p>Alternative: <u>Implicitly infer</u> routing information for next hop <strong>from physical placement of nodes</strong>:</p>
+<ul>
+<li>position of current node, current neighbors, destination known - send to a neighbor in the right direction as next hop</li>
+<li>geographic routing</li>
+</ul>
+<p>Options:</p>
+<ul>
+<li>send to any node in a given area - geocasting</li>
+<li>use position information to aid in routing - position-based routing (might need a location service to map node ID to node position)</li>
+</ul>
+<h3 id="Basics-of-position-based-routing"><a href="#Basics-of-position-based-routing" class="headerlink" title="Basics of position-based routing"></a>Basics of position-based routing</h3><ol>
+<li>“Most forward within range r” strategy:<br>send to that neighbor that realizes the most forward progress towards<br>destination.</li>
+<li>Nearest node with (any) forward progress:<br>idea: minimize transmission power</li>
+<li>Directional routing:<br>choose next hop that is angularly closest to destination<br>choose next hop that is closest to the connecting line to destination<br>problem: Might result in loops!</li>
+</ol>
+<hr>
+<h1 id="Mesh-networks"><a href="#Mesh-networks" class="headerlink" title="Mesh networks"></a>Mesh networks</h1><p>A wireless mesh network (WMN) is a communications network made up of radio nodes organized in a mesh topology.<br>Mesh networks: Multihop, Some nodes mobile, some fixed, Relies on infrastructure, Most traffic is user-to-gateway.</p>
+<h2 id="IEEE-802-11s-Mesh-WLAN"><a href="#IEEE-802-11s-Mesh-WLAN" class="headerlink" title="IEEE 802.11s Mesh WLAN"></a>IEEE 802.11s Mesh WLAN</h2><p>Mesh point (MP): establishes peer links with MP neighbors.<br>Mesh access point (MAP): MP + AP functionality<br>Mesh portal (MPP): Gateway.</p>
+<p>Station(STA)<br>Goal: Achieving 802.11 LAN segment behavior.<br>Through mesh:</p>
+<ul>
+<li>Broadcast LAN (transparent forwarding)</li>
+<li>Overhearing of packets (bridge learning)</li>
+<li>Support for bridge-to-bridge communications (mesh portals being a part of the spanning tree protocol)</li>
+</ul>
+<p>Need to determine if the destination is inside or outside the mesh:</p>
+<ul>
+<li>Inside mesh: Layer2 mesh path discovery/forwarding</li>
+<li>Outside mesh: which MPP is the right one?<ul>
+<li>If known, unicast to this node. If unknown, send to all MPPs.</li>
+</ul>
+</li>
+</ul>
+<h2 id="IEEE-802-11s-routing"><a href="#IEEE-802-11s-routing" class="headerlink" title="IEEE 802.11s routing"></a>IEEE 802.11s routing</h2><p>Layer2 routing based on MAC addresses.<br>Hybrid Wireless Mesh Protocol (HWMP) (default routing protocol)<br>Radio-Aware Optimized Link State Routing (RA-OLSR) (optional routing protocol)</p>
+<h2 id="HWMP-routing"><a href="#HWMP-routing" class="headerlink" title="HWMP routing"></a>HWMP routing</h2><p>combines the advantages of on-demand and proactive routing.<br>On-demand route discovery:</p>
+<ul>
+<li>Used in intramesh routing for routing optimizations</li>
+<li>Radio Metric AODV (RMAODV) (Ad-hoc On demand DV)<br>Proactive routing:</li>
+<li>Used when a root portal (MPP) is present</li>
+<li>Tree based routing<br>Main idea:<br>Route discovery:</li>
+</ul>
+<ol>
+<li>reverse paths set up by broadcast/unicast path requests (PREQ)</li>
+<li>path replies (PREP) are sent unicast by destination or the intermediate nodes</li>
+</ol>
+<h3 id="HWMP-proactive-routing"><a href="#HWMP-proactive-routing" class="headerlink" title="HWMP proactive routing"></a>HWMP proactive routing</h3><p>Tree-based routing:</p>
+<ol>
+<li>Proactive RREQ mechanism:</li>
+</ol>
+<ul>
+<li>root issues a broadcast RREQ (route request)</li>
+<li>MPs may respond with unicast RREP (route reply)</li>
+<li>2-way handshaking</li>
+</ul>
+<ol>
+<li>Proactive RANN mechanism:</li>
+</ol>
+<ul>
+<li>root issues a broadcast root announcement (RANN)</li>
+<li>MP responds with a RREQ</li>
+<li>root responds with a RREP</li>
+<li>3-way handshaking</li>
+</ul>
+<h2 id="Radio-Aware-OLSR-RA-OLSR"><a href="#Radio-Aware-OLSR-RA-OLSR" class="headerlink" title="Radio-Aware OLSR (RA-OLSR)"></a>Radio-Aware OLSR (RA-OLSR)</h2><p>Optional, Proactive(changes in the link state are advertised to neighbors).<br>Key concepts:<br>Multipoint relays (MPRs): cover 2-hop neighborhood, only MPRs send updates(message reduction in space)<br>Link state reduction (optional): general idea: farther away nodes are updated with less frequency,  message reduction in time.</p>
+<h2 id="IEEE-802-16j-WMAN-Relay-Mesh"><a href="#IEEE-802-16j-WMAN-Relay-Mesh" class="headerlink" title="IEEE 802.16j - WMAN Relay/Mesh"></a>IEEE 802.16j - WMAN Relay/Mesh</h2><p>Wireless Metropolitan Area Network<br>Scope:</p>
+<ul>
+<li>Support OFDM PHY mode</li>
+<li>MAC enhancements</li>
+<li>Enable different base-station operations: MMRBS (Mobile Multihop Relay) and RS (Relay Station)</li>
+</ul>
+<p>Extend coverage:</p>
+<ul>
+<li>Coverage black holes can be covered by relays</li>
+<li>A series of relays can forward the traffic to the base station</li>
+</ul>
+<p>Load balancing: Divert traffic from overloaded base stations.</p>
+<h2 id="IEEE-802-15-5-WPAN-Mesh"><a href="#IEEE-802-15-5-WPAN-Mesh" class="headerlink" title="IEEE 802.15.5 - WPAN Mesh"></a>IEEE 802.15.5 - WPAN Mesh</h2><p>Scope:</p>
+<ul>
+<li>Routing redundancy and coverage extension</li>
+<li>Both low-rate and high-rate WPAN:<ul>
+<li>control and maintenance networks</li>
+<li>wireless streaming applications<br>Examples: Home automation &amp; Industrial control and automation.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Notes/" rel="tag"># Notes</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/18/Internet Control Plane Notes/" rel="next" title="Internet Control Plane Notes">
+                <i class="fa fa-chevron-left"></i> Internet Control Plane Notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/03/Mobile Service Notes/" rel="prev" title="Mobile Service Notes">
+                Mobile Service Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Jiangfeng Du" />
+          <p class="site-author-name" itemprop="name">Jiangfeng Du</p>
+           
+              <p class="site-description motion-element" itemprop="description">Notes and some plain essays</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Selected-issues-of-wireless-communications"><span class="nav-number">1.</span> <span class="nav-text">Selected issues of wireless communications</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-in-wireless-networks"><span class="nav-number">2.</span> <span class="nav-text">MAC in wireless networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Centralized-Medium-Access"><span class="nav-number">2.1.</span> <span class="nav-text">Centralized Medium Access</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSMA"><span class="nav-number">2.2.</span> <span class="nav-text">CSMA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Hidden-Terminals"><span class="nav-number">2.2.1.</span> <span class="nav-text">Solutions for Hidden Terminals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-carrier-sensing"><span class="nav-number">2.3.</span> <span class="nav-text">Virtual carrier sensing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-802-11-DCF"><span class="nav-number">2.3.1.</span> <span class="nav-text">IEEE 802.11 DCF</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IEEE-802"><span class="nav-number">3.</span> <span class="nav-text">IEEE 802</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic"><span class="nav-number">3.1.</span> <span class="nav-text">Basic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC-Header"><span class="nav-number">3.2.</span> <span class="nav-text">MAC Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WLAN-MAC"><span class="nav-number">3.3.</span> <span class="nav-text">WLAN MAC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WLAN-PHY"><span class="nav-number">3.4.</span> <span class="nav-text">WLAN PHY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#802-11b"><span class="nav-number">3.4.1.</span> <span class="nav-text">802.11b</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#802-11a-g"><span class="nav-number">3.4.2.</span> <span class="nav-text">802.11a/g</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#802-11e"><span class="nav-number">3.5.</span> <span class="nav-text">802.11e</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PCF-operation"><span class="nav-number">3.5.1.</span> <span class="nav-text">PCF operation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EDCF"><span class="nav-number">3.5.2.</span> <span class="nav-text">EDCF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HCCA"><span class="nav-number">3.5.3.</span> <span class="nav-text">HCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Voice-speech-coding-schemes"><span class="nav-number">3.5.4.</span> <span class="nav-text">Voice (speech) coding schemes</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP-based-mobility"><span class="nav-number">4.</span> <span class="nav-text">IP based mobility</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HMIPv4"><span class="nav-number">4.1.</span> <span class="nav-text">HMIPv4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FMIPv4"><span class="nav-number">4.2.</span> <span class="nav-text">FMIPv4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mobile-IPv6"><span class="nav-number">4.3.</span> <span class="nav-text">Mobile IPv6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HMIPv6"><span class="nav-number">4.4.</span> <span class="nav-text">HMIPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FMIPv6"><span class="nav-number">4.4.1.</span> <span class="nav-text">FMIPv6</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-over-wireless"><span class="nav-number">5.</span> <span class="nav-text">TCP over wireless</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-level-retransmissions"><span class="nav-number">5.1.</span> <span class="nav-text">Link-level retransmissions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Split-connection-approach"><span class="nav-number">5.2.</span> <span class="nav-text">Split connection approach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Indirect-TCP-I-TCP"><span class="nav-number">5.2.1.</span> <span class="nav-text">Example: Indirect TCP (I-TCP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Mobile-TCP"><span class="nav-number">5.2.2.</span> <span class="nav-text">Example: Mobile TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-M-TCP"><span class="nav-number">5.2.3.</span> <span class="nav-text">Example: M-TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-aware-link-layer"><span class="nav-number">5.2.4.</span> <span class="nav-text">TCP-aware link layer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bluetooth"><span class="nav-number">6.</span> <span class="nav-text">Bluetooth</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Piconet"><span class="nav-number">6.1.</span> <span class="nav-text">Piconet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architecture"><span class="nav-number">6.2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bluetooth-baseband"><span class="nav-number">6.3.</span> <span class="nav-text">Bluetooth baseband</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Packet-format"><span class="nav-number">6.4.</span> <span class="nav-text">Packet format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-control"><span class="nav-number">6.5.</span> <span class="nav-text">Link control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inquiry"><span class="nav-number">6.5.1.</span> <span class="nav-text">Inquiry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Paging"><span class="nav-number">6.5.2.</span> <span class="nav-text">Paging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-Manager-Protocol-LMP"><span class="nav-number">6.5.3.</span> <span class="nav-text">Link Manager Protocol (LMP)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Low-power-mode"><span class="nav-number">6.6.</span> <span class="nav-text">Low power mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L2CAP"><span class="nav-number">6.7.</span> <span class="nav-text">L2CAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-Discovery-Protocol-SDP"><span class="nav-number">6.8.</span> <span class="nav-text">Service Discovery Protocol (SDP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bluetooth-4-0-Low-Energy-LE"><span class="nav-number">6.9.</span> <span class="nav-text">Bluetooth 4.0: Low Energy (LE)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bluetooth-Low-Energy"><span class="nav-number">6.9.1.</span> <span class="nav-text">Bluetooth Low Energy</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ad-hoc-Network"><span class="nav-number">7.</span> <span class="nav-text">Ad-hoc Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flooding-for-data-delivery"><span class="nav-number">7.1.</span> <span class="nav-text">Flooding for data delivery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flooding-of-control-packets"><span class="nav-number">7.2.</span> <span class="nav-text">Flooding of control packets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reactive-routing"><span class="nav-number">7.3.</span> <span class="nav-text">Reactive routing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-Source-Routing-DSR"><span class="nav-number">7.3.1.</span> <span class="nav-text">Dynamic Source Routing (DSR)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DSR-Optimization-route-caching"><span class="nav-number">7.3.2.</span> <span class="nav-text">DSR Optimization: route caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-caching"><span class="nav-number">7.3.3.</span> <span class="nav-text">Route caching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ad-hoc-On-demand-Distance-Vector-routing-AODV"><span class="nav-number">7.3.4.</span> <span class="nav-text">Ad-hoc On demand Distance Vector routing (AODV)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discovery"><span class="nav-number">7.3.5.</span> <span class="nav-text">Discovery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-reply"><span class="nav-number">7.3.6.</span> <span class="nav-text">Route reply</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proactive-protocols-in-ad-hoc-networks"><span class="nav-number">7.4.</span> <span class="nav-text">Proactive protocols in ad-hoc networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Destination-Sequenced-Distance-Vector-DSDV"><span class="nav-number">7.4.1.</span> <span class="nav-text">Destination-Sequenced Distance Vector (DSDV)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Associativity-Based-Routing-ABR"><span class="nav-number">7.4.2.</span> <span class="nav-text">Associativity-Based Routing (ABR)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geographic-routing"><span class="nav-number">7.5.</span> <span class="nav-text">Geographic routing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basics-of-position-based-routing"><span class="nav-number">7.5.1.</span> <span class="nav-text">Basics of position-based routing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mesh-networks"><span class="nav-number">8.</span> <span class="nav-text">Mesh networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-802-11s-Mesh-WLAN"><span class="nav-number">8.1.</span> <span class="nav-text">IEEE 802.11s Mesh WLAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-802-11s-routing"><span class="nav-number">8.2.</span> <span class="nav-text">IEEE 802.11s routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HWMP-routing"><span class="nav-number">8.3.</span> <span class="nav-text">HWMP routing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HWMP-proactive-routing"><span class="nav-number">8.3.1.</span> <span class="nav-text">HWMP proactive routing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Radio-Aware-OLSR-RA-OLSR"><span class="nav-number">8.4.</span> <span class="nav-text">Radio-Aware OLSR (RA-OLSR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-802-16j-WMAN-Relay-Mesh"><span class="nav-number">8.5.</span> <span class="nav-text">IEEE 802.16j - WMAN Relay/Mesh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-802-15-5-WPAN-Mesh"><span class="nav-number">8.6.</span> <span class="nav-text">IEEE 802.15.5 - WPAN Mesh</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiangfeng Du</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

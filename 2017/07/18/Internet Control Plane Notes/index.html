@@ -90,29 +90,23 @@
 
 
 
-<meta name="description" content="IntroVirtual circuit network Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call sta">
+<meta name="description" content="IntroVirtual circuit network  Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call state">
 <meta name="keywords" content="Notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Internet Control Plane Notes">
 <meta property="og:url" content="http://yoursite.com/2017/07/18/Internet Control Plane Notes/index.html">
 <meta property="og:site_name" content="迷雾">
-<meta property="og:description" content="IntroVirtual circuit network Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call sta">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Operator%20View.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Input%20port%20func.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/OSPF%20Packet.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/LS%20Database.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Router%20LSA.PNG">
+<meta property="og:description" content="IntroVirtual circuit network  Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call state">
 <meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Stub%20vs%20Multihomed.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/BGP%20Route%20Processing.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Provider%20and%20customer.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Route%20reflectors.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/LSR%20Operation.PNG">
 <meta property="og:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/BGP-free%20core.PNG">
-<meta property="og:updated_time" content="2017-11-18T08:50:26.333Z">
+<meta property="og:updated_time" content="2017-12-06T11:14:05.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Internet Control Plane Notes">
-<meta name="twitter:description" content="IntroVirtual circuit network Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call sta">
-<meta name="twitter:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Operator%20View.PNG">
+<meta name="twitter:description" content="IntroVirtual circuit network  Each packet carries tag (virtual circuit ID), tag determines next hop Fixed path determined at call setup time, remains fixed through call Routers maintain per-call state">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/18/Internet%20Control%20Plane%20Notes/Fig/Stub%20vs%20Multihomed.PNG">
 
 
 
@@ -329,10 +323,14 @@
       
 
       
-        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Virtual circuit network<br> Each packet carries tag (virtual circuit ID), tag determines next hop<br> Fixed path determined at call setup time, remains fixed through call<br> Routers maintain per-call state</p>
+        <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Virtual circuit network</p>
+<ul>
+<li>Each packet carries tag (virtual circuit ID), tag determines next hop</li>
+<li>Fixed path determined at call setup time, remains fixed through call</li>
+<li>Routers maintain per-call state</li>
+</ul>
 <a id="more"></a>
 <p>Local hosts in routing table have no NEXT HOP.</p>
-<p><img src="Fig/Operator View.PNG" alt="Operator View"></p>
 <p>TCP Overview</p>
 <ul>
 <li>Point to point (one sender, one receiver)</li>
@@ -343,16 +341,11 @@
 <li>Flow controlled</li>
 <li>Congestion controlled</li>
 </ul>
-<p>CIDR: Classless InterDomain Routing</p>
-<p>How does a host get an IP addresses?</p>
+<p>CIDR: Classless InterDomain Routing<br>How does a host get an IP addresses?</p>
 <ol>
-<li><p>Hard-coded by system admin</p>
-</li>
-<li><p>DHCP / DHCPv6 (Dynamic Host Configuration Protocol)</p>
-</li>
-<li><p>IPv6 SLAAC (Stateless Address Auto-Configuration)</p>
-<p>Router advertise the IPv6 prefix<br>Hosts add an Interface Identifier as Host-Part</p>
-</li>
+<li>Hard-coded by system admin</li>
+<li>DHCP / DHCPv6 (Dynamic Host Configuration Protocol)</li>
+<li>IPv6 SLAAC (Stateless Address Auto-Configuration)<br>Router advertise the IPv6 prefix<br>Hosts add an Interface Identifier as Host-Part</li>
 </ol>
 <hr>
 <h1 id="Routing-Basics"><a href="#Routing-Basics" class="headerlink" title="Routing Basics"></a>Routing Basics</h1><p>Two key router functions:</p>
@@ -360,52 +353,33 @@
 <li>run routing algorithms/protocol (RIP, OSPF, BGP)</li>
 <li>forwarding datagrams from incoming to outgoing link</li>
 </ul>
-<p>RIB (Routing Information Base)</p>
-<p>FIB (Forwarding Information Base)</p>
-<p>Router can contain many different RIBs</p>
+<p>RIB (Routing Information Base)<br>FIB (Forwarding Information Base)<br>Router can contain many different RIBs</p>
 <ul>
 <li>One for each routing protocol</li>
 <li>Usually consolidated into one global RIB or into FIB</li>
 </ul>
-<p>FIB contains optimized next hop forwarding information. (Exact format depends on the line card hardware (ASIC, CAM, etc.))</p>
-<p>RIB compiled into FIB by the router control processor when routes change.</p>
-<p>Installed into the line card by route processor.</p>
-<p><img src="Fig/Input port func.PNG" alt="Input port func"></p>
-<p>Dedicated line cards separate fast path from slow path.</p>
-<p>​    Slow path through route processor primarily for control plane traffic.</p>
+<p>FIB contains optimized next hop forwarding information. (Exact format depends on the line card hardware (ASIC, CAM, etc.))<br>RIB compiled into FIB by the router control processor when routes change.<br>Installed into the line card by route processor.</p>
+<p>Dedicated line cards separate fast path from slow path.<br>​    Slow path through route processor primarily for control plane traffic.</p>
 <p>Internet’s Area Hierarchy</p>
-<p>Autonomous System (AS)</p>
-<p>A set of routers under a single technical administration, using an interior gateway protocol (IGP) and common metrics to route packets within the AS and using an exterior gateway protocol (EGP) to route packets to other ASs.</p>
-<p>Each AS assigned unique ID.</p>
-<p>AS’s peer at network exchanges.</p>
-<h3 id="Routing-Tasks"><a href="#Routing-Tasks" class="headerlink" title="Routing Tasks"></a>Routing Tasks</h3><ol>
+<p>Autonomous System(AS)<br>A set of routers under a single technical administration, using an interior gateway protocol (IGP) and common metrics to route packets within the AS and using an exterior gateway protocol (EGP) to route packets to other ASs.<br>Each AS assigned unique ID.<br>AS’s peer at network exchanges.</p>
+<h2 id="Routing-Tasks"><a href="#Routing-Tasks" class="headerlink" title="Routing Tasks"></a>Routing Tasks</h2><ol>
 <li>Neighbor (Discovery, Maintenance)</li>
-<li>Database (Granularity(间隔尺寸，[岩] 粒度), Maintenance - updates, Synchronization)</li>
+<li>Database (Granularity, Maintenance - updates, Synchronization)</li>
 <li>Routing table (Metric, Calculation, Update)</li>
 </ol>
-<h3 id="Routing-Algorithm-Classification"><a href="#Routing-Algorithm-Classification" class="headerlink" title="Routing Algorithm Classification"></a>Routing Algorithm Classification</h3><p>Global: Link State algorithms. All routers have complete topology, link cost info.</p>
-<p>Decentralized: Distance vector algorithms. Router knows physically connected neighbors, link costs to neighbors. Iterative process of computation, exchange of info with neighbors.</p>
-<h3 id="DV-algorithms"><a href="#DV-algorithms" class="headerlink" title="DV algorithms"></a>DV algorithms</h3><p>Iterative, asynchronous:</p>
-<p>Each local iteration caused by: 1. Local link cost change. 2. DV update message from neighbor.</p>
-<p>Link cost changes: Good news travels fast, Bad news travels slow (“count to infinity” problem!).</p>
-<h5 id="Split-horizon-route-advertisement"><a href="#Split-horizon-route-advertisement" class="headerlink" title="Split horizon route advertisement"></a>Split horizon route advertisement</h5><p>a method of preventing routing loops in distance-vector routing protocols by <u>prohibiting a router from advertising a route back onto the interface from which it was learned</u>.</p>
-<h5 id="Poison-Reserve"><a href="#Poison-Reserve" class="headerlink" title="Poison Reserve"></a>Poison Reserve</h5><p>Distance-vector routing protocols in computer networks use route poisoning to <u>indicate to other routers that a route is no longer reachable and should not be considered</u> from their routing tables. Unlike the split horizon with poison reverse, route poisoning provides for <u>sending updates with unreachable hop counts immediately to all the nodes in the network</u>.</p>
-<p>Routing loop</p>
-<p>A routing loop is a common problem with various types of networks, particularly computer networks. They are formed when an error occurs in the operation of the routing algorithm, and as a result, <u>in a group of nodes, the path to a particular destination forms a loop</u>.<br>In the simplest version, a routing loop of size two, node A thinks that the path to some destination (call it C) is through its neighbouring node, node B. At the same time, node B thinks that the path to C starts at node A.</p>
-<h1 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h1><p>Routing Information Protocol. A Simple Distance Vector Routing Protocol.</p>
-<p>Distance metric: # of hops (max = 15 hops)</p>
-<p>RIP advertisements</p>
-<p>Distance vectors: exchanged among neighbors every 30 sec via Response Message (also called advertisement)<br>Each advertisement: List of up to 25 destination nets within AS</p>
-<p>Link failure and recovery</p>
-<p>If no advertisement heard after 180 sec, neighbor/link declared dead.</p>
+<h2 id="Routing-Algorithm-Classification"><a href="#Routing-Algorithm-Classification" class="headerlink" title="Routing Algorithm Classification"></a>Routing Algorithm Classification</h2><p>Global: Link State algorithms. All routers have complete topology, link cost info.<br>Decentralized: Distance vector algorithms. Router knows physically connected neighbors, link costs to neighbors. Iterative process of computation, exchange of info with neighbors.</p>
+<h2 id="DV-algorithms"><a href="#DV-algorithms" class="headerlink" title="DV algorithms"></a>DV algorithms</h2><p>Iterative, asynchronous:<br>Each local iteration caused by: 1. Local link cost change. 2. DV update message from neighbor.<br>Link cost changes: Good news travels fast, Bad news travels slow (“count to infinity” problem!).</p>
+<h3 id="Split-horizon-route-advertisement"><a href="#Split-horizon-route-advertisement" class="headerlink" title="Split horizon route advertisement"></a>Split horizon route advertisement</h3><p>a method of preventing routing loops in distance-vector routing protocols by <u>prohibiting a router from advertising a route back onto the interface from which it was learned</u>.</p>
+<h3 id="Poison-Reserve"><a href="#Poison-Reserve" class="headerlink" title="Poison Reserve"></a>Poison Reserve</h3><p>Distance-vector routing protocols in computer networks use route poisoning to <u>indicate to other routers that a route is no longer reachable and should not be considered</u> from their routing tables. Unlike the split horizon with poison reverse, route poisoning provides for <u>sending updates with unreachable hop counts immediately to all the nodes in the network</u>.</p>
+<h2 id="Routing-loop"><a href="#Routing-loop" class="headerlink" title="Routing loop"></a>Routing loop</h2><p>A routing loop is a common problem with various types of networks, particularly computer networks. They are formed when an error occurs in the operation of the routing algorithm, and as a result, <u>in a group of nodes, the path to a particular destination forms a loop</u>.<br>In the simplest version, a routing loop of size two, node A thinks that the path to some destination (call it C) is through its neighbouring node, node B. At the same time, node B thinks that the path to C starts at node A.</p>
+<h1 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h1><p>Routing Information Protocol. A Simple Distance Vector Routing Protocol.<br>Distance metric: # of hops (max = 15 hops)<br>RIP advertisements<br>Distance vectors: exchanged among neighbors every 30 sec via Response Message (also called advertisement)<br>Each advertisement: List of up to 25 destination nets within AS<br>Link failure and recovery<br>If no advertisement heard after 180 sec, neighbor/link declared dead.</p>
 <ul>
 <li>Routes via the neighbor are invalidated</li>
 <li>New advertisements sent to neighbors, neighbors in turn send out new advertisements (if their tables changed)</li>
 <li>Link failure info quickly propagates to entire net</li>
 <li>Poison reverse used to prevent ping-pong loops (infinite distance = 16 hops)</li>
 </ul>
-<p>RIP transported over UDP on well-known port 520.</p>
-<p>RIP routing tables managed by an <u>application process</u> [Unix: route-d (daemon)].</p>
+<p>RIP transported over UDP on well-known port 520.<br>RIP routing tables managed by an <u>application process</u> [Unix: route-d (daemon)].</p>
 <p>How to avoid Count-to-Infinity</p>
 <ul>
 <li>Split Horizon (Don‘t advertise a route for an interface on which it was received)</li>
@@ -413,13 +387,8 @@
 <li>Triggered Updates (After metric change: Send update immediately)</li>
 <li>Holddown Timer (Cisco). After invalidation of route: For some seconds ignore all updates for route.</li>
 </ul>
-<h1 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h1><p>Open Shortest Path First (Link State algorithm)</p>
-<p>Goals: Large, heterogeneous internetworks.</p>
-<hr>
-<p>In a single-area OSPF network topology, each router maintains a database that describes the topology of the AS. Link-state information for each router is flooded throughout the AS. In a multiarea OSPF topology, each router maintains a database that describes the topology of its area, and link-state information for each router is flooded throughout that area. All routers maintain summarized topologies of other areas within an AS. </p>
-<p>Externally derived routing data (for example, routes learned from BGP) is passed transparently throughout the AS. This externally derived data is kept separate from the OSPF link-state data.</p>
-<p>When a routing device starts, it initializes OSPF and waits for indications from lower-level protocols that the router interfaces are functional. The routing device then uses the OSPF hello protocol to acquire neighbors, by sending hello packets to its neighbors and receiving their hello packets.</p>
-<p>On broadcast or nonbroadcast <u>multiaccess networks (physical networks that support the attachment of more than two routing devices)</u>, the OSPF hello protocol elects a designated router for the network. This routing device is responsible for sending link-state advertisements (LSAs) that describe the network, which reduces the amount of network traffic and the size of the routing devices’ topological databases.</p>
+<h1 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h1><p>Open Shortest Path First (Link State algorithm)<br>Goals: Large, heterogeneous internetworks.</p>
+<p>In a single-area OSPF network topology, each router maintains a database that describes the topology of the AS. Link-state information for each router is flooded throughout the AS. In a multiarea OSPF topology, each router maintains a database that describes the topology of its area, and link-state information for each router is flooded throughout that area. All routers maintain summarized topologies of other areas within an AS.<br>Externally derived routing data (for example, routes learned from BGP) is passed transparently throughout the AS. This externally derived data is kept separate from the OSPF link-state data.<br>When a routing device starts, it initializes OSPF and waits for indications from lower-level protocols that the router interfaces are functional. The routing device then uses the OSPF hello protocol to acquire neighbors, by sending hello packets to its neighbors and receiving their hello packets.<br>On broadcast or nonbroadcast <u>multiaccess networks (physical networks that support the attachment of more than two routing devices)</u>, the OSPF hello protocol elects a designated router for the network. This routing device is responsible for sending link-state advertisements (LSAs) that describe the network, which reduces the amount of network traffic and the size of the routing devices’ topological databases.</p>
 <h2 id="OSPFv2-Components"><a href="#OSPFv2-Components" class="headerlink" title="OSPFv2 Components"></a>OSPFv2 Components</h2><ul>
 <li>Hello Protocol: “Who is my neighbor?”</li>
 <li>Designated router/Backup designated router (DR/BDR) election: “With whom I want to talk?“</li>
@@ -428,63 +397,34 @@
 <li>Route computation: LS.</li>
 </ul>
 <p>Neighbor discovery and maintenance</p>
-<p>Hello Protocol</p>
-<ul>
+<h3 id="Hello-Protocol"><a href="#Hello-Protocol" class="headerlink" title="Hello Protocol"></a>Hello Protocol</h3><ul>
 <li>Ensures that neighbors can send packets to and receive packets from the other side: bi-directional communication</li>
 <li>Ensures that neighbors agree on parameters (HelloInterval and RouterDeadInterval)<ul>
 <li>Hello Interval: 10 seconds (typical default)</li>
-<li>RouterDeadInterval: 4 * Hello Interval (typical default)</li>
+<li>RouterDeadInterval: 4 * Hello Interval (typical default)<br>How</li>
 </ul>
 </li>
-</ul>
-<p>How</p>
-<ul>
 <li>Hello packet to fixed well-known multicast address</li>
 <li>Periodic Hellos</li>
-<li>Broadcast network: Electing designated router</li>
+<li>Broadcast network: Electing designated router<br>224.0.0.5 AllSPFRouters OSPF-ALL.MCAST.NET<br>224.0.0.6 AllDRouters OSPF-DSIG.MCAST.NET<br>3 phases:</li>
 </ul>
-<p>224.0.0.5 AllSPFRouters OSPF-ALL.MCAST.NET<br>224.0.0.6 AllDRouters OSPF-DSIG.MCAST.NET</p>
-<p>3 phases:</p>
 <ol>
-<li>Down</li>
+<li>Down<br>Neighbor is supposed to be “dead”, No communication at all.</li>
+<li>Init<br>“I have heard of a Neighbor”, Uni-directional communication</li>
+<li>ExStart or TwoWay<br>Communication is bi-directional.</li>
 </ol>
-<p>Neighbor is supposed to be “dead”, No communication at all.</p>
-<ol>
-<li><p>Init</p>
-<p>“I have heard of a Neighbor”, Uni-directional communication</p>
-</li>
-<li><p>ExStart or TwoWay</p>
-</li>
-</ol>
-<p>Communication is bi-directional.</p>
-<p><img src="Fig/OSPF Packet.PNG" alt="OSPF Packet"></p>
-<p>OSPF Packet</p>
-<p>IP Protocol #89.</p>
-<p><u>Directly to neighbors using Multicast address: TTL=1.</u></p>
-<p>Five packet types: Hello, Database Description, Link State Request, Link State Update, Link State Acknowledgement.</p>
-<p>Database</p>
-<ul>
+<h3 id="OSPF-Packet"><a href="#OSPF-Packet" class="headerlink" title="OSPF Packet"></a>OSPF Packet</h3><p>IP Protocol #89.<br><u>Directly to neighbors using Multicast address: TTL=1.</u><br>Five packet types: Hello, Database Description, Link State Request, Link State Update, Link State Acknowledgement.</p>
+<h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><ul>
 <li>Consists of Link State Advertisements (LSA)</li>
 <li>LSA: Data unit describing local state of a network/router</li>
-<li>Must kept synchronized to react to routing failures</li>
+<li>Must kept synchronized to react to routing failures<br>Six fields: LS-Type, Link State ID, Advertising Router, Checksum, Seq. No., Age.<br>LS Type, LS ID, Advertising Router -&gt; Identifying LSAs<br>LS Checksum -&gt; Verifying LSA Contents<br>LS Sequence Number-&gt; Identifying LSA Instances<br>LS Age Field -&gt; ensure consistency<br>Goal: new sequence number every 30 minutes<br>Maximum value 1 hour</li>
 </ul>
-<p>Six fields: LS-Type, Link State ID, Advertising Router, Checksum, Seq. No., Age.</p>
-<p><img src="Fig/LS Database.PNG" alt="LS Database"></p>
-<p>LS Type, LS ID, Advertising Router -&gt; Identifying LSAs</p>
-<p>LS Checksum -&gt; Verifying LSA Contents</p>
-<p>LS Sequence Number-&gt; Identifying LSA Instances </p>
-<p>LS Age Field -&gt; ensure consistency</p>
-<p>Goal: new sequence number every 30 minutes</p>
-<p>Maximum value 1 hour</p>
-<p><img src="Fig/Router LSA.PNG" alt="Router LSA"></p>
-<h4 id="Database-synchronization"><a href="#Database-synchronization" class="headerlink" title="Database synchronization"></a>Database synchronization</h4><p>Central aspect: all routers need to have identical databases!</p>
-<p>2 types of synchronization</p>
+<h4 id="Database-synchronization"><a href="#Database-synchronization" class="headerlink" title="Database synchronization"></a>Database synchronization</h4><p>Central aspect: all routers need to have identical databases!<br>2 types of synchronization</p>
 <ul>
 <li>Initial synchronization (After Hello)</li>
 <li>Continuous synchronization (Flooding)</li>
 </ul>
-<h5 id="Initial-synchronization"><a href="#Initial-synchronization" class="headerlink" title="Initial synchronization"></a>Initial synchronization</h5><p>Explicit transfer of the database upon establishment of neighborship.</p>
-<p>Once bi-directional communication exists, Send all LS header from database to neighbor</p>
+<h5 id="Initial-synchronization"><a href="#Initial-synchronization" class="headerlink" title="Initial synchronization"></a>Initial synchronization</h5><p>Explicit transfer of the database upon establishment of neighborship.<br>Once bi-directional communication exists, Send all LS header from database to neighbor</p>
 <ol>
 <li>OSPF database description packets (DD pkt)</li>
 <li>Flood all future LSA’s</li>
@@ -497,16 +437,9 @@
 <li>Neighbor sends these in link state update packets</li>
 </ul>
 <p>Result: Fully adjacent OSPF neighbors</p>
-<h5 id="Calculation-of-routing-table"><a href="#Calculation-of-routing-table" class="headerlink" title="Calculation of routing table"></a>Calculation of routing table</h5><p>Link state database is a directed graph with costs for each link.</p>
-<p>Network types: point-to-point, Broadcast, Nonbroadcast multiaccess, Point-to-multipoint.</p>
-<h4 id="Elect-Designated-Router-DR"><a href="#Elect-Designated-Router-DR" class="headerlink" title="Elect Designated Router (DR)"></a>Elect Designated Router (DR)</h4><p>Routers form adjacencies only with DR.</p>
-<p>Link acts as a (multi-interface) virtual router to the rest of the area.</p>
-<p>If there is no elected BDR, router with highest priority becomes BDR.</p>
-<h5 id="Network-LSA‘s"><a href="#Network-LSA‘s" class="headerlink" title="Network LSA‘s"></a>Network LSA‘s</h5><p>A network LSA represents a broadcast subnet.</p>
-<p>Router LSA‘s have links to network LSA.</p>
-<p>Reduction of links.</p>
-<p>DR responsible for network LSA.</p>
-<p>Link State ID = IP-address of DR.</p>
+<h5 id="Calculation-of-routing-table"><a href="#Calculation-of-routing-table" class="headerlink" title="Calculation of routing table"></a>Calculation of routing table</h5><p>Link state database is a directed graph with costs for each link.<br>Network types: point-to-point, Broadcast, Nonbroadcast multiaccess, Point-to-multipoint.</p>
+<h4 id="Elect-Designated-Router-DR"><a href="#Elect-Designated-Router-DR" class="headerlink" title="Elect Designated Router (DR)"></a>Elect Designated Router (DR)</h4><p>Routers form adjacencies only with DR.<br>Link acts as a (multi-interface) virtual router to the rest of the area.<br>If there is no elected BDR, router with highest priority becomes BDR.</p>
+<h4 id="Network-LSA‘s"><a href="#Network-LSA‘s" class="headerlink" title="Network LSA‘s"></a>Network LSA‘s</h4><p>A network LSA represents a broadcast subnet.<br>Router LSA‘s have links to network LSA.<br>Reduction of links.<br>DR responsible for network LSA.<br>Link State ID = IP-address of DR.</p>
 <p>When router joins:</p>
 <ul>
 <li>Listen to hellos; if DR and BDR advertised, accept them</li>
@@ -517,35 +450,26 @@
 <li>Originate network link advertisements on behalf of the network.</li>
 <li>Establish adjacencies with all routing devices on the network, thus participating in the synchronizing of the link-state databases.</li>
 </ul>
-<h4 id="Hierarchical-OSPF"><a href="#Hierarchical-OSPF" class="headerlink" title="Hierarchical OSPF"></a>Hierarchical OSPF</h4><p>Two-level hierarchy: local area and backbone.</p>
+<h2 id="Hierarchical-OSPF"><a href="#Hierarchical-OSPF" class="headerlink" title="Hierarchical OSPF"></a>Hierarchical OSPF</h2><p>Two-level hierarchy: local area and backbone.</p>
 <ul>
 <li>LSAs do not leave respective areas.</li>
 <li>Nodes in each area have detailed area topology; they only know direction (shortest path) to networks in other areas.</li>
 </ul>
-<p>Area Border routers: “summarize” distances to networks in the area and advertise them to other Area Border routers.</p>
-<p>OSPF requires a backbone area (Area 0)</p>
+<p>Area Border routers: “summarize” distances to networks in the area and advertise them to other Area Border routers.<br>OSPF requires a backbone area (Area 0)</p>
 <ul>
 <li>Routing between areas only via backbone area</li>
 <li>Strict area hierarchy (no loops allowed)</li>
 </ul>
 <p>The backbone itself does not have any ABRs. The backbone distributes routing information between areas. The backbone is simply another area. And the backbone’s topology is hidden from the other areas in the AS.</p>
-<h4 id="OSPF-“advanced”-features-not-in-RIP"><a href="#OSPF-“advanced”-features-not-in-RIP" class="headerlink" title="OSPF “advanced” features (not in RIP)"></a>OSPF “advanced” features (not in RIP)</h4><p>Security: All OSPF messages are authenticated (to prevent malicious intrusion); UDP used</p>
-<p>Multiple same-cost paths allowed (only one path in RIP)</p>
-<p>For each link, multiple cost metrics for different TOS (e.g., satellite link cost set “low” for best effort; high for real time) [Type of Service]</p>
-<p>Integrated uni- and multicast support.</p>
-<p>Hierarchical OSPF for large domains.</p>
-<h1 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h1><p>Border Gateway Protocol</p>
-<p>BGP provides each AS a means to:</p>
+<h2 id="OSPF-“advanced”-features-not-in-RIP"><a href="#OSPF-“advanced”-features-not-in-RIP" class="headerlink" title="OSPF “advanced” features (not in RIP)"></a>OSPF “advanced” features (not in RIP)</h2><p>Security: All OSPF messages are authenticated (to prevent malicious intrusion); UDP used<br>Multiple same-cost paths allowed (only one path in RIP)<br>For each link, multiple cost metrics for different TOS (e.g., satellite link cost set “low” for best effort; high for real time) [Type of Service]<br>Integrated uni- and multicast support.<br>Hierarchical OSPF for large domains.</p>
+<h1 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h1><p>Border Gateway Protocol<br>BGP provides each AS a means to:</p>
 <ul>
 <li>Obtain subnet reachability information from neighboring ASs.</li>
 <li>Propagate the reachability information to all routers <u>internal</u> to the AS.</li>
 <li>Determine “good” routes to subnets based on reachability information and policy.</li>
 </ul>
-<p>Supports hierarchical routing.</p>
-<p>Is a distance vector protocol.</p>
-<h2 id="Jupiter"><a href="#Jupiter" class="headerlink" title="Jupiter"></a>Jupiter</h2><p>A BGP system shares network reachability information <strong>with adjacent BGP systems</strong>, which are referred to as <strong>neighbors or peers</strong>.</p>
-<p>Internal groups use routes from an <u>IGP to resolve forwarding addresses</u>. They also <u>propagate external routes</u> among all other <u>internal routers running IBGP</u>, computing the next hop by taking the BGP next hop received with the route and resolving it using information from one of the interior gateway protocols.</p>
-<p>When using BGP-only convergence mechanic, detecting a link failure is normally based on BGP KEEPALIVE timers, which are 60/180 seconds by default.</p>
+<p>Supports hierarchical routing.<br>Is a distance vector protocol.</p>
+<h2 id="Intro-from-Jupiter"><a href="#Intro-from-Jupiter" class="headerlink" title="Intro from Jupiter"></a>Intro from Jupiter</h2><p>A BGP system shares network reachability information <strong>with adjacent BGP systems</strong>, which are referred to as <strong>neighbors or peers</strong>.<br>Internal groups use routes from an <u>IGP to resolve forwarding addresses</u>. They also <u>propagate external routes</u> among all other <u>internal routers running IBGP</u>, computing the next hop by taking the BGP next hop received with the route and resolving it using information from one of the interior gateway protocols.<br>When using BGP-only convergence mechanic, detecting a link failure is normally based on BGP KEEPALIVE timers, which are 60/180 seconds by default.</p>
 <p>When it comes to Network convergence, you got to break it into multiple pieces.</p>
 <ol>
 <li>Failure Detection</li>
@@ -553,25 +477,20 @@
 <li>Re-Calculation</li>
 <li>Updating RIB and FIB</li>
 </ol>
-<h4 id="Understanding-External-BGP-Peering-Sessions"><a href="#Understanding-External-BGP-Peering-Sessions" class="headerlink" title="Understanding External BGP Peering Sessions"></a>Understanding External BGP Peering Sessions</h4><p>To establish point-to-point connections between peer autonomous systems (ASs), you configure a BGP session on each interface of a point-to-point link. Generally, such sessions are made at network exit points with neighboring hosts outside the AS.</p>
-<p>The preferred way to configure a large number of BGP neighbors is to configure a few groups consisting of multiple neighbors per group.</p>
-<p>BGP’s advertisement policy, by default, does not advertise any non-BGP routes (such as local routes) to peers.</p>
-<h4 id="Understanding-Internal-BGP-Peering-Sessions"><a href="#Understanding-Internal-BGP-Peering-Sessions" class="headerlink" title="Understanding Internal BGP Peering Sessions"></a>Understanding Internal BGP Peering Sessions</h4><p>The purpose of IBGP is to provide a means by which EBGP route advertisements can be forwarded throughout the network. In theory, to accomplish this task you could redistribute all of your EBGP routes into an interior gateway protocol (IGP), such as OSPF or IS-IS. This, however, is not recommended in a production environment because of the large number of EBGP routes in the Internet and because of the way that IGPs operate. In short, with that many routes the IGP churns or crashes.</p>
+<h3 id="Understanding-External-BGP-Peering-Sessions"><a href="#Understanding-External-BGP-Peering-Sessions" class="headerlink" title="Understanding External BGP Peering Sessions"></a>Understanding External BGP Peering Sessions</h3><p>To establish point-to-point connections between peer autonomous systems (ASs), you configure a BGP session on each interface of a point-to-point link. Generally, such sessions are made at network exit points with neighboring hosts outside the AS.<br>The preferred way to configure a large number of BGP neighbors is to configure a few groups consisting of multiple neighbors per group.<br>BGP’s advertisement policy, by default, does not advertise any non-BGP routes (such as local routes) to peers.</p>
+<h3 id="Understanding-Internal-BGP-Peering-Sessions"><a href="#Understanding-Internal-BGP-Peering-Sessions" class="headerlink" title="Understanding Internal BGP Peering Sessions"></a>Understanding Internal BGP Peering Sessions</h3><p>The purpose of IBGP is to provide a means by which EBGP route advertisements can be forwarded throughout the network. In theory, to accomplish this task you could redistribute all of your EBGP routes into an interior gateway protocol (IGP), such as OSPF or IS-IS. This, however, is not recommended in a production environment because of the large number of EBGP routes in the Internet and because of the way that IGPs operate. In short, with that many routes the IGP churns or crashes.</p>
 <p>Generally, the loopback interface (lo0) is used to establish connections between IBGP peers. The loopback interface is always up as long as the device is operating. The loopback interface provides fault tolerance in case the physical interface or the link goes down, if the device has link redundancy.</p>
 <p>While IBGP neighbors do not need to be directly connected, they do need to be fully meshed. In this case, fully meshed means that each device is logically connected to every other device through neighbor peer relationships.</p>
 <p><strong>Pitfall</strong>: For example, suppose that routing devices A, B, and C are all in the same AS. Device A receives a route from an EBGP peer and sends the route to Device B, which installs it as the active route. The route is then sent to Device C, which installs it locally and sends it back to Device A. If Device A installs the route, a loop is formed within the AS.</p>
 <p>Therefore, the BGP protocol designers decided that the <u>only assurance of never forming a routing loop was to <strong>prevent an IBGP peer from advertising an IBGP-learned route within the AS</strong></u>. For route reachability, the IBGP peers are fully meshed.</p>
 <p>The BGP <strong>multiple exit discriminator</strong> (MED, or MULTI_EXIT_DISC) is a non-transitive attribute, <u>meaning that it is not propagated throughout the Internet, but only to adjacent autonomous systems (ASs)</u>. The MED attribute is optional, meaning that it is not always sent with the BGP updates. The purpose of MED is to influence how other ASs enter your AS to reach a certain prefix.</p>
 <hr>
-<h3 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h3><p>Pairs of routers (BGP peers) exchange routing info over semi-permanent TCP connections: <u>BGP sessions</u>. (Note that BGP sessions do not correspond to physical links.)</p>
-<h4 id="Distributing-reachability-info"><a href="#Distributing-reachability-info" class="headerlink" title="Distributing reachability info"></a>Distributing reachability info</h4><p>With eBGP session between 3a and 1c, AS3 sends prefix reachability Info to AS1.</p>
-<p>1c can then use iBGP do distribute this new prefix reach info to all routers in AS1.</p>
-<p>1b can then re-advertise the new reach. Info to AS2 over the 1b-to- 2a eBGP session.</p>
-<p>When router learns about a new prefix, it creates an entry for the prefix in its forwarding table.</p>
+<h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><p>Pairs of routers (BGP peers) exchange routing info over semi-permanent TCP connections: <u>BGP sessions</u>. (Note that BGP sessions do not correspond to physical links.)</p>
+<h3 id="Distributing-reachability-info"><a href="#Distributing-reachability-info" class="headerlink" title="Distributing reachability info"></a>Distributing reachability info</h3><p>With eBGP session between 3a and 1c, AS3 sends prefix reachability Info to AS1.<br>1c can then use iBGP do distribute this new prefix reach info to all routers in AS1.<br>1b can then re-advertise the new reach. Info to AS2 over the 1b-to- 2a eBGP session.<br>When router learns about a new prefix, it creates an entry for the prefix in its forwarding table.</p>
 <blockquote>
 <p>A few years ago about 7000 AS numbers are assigned, about 4200 in use.</p>
 </blockquote>
-<h4 id="Routing-policy"><a href="#Routing-policy" class="headerlink" title="Routing policy"></a>Routing policy</h4><p>Reflects goals of network provider</p>
+<h3 id="Routing-policy"><a href="#Routing-policy" class="headerlink" title="Routing policy"></a>Routing policy</h3><p>Reflects goals of network provider</p>
 <ul>
 <li>Which routes to accept from other ASes</li>
 <li>How to manipulate the accepted routes</li>
@@ -579,8 +498,7 @@
 <li>How to manipulate routes before they leave the AS</li>
 <li>Which routes to send to another AS</li>
 </ul>
-<p>BGP enforces policies by <em>choosing paths from multiple alternatives</em> and <em>controlling advertisements to other AS’s</em>.</p>
-<p>Honor business relationships</p>
+<p>BGP enforces policies by <em>choosing paths from multiple alternatives</em> and <em>controlling advertisements to other AS’s</em>.<br>Honor business relationships</p>
 <ul>
 <li>e.g., customers get full-table; peers only customer prefixes</li>
 <li>e.g., prefer customer routes over peer routes over upstream routes</li>
@@ -597,10 +515,8 @@
 <li>AS-PATH: Contains the ASs through which the advertisement for the prefix passed: AS 67 AS 17 (Loop Detection and policies)</li>
 <li>NEXT-HOP: Indicates the specific internal-AS router to next-hop AS. (There may be multiple links from current AS to next-hop AS.)</li>
 </ul>
-<p>BGP route processing</p>
-<p><img src="Fig/BGP Route Processing.PNG" alt="BGP Route Processing"></p>
-<p>Route selection</p>
-<p>Elimination rules:</p>
+<h3 id="BGP-route-processing"><a href="#BGP-route-processing" class="headerlink" title="BGP route processing"></a>BGP route processing</h3><p><img src="Fig/BGP Route Processing.PNG" alt="BGP Route Processing"></p>
+<p>Route selection<br>Elimination rules:</p>
 <ol>
 <li>Local preference value attribute: policy decision</li>
 <li>Shortest AS-PATH</li>
@@ -609,24 +525,11 @@
 <li>Additional criteria</li>
 <li>Pick route from router with lowest IP address (break tie)</li>
 </ol>
-<p>Provider network wants to route only to/from its customers!</p>
-<p><img src="Fig/Provider and customer.PNG" style="zoom: 50%"></p>
-<p>B gets no “revenue” for routing CBAW since neither W nor C are B’s customers. So B wouldn’t advertise to C the path BAW.</p>
-<h5 id="Multi-Exit-Discriminator-MED"><a href="#Multi-Exit-Discriminator-MED" class="headerlink" title="Multi-Exit Discriminator (MED)"></a>Multi-Exit Discriminator (MED)</h5><p>One of the attributes.</p>
-<p>Non-transitive.</p>
-<p>Used to convey the relative preference of entry points.</p>
-<p>Influences best path selection.</p>
-<p>Comparable if paths are from same AS.</p>
-<h5 id="Communities"><a href="#Communities" class="headerlink" title="Communities"></a>Communities</h5><p>One of the attributes.</p>
-<p>Used to group prefixes and influence routing decisions (accept, prefer, redistribute, etc.), e.g., via route-maps to realize routing policies.</p>
-<p>Represented as an integer.</p>
-<h5 id="Multi-homing"><a href="#Multi-homing" class="headerlink" title="Multi-homing"></a>Multi-homing</h5><p>Network has several connections to the Internet.</p>
-<p>Improves reliability and performance.</p>
-<p>Major issues in multi-homing to multiple providers: Addressing and Aggregation.</p>
-<h4 id="Internal-BGP-iBGP"><a href="#Internal-BGP-iBGP" class="headerlink" title="Internal BGP (iBGP)"></a>Internal BGP (iBGP)</h4><p>Same routing protocol as BGP, different application.</p>
-<p>iBGP should be used when AS_PATH information must remain intact between multiple eBGP peers.</p>
-<p>All iBGP peers must be fully meshed, logically; An iBGP peer will not advertise a route learned by one iBGP peer to another iBGP peer (readvertisement restriction to prevent looping)</p>
-<p>Fully meshed -&gt; N border routers meansnN(N-1)/2 peering sessions – this <strong>does not scale</strong>.</p>
+<p>Provider network wants to route only to/from its customers!<br><img src="Fig/Provider and customer.PNG" style="zoom: 50%"><br>B gets no “revenue” for routing CBAW since neither W nor C are B’s customers. So B wouldn’t advertise to C the path BAW.</p>
+<h4 id="Multi-Exit-Discriminator-MED"><a href="#Multi-Exit-Discriminator-MED" class="headerlink" title="Multi-Exit Discriminator(MED)"></a>Multi-Exit Discriminator(MED)</h4><p>One of the attributes.<br>Non-transitive.<br>Used to convey the relative preference of entry points.<br>Influences best path selection.<br>Comparable if paths are from same AS.</p>
+<h4 id="Communities"><a href="#Communities" class="headerlink" title="Communities"></a>Communities</h4><p>One of the attributes.<br>Used to group prefixes and influence routing decisions (accept, prefer, redistribute, etc.), e.g., via route-maps to realize routing policies.<br>Represented as an integer.</p>
+<h4 id="Multi-homing"><a href="#Multi-homing" class="headerlink" title="Multi-homing"></a>Multi-homing</h4><p>Network has several connections to the Internet.<br>Improves reliability and performance.<br>Major issues in multi-homing to multiple providers: Addressing and Aggregation.</p>
+<h3 id="Internal-BGP-iBGP"><a href="#Internal-BGP-iBGP" class="headerlink" title="Internal BGP (iBGP)"></a>Internal BGP (iBGP)</h3><p>Same routing protocol as BGP, different application.<br>iBGP should be used when AS_PATH information must remain intact between multiple eBGP peers.<br>All iBGP peers must be fully meshed, logically; An iBGP peer will not advertise a route learned by one iBGP peer to another iBGP peer (readvertisement restriction to prevent looping)<br>Fully meshed -&gt; N border routers meansnN(N-1)/2 peering sessions – this <strong>does not scale</strong>.</p>
 <p>Currently three solutions</p>
 <ul>
 <li>Break an AS up into smaller Autonomous Systems</li>
@@ -634,24 +537,14 @@
 <li>Confederations</li>
 </ul>
 <p><img src="Fig/Route reflectors.PNG" alt="Route reflectors"></p>
-<h4 id="Link-failures"><a href="#Link-failures" class="headerlink" title="Link failures"></a>Link failures</h4><p>Failure on an E-BGP link.</p>
-<p>If the link R1-R2 goes down, the TCP connection breaks, BGP routes are removed.</p>
-<p>Failure on an I-BGP Link.</p>
-<p>E-BGP and I-BGP use different conventions with respect to TCP endpoints.</p>
-<p>E-BGP: no multihop – I-BGP: multihop OK.</p>
-<p>BGP dynamics</p>
-<p>Number of routes: 400K and growing.</p>
-<p>Route propagation</p>
+<h3 id="Link-failures"><a href="#Link-failures" class="headerlink" title="Link failures"></a>Link failures</h3><p>Failure on an E-BGP link.<br>If the link R1-R2 goes down, the TCP connection breaks, BGP routes are removed.<br>Failure on an I-BGP Link.<br>E-BGP and I-BGP use different conventions with respect to TCP endpoints.<br>E-BGP: no multihop – I-BGP: multihop OK.</p>
+<h3 id="BGP-dynamics"><a href="#BGP-dynamics" class="headerlink" title="BGP dynamics"></a>BGP dynamics</h3><p>Number of routes: 400K and growing.<br>Route propagation</p>
 <ul>
 <li>Better route: &lt; 5 minutes</li>
 <li>Route no longer reachable: &lt; 20 minutes</li>
 </ul>
-<p><strong>BGP is not guaranteed to converge.</strong></p>
-<p>Policy inconsistencies can lead to “livelock” protocol oscillations.</p>
-<p>Goal: Design a simple, tractable, and complete model of BGP modeling.</p>
-<p>Example application: sufficient condition to guarantee convergence.</p>
-<p>How to ensure no policy conflicts</p>
-<p>Strawman Proposal: Perform Global Policy Check.</p>
+<p><strong>BGP is not guaranteed to converge.</strong><br>Policy inconsistencies can lead to “livelock” protocol oscillations.<br>Goal: Design a simple, tractable, and complete model of BGP modeling.<br>Example application: sufficient condition to guarantee convergence.</p>
+<p>How to ensure no policy conflicts<br>Strawman Proposal: Perform Global Policy Check.</p>
 <ul>
 <li>Require each AS to publish its policies</li>
 <li>Detect and resolve conflicts</li>
@@ -662,8 +555,7 @@
 <li>Checking for convergence is NP-complete</li>
 <li>Failures may still cause oscillations</li>
 </ul>
-<p>Think globally, act locally</p>
-<p>Key features of a good solution:</p>
+<p>Think globally, act locally<br>Key features of a good solution:</p>
 <ul>
 <li>Safety: Guaranteed convergence</li>
 <li>Expressiveness: Allow diverse policies for each AS</li>
@@ -676,11 +568,9 @@
 <li>Constrain both <u>filtering</u> and <u>ranking</u> based on these arrangements to guarantee safety</li>
 <li>Surprising result: These arrangements correspond to today’s common behavior</li>
 </ul>
-<h5 id="Signs-of-routing-instability"><a href="#Signs-of-routing-instability" class="headerlink" title="Signs of routing instability"></a>Signs of routing instability</h5><ol>
-<li><p>Monitored BGP messages at major exchanges</p>
-</li>
-<li><p>Orders of magnitude more updates than expected</p>
-<p>Bulk: Duplicate withdrawals</p>
+<h4 id="Signs-of-routing-instability"><a href="#Signs-of-routing-instability" class="headerlink" title="Signs of routing instability"></a>Signs of routing instability</h4><ol>
+<li>Monitored BGP messages at major exchanges</li>
+<li><p>Orders of magnitude more updates than expected<br>Bulk: Duplicate withdrawals</p>
 <ul>
 <li>Stateless implementation of BGP – did not keep track of information passed to peers</li>
 <li>Impact of few implementations</li>
@@ -691,19 +581,15 @@
 </ul>
 </li>
 </ol>
-<h5 id="Route-flap-storm"><a href="#Route-flap-storm" class="headerlink" title="Route flap storm"></a>Route flap storm</h5><p>Overloaded routers fail to send Keep_Alive message and marked as down。</p>
-<p>I-BGP peers find alternate paths.</p>
-<p>Overloaded router re-establishes peering session</p>
-<p>Must send large updates</p>
-<p>Increased load causes more routers to fail!</p>
-<h5 id="Route-flap-dampening"><a href="#Route-flap-dampening" class="headerlink" title="Route flap dampening"></a>Route flap dampening</h5><ul>
+<h4 id="Route-flap-storm"><a href="#Route-flap-storm" class="headerlink" title="Route flap storm"></a>Route flap storm</h4><p>Overloaded routers fail to send Keep_Alive message and marked as down。<br>I-BGP peers find alternate paths.<br>Overloaded router re-establishes peering session<br>Must send large updates<br>Increased load causes more routers to fail!</p>
+<h4 id="Route-flap-dampening"><a href="#Route-flap-dampening" class="headerlink" title="Route flap dampening"></a>Route flap dampening</h4><ul>
 <li>Reduce scope of route flap propagation</li>
 <li>History predicts future behavior</li>
 <li>Suppress oscillating routes</li>
 <li>Fast convergence for normal route changes</li>
 </ul>
-<h5 id="Flap-dampening-Operation"><a href="#Flap-dampening-Operation" class="headerlink" title="Flap dampening: Operation"></a>Flap dampening: Operation</h5><hr>
-<h1 id="MPLS"><a href="#MPLS" class="headerlink" title="MPLS"></a>MPLS</h1><p>Advantages of circuit switching</p>
+<hr>
+<h1 id="MPLS"><a href="#MPLS" class="headerlink" title="MPLS"></a>MPLS</h1><p>MultiProtocol Label Switching<br>Advantages of circuit switching</p>
 <ul>
 <li>Simple forwarding means cheaper hardware<ul>
 <li>Forwarding based on time slot or frequency</li>
@@ -714,12 +600,8 @@
 </ul>
 </li>
 </ul>
-<h5 id="Asynchronous-Transfer-Mode-ATM"><a href="#Asynchronous-Transfer-Mode-ATM" class="headerlink" title="Asynchronous Transfer Mode (ATM)"></a>Asynchronous Transfer Mode (ATM)</h5><p>Layer 2 standard.</p>
-<p>Packets divided into equal sized cells: 53 bytes.</p>
-<p>Virtual circuits set up between sender and receiver.</p>
-<p><u>Asynchronous time division multiplexing</u> used at the <em>physical</em> layer.</p>
-<p>ATM superseded by optical switching for transport network.</p>
-<h5 id="Virtual-circuits"><a href="#Virtual-circuits" class="headerlink" title="Virtual circuits"></a>Virtual circuits</h5><p>Hybrid of packet and circuit switching</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Asynchronous-Transfer-Mode-ATM"><a href="#Asynchronous-Transfer-Mode-ATM" class="headerlink" title="Asynchronous Transfer Mode(ATM)"></a>Asynchronous Transfer Mode(ATM)</h3><p>Layer 2 standard.<br>Packets divided into equal sized cells: 53 bytes.<br>Virtual circuits set up between sender and receiver.<br><u>Asynchronous time division multiplexing</u> used at the <em>physical</em> layer.<br>ATM superseded by optical switching for transport network.</p>
+<h3 id="Virtual-circuits"><a href="#Virtual-circuits" class="headerlink" title="Virtual circuits"></a>Virtual circuits</h3><p>Hybrid of packet and circuit switching</p>
 <ul>
 <li>Logical circuit between a source and destination</li>
 <li>Packets from different VCs multiplex on a link</li>
@@ -750,30 +632,21 @@
 </li>
 </ul>
 <hr>
-<h2 id="MultiProtocol-Label-Switching"><a href="#MultiProtocol-Label-Switching" class="headerlink" title="MultiProtocol Label Switching"></a>MultiProtocol Label Switching</h2><p>Apply the Virtual Circuit idea from ATM to IP forwarding.</p>
-<p>Most carriers run an MPLS core.</p>
-<p>Many also run MPLS access/aggregation networks.</p>
-<h5 id="Layer-2-5-Protocol"><a href="#Layer-2-5-Protocol" class="headerlink" title="Layer 2.5 Protocol"></a>Layer 2.5 Protocol</h5><p>Insert label between Layer 2 and Layer 3 header.</p>
-<p>Labels can be stacked.</p>
-<p>Label(4 bytes), 4 fields:</p>
+<h2 id="Intro-1"><a href="#Intro-1" class="headerlink" title="Intro"></a>Intro</h2><p>Apply the Virtual Circuit idea from ATM to IP forwarding.<br>Most carriers run an MPLS core.<br>Many also run MPLS access/aggregation networks.</p>
+<h3 id="Layer-2-5-Protocol"><a href="#Layer-2-5-Protocol" class="headerlink" title="Layer 2.5 Protocol"></a>Layer 2.5 Protocol</h3><p>Insert label between Layer 2 and Layer 3 header.<br>Labels can be stacked.<br>Label(4 bytes), 4 fields:</p>
 <ul>
 <li>20 bit routing label</li>
 <li>3 bit “Exp” field carries packet queuing priority for Class of Service</li>
 <li>1 bit “Bottom of Stack” field</li>
 <li>8 bit TTL field</li>
 </ul>
-<h5 id="Simple-Data-Plane-Operations"><a href="#Simple-Data-Plane-Operations" class="headerlink" title="Simple Data Plane Operations"></a>Simple Data Plane Operations</h5><ul>
+<h3 id="Simple-Data-Plane-Operations"><a href="#Simple-Data-Plane-Operations" class="headerlink" title="Simple Data Plane Operations"></a>Simple Data Plane Operations</h3><ul>
 <li>Pushing: add the initial “in” label (stack)</li>
 <li>Swapping: map “in” label to “out” label (stack)</li>
-<li>Popping: remove the “out” label (stack)</li>
+<li>Popping: remove the “out” label (stack)<br>MPLS labels just encode the path to a location. (Unlike IP address encodes both location and identity.)</li>
 </ul>
-<p>MPLS labels just encode the path to a location. (Unlike IP address encodes both location and identity.)</p>
-<h5 id="Forwarding-Equivalence-Class-FEC"><a href="#Forwarding-Equivalence-Class-FEC" class="headerlink" title="Forwarding Equivalence Class (FEC)"></a>Forwarding Equivalence Class (FEC)</h5><p>another name for <u>an aggregated flow</u>.</p>
-<p>A rule for grouping packets according to their <u>destination location and forwarding treatment.</u></p>
-<p>All packets in a FEC are labelled the same way.</p>
-<p>FEC is calculated at the entry point to the MPLS network.</p>
-<p>A label is a locally significant identifier for a FEC.</p>
-<h5 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h5><p>A MPLS labelled path is called a <strong>label-switched path (LSP)</strong>.</p>
+<h3 id="Forwarding-Equivalence-Class-FEC"><a href="#Forwarding-Equivalence-Class-FEC" class="headerlink" title="Forwarding Equivalence Class (FEC)"></a>Forwarding Equivalence Class (FEC)</h3><p>another name for <u>an aggregated flow</u>.<br>A rule for grouping packets according to their <u>destination location and forwarding treatment.</u><br>All packets in a FEC are labelled the same way.<br>FEC is calculated at the entry point to the MPLS network.<br>A label is a locally significant identifier for a FEC.</p>
+<h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><p>A MPLS labelled path is called a <strong>label-switched path (LSP)</strong>.</p>
 <ul>
 <li>One way only</li>
 <li>For two way, add another label in opposite direction</li>
@@ -787,57 +660,38 @@
 <ul>
 <li>Forwards according to the top of stack label</li>
 </ul>
-<h5 id="Operation-of-an-MPLS-Router"><a href="#Operation-of-an-MPLS-Router" class="headerlink" title="Operation of an MPLS Router"></a>Operation of an MPLS Router</h5><p>MPLS control plane sets label to forwarding treatment mapping <u>from outside</u>. (Control plane is very complex)</p>
-<p>An LSR/LER maintains a <strong>Label Forwarding Information Base (LFIB)</strong>.</p>
+<h2 id="Operation-of-an-MPLS-Router"><a href="#Operation-of-an-MPLS-Router" class="headerlink" title="Operation of an MPLS Router"></a>Operation of an MPLS Router</h2><p>MPLS control plane sets label to forwarding treatment mapping <u>from outside</u>. (Control plane is very complex)<br>An LSR/LER maintains a <strong>Label Forwarding Information Base (LFIB)</strong>.</p>
 <ul>
 <li>Like FIB, maintained in the line card.</li>
-<li>Soft state, so must be refreshed periodically.</li>
-</ul>
-<p>LFIB contains MPLS stack operation for each label value</p>
-<ul>
+<li>Soft state, so must be refreshed periodically.<br>LFIB contains MPLS stack operation for each label value</li>
 <li>Push, pop, swap</li>
 <li>Outgoing interface for each label value</li>
 </ul>
-<h6 id="Operation-of-a-Start-LER"><a href="#Operation-of-a-Start-LER" class="headerlink" title="Operation of a Start LER"></a>Operation of a Start LER</h6><p>FEC classifier examines IP header and determines which label (stack) to insert.</p>
-<p>Label (stack) insertion puts label (stack) between IP and Ethernet header.</p>
-<p>LFIB lookup determines what outgoing interface to use.</p>
-<p>Labelled packet sent through router switch fabric to outgoing interface.</p>
-<h6 id="Operation-of-an-LSR"><a href="#Operation-of-an-LSR" class="headerlink" title="Operation of an LSR"></a>Operation of an LSR</h6><p>Look up Top of Stack label in the LFIB.</p>
-<p>Does label stack need changing?</p>
+<h3 id="Operation-of-a-Start-LER"><a href="#Operation-of-a-Start-LER" class="headerlink" title="Operation of a Start LER"></a>Operation of a Start LER</h3><p>FEC classifier examines IP header and determines which label (stack) to insert.<br>Label (stack) insertion puts label (stack) between IP and Ethernet header.<br>LFIB lookup determines what outgoing interface to use.<br>Labelled packet sent through router switch fabric to outgoing interface.</p>
+<h3 id="Operation-of-an-LSR"><a href="#Operation-of-an-LSR" class="headerlink" title="Operation of an LSR"></a>Operation of an LSR</h3><p>Look up Top of Stack label in the LFIB.<br>Does label stack need changing?</p>
 <ul>
 <li>If so push, pop or swap</li>
 </ul>
-<p><img src="Fig/LSR Operation.PNG" alt="LSR Operation"></p>
-<h6 id="Operation-of-an-End-LER"><a href="#Operation-of-an-End-LER" class="headerlink" title="Operation of an End LER"></a>Operation of an End LER</h6><p>Examine top of stack label</p>
+<h3 id="Operation-of-an-End-LER"><a href="#Operation-of-an-End-LER" class="headerlink" title="Operation of an End LER"></a>Operation of an End LER</h3><p>Examine top of stack label</p>
 <ul>
 <li>Is “Bottom of Stack” bit set?</li>
-<li>Is label value “Explicit NULL Label”? (0 for IPv4, 2 for IPv6)</li>
+<li>Is label value “Explicit NULL Label”? (0 for IPv4, 2 for IPv6)<br>Pop label and send to appropriate IP forwarding engine.</li>
 </ul>
-<p>Pop label and send to appropriate IP forwarding engine.</p>
 <hr>
-<h4 id="Complex-Control-Plane"><a href="#Complex-Control-Plane" class="headerlink" title="Complex Control Plane"></a>Complex Control Plane</h4><p>MPLS routing: path to destination can be based on source and dest. address.</p>
-<p>A new control plane for each new application (E.g. TE, VPN, etc.)</p>
-<p>Adapted from existing protocols:</p>
+<h2 id="Complex-Control-Plane"><a href="#Complex-Control-Plane" class="headerlink" title="Complex Control Plane"></a>Complex Control Plane</h2><p>MPLS routing: path to destination can be based on source and dest. address.<br>A new control plane for each new application (E.g. TE, VPN, etc.)<br>Adapted from existing protocols:</p>
 <ul>
 <li>Extensions added to routing protocols</li>
-<li>Some protocols repurposed for MPLS applications (E.g. RSVP)</li>
+<li>Some protocols repurposed for MPLS applications (E.g. RSVP)<br>MPLS specific protocols (Label Distribution Protocol (LDP))</li>
 </ul>
-<p>MPLS specific protocols (Label Distribution Protocol (LDP))</p>
-<h6 id="Example-1-BGP-Free-core"><a href="#Example-1-BGP-Free-core" class="headerlink" title="Example 1: BGP-Free core"></a>Example 1: BGP-Free core</h6><p><img src="Fig/BGP-free core.PNG" alt="LSR Operation"></p>
-<p>Routers LSR1 and LSR2 don’t need to speak BGP</p>
+<p><strong>Example 1: BGP-Free core</strong><br><img src="Fig/BGP-free core.PNG" alt="LSR Operation"><br>Routers LSR1 and LSR2 don’t need to speak BGP</p>
 <ul>
-<li>Complexity reduction because iBGP peers need to be fully meshed</li>
-</ul>
-<p>Control Plane Protocol</p>
-<ul>
+<li>Complexity reduction because iBGP peers need to be fully meshed<br>Control Plane Protocol</li>
 <li>IGP (OSPF, IS-IS) extended to distribute topology and traffic information</li>
 <li>Label Distribution Protocol (LDP) used to set up LSPs</li>
 </ul>
 <hr>
-<h3 id="Traffic-Engineering-with-MPLS"><a href="#Traffic-Engineering-with-MPLS" class="headerlink" title="Traffic Engineering with MPLS"></a>Traffic Engineering with MPLS</h3><blockquote>
-<p>Traffic Engineering: Control and optimization of routing, to steer traffic through the network in the most cost-effective way.</p>
-</blockquote>
-<h5 id="Traffic-Engineering-TE-with-Constraint-Based-Routing"><a href="#Traffic-Engineering-TE-with-Constraint-Based-Routing" class="headerlink" title="Traffic Engineering (TE) with Constraint-Based Routing"></a>Traffic Engineering (TE) with Constraint-Based Routing</h5><p>Path calculation uses constrained shortest-path first.</p>
+<h2 id="Traffic-Engineering-with-MPLS"><a href="#Traffic-Engineering-with-MPLS" class="headerlink" title="Traffic Engineering with MPLS"></a>Traffic Engineering with MPLS</h2><p>Traffic Engineering: Control and optimization of routing, to steer traffic through the network in the most cost-effective way.</p>
+<h3 id="Traffic-Engineering-TE-with-Constraint-Based-Routing"><a href="#Traffic-Engineering-TE-with-Constraint-Based-Routing" class="headerlink" title="Traffic Engineering (TE) with Constraint-Based Routing"></a>Traffic Engineering (TE) with Constraint-Based Routing</h3><p>Path calculation uses constrained shortest-path first.</p>
 <ul>
 <li>Compute shortest path based on weights</li>
 <li>Exclude paths that do not satisfy constraints<ul>
@@ -852,11 +706,8 @@
 </ul>
 </li>
 </ul>
-<p>LSRs calculate Traffic Engineering Database (TED).</p>
-<p>Path signaling (Establish label-switched path on explicit route with RSVP-TE)</p>
-<p>Forwarding (MPLS labels)</p>
-<h5 id="Traffic-Engineering-Database-TED"><a href="#Traffic-Engineering-Database-TED" class="headerlink" title="Traffic Engineering Database (TED)"></a>Traffic Engineering Database (TED)</h5><p>With distributed control plane, every router in the Traffic Engineered network calculates a TED.</p>
-<p>For every link between routeri and routerj in the TE domain:</p>
+<p>LSRs calculate Traffic Engineering Database (TED).<br>Path signaling (Establish label-switched path on explicit route with RSVP-TE)<br>Forwarding (MPLS labels)</p>
+<h3 id="Traffic-Engineering-Database-TED"><a href="#Traffic-Engineering-Database-TED" class="headerlink" title="Traffic Engineering Database (TED)"></a>Traffic Engineering Database (TED)</h3><p>With distributed control plane, every router in the Traffic Engineered network calculates a TED.<br>For every link between routeri and routerj in the TE domain:</p>
 <ul>
 <li>Administrative group (color)</li>
 <li>Traffic engineering metric for TE calculation</li>
@@ -867,31 +718,15 @@
 </li>
 <li>Bandwidth (Maximum link bandwidth, Maximum reservable bandwidth, Available bandwidth)</li>
 </ul>
-<h5 id="Control-Plane-for-MPLS-TE"><a href="#Control-Plane-for-MPLS-TE" class="headerlink" title="Control Plane for MPLS TE"></a>Control Plane for MPLS TE</h5><p><u>LS Routers in core floods TE info</u> using, e.g., OSPF, IS-IS (Link bandwidth, amount of “reserved” link bandwidth)</p>
-<p>Calculate TED</p>
-<p>Entry (head) end LER signals forward along path to request a tunnel with RSVP-TE PATH message.</p>
-<p>Exit (tail) end LER signals backward along path to reserve bandwidth with RSVP-TE RESV message.</p>
-<p>Entry router knows it can use the tunnel when the RESV message arrives.</p>
-<h5 id="Path-Protection-and-Fast-Reroute"><a href="#Path-Protection-and-Fast-Reroute" class="headerlink" title="Path Protection and Fast Reroute"></a>Path Protection and Fast Reroute</h5><p>Realtime media (voice, real time video) requires maximum failover time.</p>
-<p><strong>backup path(route)</strong></p>
-<p>Reserve bandwidth on an alternate route</p>
+<h3 id="Control-Plane-for-MPLS-TE"><a href="#Control-Plane-for-MPLS-TE" class="headerlink" title="Control Plane for MPLS TE"></a>Control Plane for MPLS TE</h3><p><u>LS Routers in core floods TE info</u> using, e.g., OSPF, IS-IS (Link bandwidth, amount of “reserved” link bandwidth)<br>Calculate TED<br>Entry (head) end LER signals forward along path to request a tunnel with RSVP-TE PATH message.<br>Exit (tail) end LER signals backward along path to reserve bandwidth with RSVP-TE RESV message.<br>Entry router knows it can use the tunnel when the RESV message arrives.</p>
+<h3 id="Path-Protection-and-Fast-Reroute"><a href="#Path-Protection-and-Fast-Reroute" class="headerlink" title="Path Protection and Fast Reroute"></a>Path Protection and Fast Reroute</h3><p>Realtime media (voice, real time video) requires maximum failover time.<br><strong>backup path(route)</strong><br>Reserve bandwidth on an alternate route</p>
 <ul>
-<li>Protect a label-switched path by having a stand-by</li>
-</ul>
-<p>Precise control over where the traffic will go</p>
-<ul>
-<li><p>Stand-by path can be chosen to be physically disjoint</p>
-<p>Ensure fast recovery from a link failure</p>
-</li>
-<li><p>LFIB has forwarding rule for backup path at a lower priority</p>
-</li>
-</ul>
-<p>How upstream router <u>detects path failure</u></p>
-<ul>
+<li>Protect a label-switched path by having a stand-by<br>Precise control over where the traffic will go</li>
+<li>Stand-by path can be chosen to be physically disjoint<br>Ensure fast recovery from a link failure</li>
+<li>LFIB has forwarding rule for backup path at a lower priority<br>How upstream router <u>detects path failure</u></li>
 <li>Upstream router sends heartbeat packets every 10 ms</li>
-<li>Downstream router detecting failure sends failure message to upstream router</li>
+<li>Downstream router detecting failure sends failure message to upstream router<br>Upstream router fails over to backup path.</li>
 </ul>
-<p>Upstream router fails over to backup path.</p>
 <hr>
 <h3 id="Path-computation-engine-architecture-and-protocol"><a href="#Path-computation-engine-architecture-and-protocol" class="headerlink" title="Path computation engine architecture and protocol"></a>Path computation engine architecture and protocol</h3><p>Why a Centralized Path Computation Engine/Element (PCE)?</p>
 <ul>
@@ -909,7 +744,7 @@
 <li>Operator may have particular policy rules that need enforcement</li>
 </ul>
 <p>Solution: Centralized Path Computation Engine.</p>
-<h5 id="PCE-Separates-Concerns"><a href="#PCE-Separates-Concerns" class="headerlink" title="PCE Separates Concerns"></a>PCE Separates Concerns</h5><p>PCE control function</p>
+<h4 id="PCE-Separates-Concerns"><a href="#PCE-Separates-Concerns" class="headerlink" title="PCE Separates Concerns"></a>PCE Separates Concerns</h4><p>PCE control function</p>
 <ul>
 <li>Collect topology and traffic engineering information from inside a particular administrative domain</li>
 <li>Respond to requests for LSPs through the domain</li>
@@ -921,39 +756,22 @@
 <p>Routing/switching control plane function</p>
 <ul>
 <li>Set up and maintain LSPs through L1/L2 and L3 devices within an administrative domain</li>
-<li><p>Ensure that LSPs connect up with optimal transit points where traffic enters/exits</p>
+<li>Ensure that LSPs connect up with optimal transit points where traffic enters/exits</li>
+</ul>
 <p>Data plane function</p>
-</li>
-<li><p>Route traffic as congestion free and fast as possible in accordance with their traffic classification</p>
-</li>
-</ul>
-<p>The PCE allows the application of appropriate computational power where it is needed.</p>
-<p>NMS (Network Management System)</p>
-<h5 id="Path-Computation-Element-Protocol"><a href="#Path-Computation-Element-Protocol" class="headerlink" title="Path Computation Element Protocol"></a>Path Computation Element Protocol</h5><p>PCEP allows a data plane element to request a path from the PCE.</p>
 <ul>
-<li>Data plane element is called a Path Computation Client (PCC)</li>
+<li>Route traffic as congestion free and fast as possible in accordance with their traffic classification</li>
 </ul>
-<p>Operates over TCP</p>
-<p>Session-based protocol (All message exchanges within the scope of the session)</p>
-<h5 id="PCEP-Messages"><a href="#PCEP-Messages" class="headerlink" title="PCEP Messages"></a>PCEP Messages</h5><p>Open (Set up session, negotiate capabilities)</p>
-<p>Keepalive (Heartbeat)</p>
-<p>Request (Ask for a path)</p>
-<p>Response</p>
-<p>Notify (PCE notifies of various conditions, e.g. currently overloaded)</p>
-<p>Error (Protocol error (e.g. malformed packet))</p>
-<p>Close</p>
+<p>The PCE allows the application of appropriate computational power where it is needed.<br>NMS (Network Management System)</p>
+<h4 id="Path-Computation-Element-Protocol"><a href="#Path-Computation-Element-Protocol" class="headerlink" title="Path Computation Element Protocol"></a>Path Computation Element Protocol</h4><p>PCEP allows a data plane element to request a path from the PCE.</p>
+<ul>
+<li>Data plane element is called a Path Computation Client (PCC)<br>Operates over TCP<br>Session-based protocol (All message exchanges within the scope of the session)</li>
+</ul>
+<h4 id="PCEP-Messages"><a href="#PCEP-Messages" class="headerlink" title="PCEP Messages"></a>PCEP Messages</h4><p>Open (Set up session, negotiate capabilities)<br>Keepalive (Heartbeat)<br>Request (Ask for a path)<br>Response<br>Notify (PCE notifies of various conditions, e.g. currently overloaded)<br>Error (Protocol error (e.g. malformed packet))<br>Close</p>
 <hr>
-<h1 id="Introduction-to-the-Cloud-Computing-Network-Control-Plane"><a href="#Introduction-to-the-Cloud-Computing-Network-Control-Plane" class="headerlink" title="Introduction to the Cloud Computing Network Control Plane"></a>Introduction to the Cloud Computing Network Control Plane</h1><h2 id="Data-Center-Networking-Basics"><a href="#Data-Center-Networking-Basics" class="headerlink" title="Data Center Networking Basics"></a>Data Center Networking Basics</h2><p>Data centers consist of massive numbers of servers (Up to 100000).</p>
-<p>Mostly Virtualized: Hypervisor provides a compute abstraction layer. OSes run as multiple Virtual Machines (VMs) on single server. Virtual switch provides networking between VMs and to DC network.</p>
-<p>Common Data Center Network Architectures: Three Tier.</p>
-<p>1) Access network. 2) Aggregation network. 3) Core network</p>
-<p>Problem Solving with Traditional Design Techniques</p>
-<p>Virtual/Overlay Network Functional Architecture</p>
-<p>Virtual/Overlay Network Design and Implementation</p>
+<h1 id="Cloud-Computing-Network-Control-Plane"><a href="#Cloud-Computing-Network-Control-Plane" class="headerlink" title="Cloud Computing Network Control Plane"></a>Cloud Computing Network Control Plane</h1><h2 id="Data-Center-Networking-Basics"><a href="#Data-Center-Networking-Basics" class="headerlink" title="Data Center Networking Basics"></a>Data Center Networking Basics</h2><p>Data centers consist of massive numbers of servers (Up to 100000).<br>Mostly Virtualized: Hypervisor provides a compute abstraction layer. OSes run as multiple Virtual Machines (VMs) on single server. Virtual switch provides networking between VMs and to DC network.<br>Common Data Center Network Architectures: Three Tier.<br>1) Access network. 2) Aggregation network. 3) Core network<br>Problem Solving with Traditional Design Techniques<br>Virtual/Overlay Network Functional Architecture<br>Virtual/Overlay Network Design and Implementation</p>
 <hr>
-<h1 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h1><p><strong>Flow table</strong>: a table consisting of forwarding rules, used for packet- lookup and forwarding.</p>
-<p><strong>Flow</strong>: A forwarding rule in the flow table</p>
-<p><strong>Pipeline</strong>: pipeline processing defines how packets interact with the flow tables</p>
+<h1 id="SDN"><a href="#SDN" class="headerlink" title="SDN"></a>SDN</h1><p><strong>Flow table</strong>: a table consisting of forwarding rules, used for packet- lookup and forwarding.<br><strong>Flow</strong>: A forwarding rule in the flow table<br><strong>Pipeline</strong>: pipeline processing defines how packets interact with the flow tables</p>
 <p>Flow entry</p>
 <ol>
 <li>Match Fields: to match against packets. These consist of the ingress port and packet headers, and optionally metadata specified by a previous table.</li>
@@ -1022,6 +840,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/08/01/Modern Wireless Networks Notes/" rel="prev" title="Wireless Networks Notes">
+                Wireless Networks Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -1084,7 +906,7 @@
                alt="Jiangfeng Du" />
           <p class="site-author-name" itemprop="name">Jiangfeng Du</p>
            
-              <p class="site-description motion-element" itemprop="description">Notes for share and some plain essays</p>
+              <p class="site-description motion-element" itemprop="description">Notes and some plain essays</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1092,7 +914,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1140,7 +962,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Routing-Basics"><span class="nav-number">2.</span> <span class="nav-text">Routing Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Routing-Tasks"><span class="nav-number">2.0.1.</span> <span class="nav-text">Routing Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Routing-Algorithm-Classification"><span class="nav-number">2.0.2.</span> <span class="nav-text">Routing Algorithm Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DV-algorithms"><span class="nav-number">2.0.3.</span> <span class="nav-text">DV algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Split-horizon-route-advertisement"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">Split horizon route advertisement</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Poison-Reserve"><span class="nav-number">2.0.3.0.2.</span> <span class="nav-text">Poison Reserve</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP"><span class="nav-number">3.</span> <span class="nav-text">RIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF"><span class="nav-number">4.</span> <span class="nav-text">OSPF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPFv2-Components"><span class="nav-number">4.1.</span> <span class="nav-text">OSPFv2 Components</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Database-synchronization"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">Database synchronization</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Initial-synchronization"><span class="nav-number">4.1.0.1.1.</span> <span class="nav-text">Initial synchronization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Calculation-of-routing-table"><span class="nav-number">4.1.0.1.2.</span> <span class="nav-text">Calculation of routing table</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Elect-Designated-Router-DR"><span class="nav-number">4.1.0.2.</span> <span class="nav-text">Elect Designated Router (DR)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Network-LSA‘s"><span class="nav-number">4.1.0.2.1.</span> <span class="nav-text">Network LSA‘s</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchical-OSPF"><span class="nav-number">4.1.0.3.</span> <span class="nav-text">Hierarchical OSPF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSPF-“advanced”-features-not-in-RIP"><span class="nav-number">4.1.0.4.</span> <span class="nav-text">OSPF “advanced” features (not in RIP)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BGP"><span class="nav-number">5.</span> <span class="nav-text">BGP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupiter"><span class="nav-number">5.1.</span> <span class="nav-text">Jupiter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Understanding-External-BGP-Peering-Sessions"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">Understanding External BGP Peering Sessions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Understanding-Internal-BGP-Peering-Sessions"><span class="nav-number">5.1.0.2.</span> <span class="nav-text">Understanding Internal BGP Peering Sessions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basics"><span class="nav-number">5.1.1.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Distributing-reachability-info"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">Distributing reachability info</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Routing-policy"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">Routing policy</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Multi-Exit-Discriminator-MED"><span class="nav-number">5.1.1.2.1.</span> <span class="nav-text">Multi-Exit Discriminator (MED)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Communities"><span class="nav-number">5.1.1.2.2.</span> <span class="nav-text">Communities</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Multi-homing"><span class="nav-number">5.1.1.2.3.</span> <span class="nav-text">Multi-homing</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Internal-BGP-iBGP"><span class="nav-number">5.1.1.3.</span> <span class="nav-text">Internal BGP (iBGP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-failures"><span class="nav-number">5.1.1.4.</span> <span class="nav-text">Link failures</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Signs-of-routing-instability"><span class="nav-number">5.1.1.4.1.</span> <span class="nav-text">Signs of routing instability</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Route-flap-storm"><span class="nav-number">5.1.1.4.2.</span> <span class="nav-text">Route flap storm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Route-flap-dampening"><span class="nav-number">5.1.1.4.3.</span> <span class="nav-text">Route flap dampening</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Flap-dampening-Operation"><span class="nav-number">5.1.1.4.4.</span> <span class="nav-text">Flap dampening: Operation</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MPLS"><span class="nav-number">6.</span> <span class="nav-text">MPLS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Asynchronous-Transfer-Mode-ATM"><span class="nav-number">6.0.0.0.1.</span> <span class="nav-text">Asynchronous Transfer Mode (ATM)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Virtual-circuits"><span class="nav-number">6.0.0.0.2.</span> <span class="nav-text">Virtual circuits</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MultiProtocol-Label-Switching"><span class="nav-number">6.1.</span> <span class="nav-text">MultiProtocol Label Switching</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Layer-2-5-Protocol"><span class="nav-number">6.1.0.0.1.</span> <span class="nav-text">Layer 2.5 Protocol</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Simple-Data-Plane-Operations"><span class="nav-number">6.1.0.0.2.</span> <span class="nav-text">Simple Data Plane Operations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Forwarding-Equivalence-Class-FEC"><span class="nav-number">6.1.0.0.3.</span> <span class="nav-text">Forwarding Equivalence Class (FEC)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Terminology"><span class="nav-number">6.1.0.0.4.</span> <span class="nav-text">Terminology</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Operation-of-an-MPLS-Router"><span class="nav-number">6.1.0.0.5.</span> <span class="nav-text">Operation of an MPLS Router</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Operation-of-a-Start-LER"><span class="nav-number">6.1.0.0.5.1.</span> <span class="nav-text">Operation of a Start LER</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Operation-of-an-LSR"><span class="nav-number">6.1.0.0.5.2.</span> <span class="nav-text">Operation of an LSR</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Operation-of-an-End-LER"><span class="nav-number">6.1.0.0.5.3.</span> <span class="nav-text">Operation of an End LER</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Complex-Control-Plane"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">Complex Control Plane</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Example-1-BGP-Free-core"><span class="nav-number">6.1.0.1.0.1.</span> <span class="nav-text">Example 1: BGP-Free core</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Traffic-Engineering-with-MPLS"><span class="nav-number">6.1.1.</span> <span class="nav-text">Traffic Engineering with MPLS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Traffic-Engineering-TE-with-Constraint-Based-Routing"><span class="nav-number">6.1.1.0.1.</span> <span class="nav-text">Traffic Engineering (TE) with Constraint-Based Routing</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Traffic-Engineering-Database-TED"><span class="nav-number">6.1.1.0.2.</span> <span class="nav-text">Traffic Engineering Database (TED)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Control-Plane-for-MPLS-TE"><span class="nav-number">6.1.1.0.3.</span> <span class="nav-text">Control Plane for MPLS TE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Path-Protection-and-Fast-Reroute"><span class="nav-number">6.1.1.0.4.</span> <span class="nav-text">Path Protection and Fast Reroute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-computation-engine-architecture-and-protocol"><span class="nav-number">6.1.2.</span> <span class="nav-text">Path computation engine architecture and protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PCE-Separates-Concerns"><span class="nav-number">6.1.2.0.1.</span> <span class="nav-text">PCE Separates Concerns</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Path-Computation-Element-Protocol"><span class="nav-number">6.1.2.0.2.</span> <span class="nav-text">Path Computation Element Protocol</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PCEP-Messages"><span class="nav-number">6.1.2.0.3.</span> <span class="nav-text">PCEP Messages</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-the-Cloud-Computing-Network-Control-Plane"><span class="nav-number">7.</span> <span class="nav-text">Introduction to the Cloud Computing Network Control Plane</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Center-Networking-Basics"><span class="nav-number">7.1.</span> <span class="nav-text">Data Center Networking Basics</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-number">8.</span> <span class="nav-text">SDN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Routing-Basics"><span class="nav-number">2.</span> <span class="nav-text">Routing Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Routing-Tasks"><span class="nav-number">2.1.</span> <span class="nav-text">Routing Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Routing-Algorithm-Classification"><span class="nav-number">2.2.</span> <span class="nav-text">Routing Algorithm Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DV-algorithms"><span class="nav-number">2.3.</span> <span class="nav-text">DV algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Split-horizon-route-advertisement"><span class="nav-number">2.3.1.</span> <span class="nav-text">Split horizon route advertisement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Poison-Reserve"><span class="nav-number">2.3.2.</span> <span class="nav-text">Poison Reserve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Routing-loop"><span class="nav-number">2.4.</span> <span class="nav-text">Routing loop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RIP"><span class="nav-number">3.</span> <span class="nav-text">RIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OSPF"><span class="nav-number">4.</span> <span class="nav-text">OSPF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPFv2-Components"><span class="nav-number">4.1.</span> <span class="nav-text">OSPFv2 Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-Protocol"><span class="nav-number">4.1.1.</span> <span class="nav-text">Hello Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSPF-Packet"><span class="nav-number">4.1.2.</span> <span class="nav-text">OSPF Packet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-number">4.1.3.</span> <span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Database-synchronization"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">Database synchronization</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Initial-synchronization"><span class="nav-number">4.1.3.1.1.</span> <span class="nav-text">Initial synchronization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Calculation-of-routing-table"><span class="nav-number">4.1.3.1.2.</span> <span class="nav-text">Calculation of routing table</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Elect-Designated-Router-DR"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">Elect Designated Router (DR)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Network-LSA‘s"><span class="nav-number">4.1.3.3.</span> <span class="nav-text">Network LSA‘s</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hierarchical-OSPF"><span class="nav-number">4.2.</span> <span class="nav-text">Hierarchical OSPF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF-“advanced”-features-not-in-RIP"><span class="nav-number">4.3.</span> <span class="nav-text">OSPF “advanced” features (not in RIP)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BGP"><span class="nav-number">5.</span> <span class="nav-text">BGP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro-from-Jupiter"><span class="nav-number">5.1.</span> <span class="nav-text">Intro from Jupiter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-External-BGP-Peering-Sessions"><span class="nav-number">5.1.1.</span> <span class="nav-text">Understanding External BGP Peering Sessions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-Internal-BGP-Peering-Sessions"><span class="nav-number">5.1.2.</span> <span class="nav-text">Understanding Internal BGP Peering Sessions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basics"><span class="nav-number">5.2.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Distributing-reachability-info"><span class="nav-number">5.2.1.</span> <span class="nav-text">Distributing reachability info</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Routing-policy"><span class="nav-number">5.2.2.</span> <span class="nav-text">Routing policy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BGP-route-processing"><span class="nav-number">5.2.3.</span> <span class="nav-text">BGP route processing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-Exit-Discriminator-MED"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">Multi-Exit Discriminator(MED)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Communities"><span class="nav-number">5.2.3.2.</span> <span class="nav-text">Communities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-homing"><span class="nav-number">5.2.3.3.</span> <span class="nav-text">Multi-homing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Internal-BGP-iBGP"><span class="nav-number">5.2.4.</span> <span class="nav-text">Internal BGP (iBGP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-failures"><span class="nav-number">5.2.5.</span> <span class="nav-text">Link failures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BGP-dynamics"><span class="nav-number">5.2.6.</span> <span class="nav-text">BGP dynamics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Signs-of-routing-instability"><span class="nav-number">5.2.6.1.</span> <span class="nav-text">Signs of routing instability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-flap-storm"><span class="nav-number">5.2.6.2.</span> <span class="nav-text">Route flap storm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-flap-dampening"><span class="nav-number">5.2.6.3.</span> <span class="nav-text">Route flap dampening</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MPLS"><span class="nav-number">6.</span> <span class="nav-text">MPLS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">6.1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Asynchronous-Transfer-Mode-ATM"><span class="nav-number">6.1.1.</span> <span class="nav-text">Asynchronous Transfer Mode(ATM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-circuits"><span class="nav-number">6.1.2.</span> <span class="nav-text">Virtual circuits</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro-1"><span class="nav-number">6.2.</span> <span class="nav-text">Intro</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-2-5-Protocol"><span class="nav-number">6.2.1.</span> <span class="nav-text">Layer 2.5 Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Data-Plane-Operations"><span class="nav-number">6.2.2.</span> <span class="nav-text">Simple Data Plane Operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forwarding-Equivalence-Class-FEC"><span class="nav-number">6.2.3.</span> <span class="nav-text">Forwarding Equivalence Class (FEC)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Terminology"><span class="nav-number">6.2.4.</span> <span class="nav-text">Terminology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operation-of-an-MPLS-Router"><span class="nav-number">6.3.</span> <span class="nav-text">Operation of an MPLS Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation-of-a-Start-LER"><span class="nav-number">6.3.1.</span> <span class="nav-text">Operation of a Start LER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation-of-an-LSR"><span class="nav-number">6.3.2.</span> <span class="nav-text">Operation of an LSR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation-of-an-End-LER"><span class="nav-number">6.3.3.</span> <span class="nav-text">Operation of an End LER</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complex-Control-Plane"><span class="nav-number">6.4.</span> <span class="nav-text">Complex Control Plane</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traffic-Engineering-with-MPLS"><span class="nav-number">6.5.</span> <span class="nav-text">Traffic Engineering with MPLS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Traffic-Engineering-TE-with-Constraint-Based-Routing"><span class="nav-number">6.5.1.</span> <span class="nav-text">Traffic Engineering (TE) with Constraint-Based Routing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Traffic-Engineering-Database-TED"><span class="nav-number">6.5.2.</span> <span class="nav-text">Traffic Engineering Database (TED)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-Plane-for-MPLS-TE"><span class="nav-number">6.5.3.</span> <span class="nav-text">Control Plane for MPLS TE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Protection-and-Fast-Reroute"><span class="nav-number">6.5.4.</span> <span class="nav-text">Path Protection and Fast Reroute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-computation-engine-architecture-and-protocol"><span class="nav-number">6.5.5.</span> <span class="nav-text">Path computation engine architecture and protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PCE-Separates-Concerns"><span class="nav-number">6.5.5.1.</span> <span class="nav-text">PCE Separates Concerns</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Path-Computation-Element-Protocol"><span class="nav-number">6.5.5.2.</span> <span class="nav-text">Path Computation Element Protocol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PCEP-Messages"><span class="nav-number">6.5.5.3.</span> <span class="nav-text">PCEP Messages</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cloud-Computing-Network-Control-Plane"><span class="nav-number">7.</span> <span class="nav-text">Cloud Computing Network Control Plane</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Center-Networking-Basics"><span class="nav-number">7.1.</span> <span class="nav-text">Data Center Networking Basics</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-number">8.</span> <span class="nav-text">SDN</span></a></li></ol></div>
             
 
           </div>
